@@ -1,0 +1,1408 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EII Core &#8212; eii-test  documentation</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="EII Message Bus" href="../eii-messagebus/README.html" />
+    <link rel="prev" title="Azure Bridge" href="../eii-azure-bridge/README.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">eii-test  documentation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contents:
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../eii-azure-bridge/README.html">
+   Azure Bridge
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   EII Core
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../eii-messagebus/README.html">
+   EII Message Bus
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/eii-core/README.md.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#minimum-system-requirements">
+   Minimum System Requirements
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#eii-prerequisites-installation">
+   EII Prerequisites installation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generate-deployment-and-configuration-files">
+   Generate deployment and configuration files
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#generating-consolidated-deployment-and-configuration-files">
+     Generating consolidated deployment and configuration files:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-builder-script">
+     Using builder script
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#running-builder-to-generate-the-above-listed-consolidated-files-for-all-applicable-eii-services">
+       Running builder to generate the above listed consolidated files for all applicable EII services
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#running-builder-to-generate-the-above-listed-consolidated-files-for-a-subset-of-eii-services">
+       Running builder to generate the above listed consolidated files for a subset of EII services:
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#running-builder-to-generate-multi-instance-configs">
+       Running builder to generate multi instance configs:
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#running-builder-to-generate-benchmarking-configs">
+       Running builder to generate benchmarking configs:
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adding-new-eii-service-so-it-gets-picked-up-by-builder">
+     Adding new EII service so it gets picked up by Builder
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#distribution-of-eii-container-images">
+   Distribution of EII container images
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#provision">
+   Provision
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#build-and-run-eii-video-timeseries-use-cases">
+   Build and Run EII video/timeseries use cases
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#build-eii-stack">
+     Build EII stack
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#run-eii-services">
+     Run EII services
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#push-required-eii-images-to-docker-registry">
+     Push required EII images to docker registry
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#list-of-all-eii-services">
+   List of All EII Services
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#common-eii-services">
+     Common EII services
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#video-related-services">
+     Video related services
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#timeseries-related-services">
+     Timeseries related services
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#video-pipeline-analytics">
+   Video pipeline Analytics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#enable-camera-based-video-ingestion">
+     Enable camera based Video Ingestion
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-video-accelerators-in-ingestion-analytics-containers">
+     Using video accelerators in ingestion/analytics containers
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#to-run-on-usb-devices">
+       <strong>
+        To run on USB devices
+       </strong>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#to-run-on-myriad-devices">
+       <strong>
+        To run on MYRIAD devices
+       </strong>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#to-run-on-hddl-devices">
+       <strong>
+        To run on HDDL devices
+       </strong>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#note">
+   <strong>
+    NOTE
+   </strong>
+   :
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#to-run-on-intel-r-processor-graphics-gpu-igpu">
+     <strong>
+      To run on Intel(R) Processor Graphics (GPU/iGPU)
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#custom-udfs">
+     Custom Udfs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#time-series-analytics">
+   Time-series Analytics
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#eii-multi-node-cluster-provision-and-deployment">
+   EII multi node cluster provision and deployment
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#without-orchestrator">
+     <strong>
+      Without orchestrator
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#with-k8s-orchestrator">
+     <strong>
+      With k8s orchestrator
+     </strong>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#eii-tools">
+   EII tools
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#elk-usage-for-centralized-logging-of-eii-services-logs">
+   ELK usage for centralized logging of EII services logs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#eii-uninstaller">
+   EII Uninstaller
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#debugging-options">
+   Debugging options
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#troubleshooting-guide">
+   Troubleshooting guide
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="eii-core">
+<h1>EII Core<a class="headerlink" href="#eii-core" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Edge Insights for Industrial from Intel is a set of pre-validated ingredients for integrating video and time-series data analytics on edge compute nodes.
+Edge Insights for Industrial helps to address various industrial and manufacturing usages, which include data collection, storage, and analytics on a variety of hardware nodes across the factory floor.</p>
+</div>
+<div class="section" id="minimum-system-requirements">
+<h2>Minimum System Requirements<a class="headerlink" href="#minimum-system-requirements" title="Permalink to this headline">¶</a></h2>
+<p>EII software will run on the below mentioned Intel platforms:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>* 6th generation Intel® CoreTM processor onwards OR
+  6th generation Intel® Xeon® processor onwards OR
+  Pentium® processor N4200/5, N3350/5, N3450/5 with Intel® HD Graphics
+* At least 16GB RAM
+* At least 64GB hard drive
+* An internet connection
+* Ubuntu 18.04 / Ubuntu 20.04
+</pre></div>
+</div>
+<p>For performing Video Analytics, a 16GB of RAM is recommended.
+For time-series ingestion and analytics, a 2GB RAM is sufficient.
+The EII is validated on Ubuntu 18.04 and though it can run on other platforms supporting docker, it is not recommended.</p>
+</div>
+<div class="section" id="eii-prerequisites-installation">
+<h2>EII Prerequisites installation<a class="headerlink" href="#eii-prerequisites-installation" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p></p>
+<ul class="simple">
+<li><p>Recommended <code class="docutils literal notranslate"><span class="pre">Docker</span> <span class="pre">CLI</span> <span class="pre">&amp;</span> <span class="pre">Daemon</span> <span class="pre">version</span></code> is <code class="docutils literal notranslate"><span class="pre">20.10.6</span></code></p></li>
+<li><p>Recommended <code class="docutils literal notranslate"><span class="pre">docker-compose</span> <span class="pre">version</span></code> is <code class="docutils literal notranslate"><span class="pre">1.29.0</span></code></p></li>
+</ul>
+</div>
+<p>The script automates the installation &amp; configuration of all the prerequisite software needed to be installed on a system with a freshly installed operating system to make the system ready for provisioning, building and running EII stack. These pre-requisite softwares include:</p>
+<ol class="simple">
+<li><p><strong>docker daemon</strong></p></li>
+<li><p><strong>docker client</strong></p></li>
+<li><p><strong>docker-compose</strong></p></li>
+<li><p><strong>Python packages</strong></p></li>
+</ol>
+<p>The script checks if docker &amp; docker-compose are already installed in the system. If not installed, then it installs the intended version of the docker &amp; docker-compose which is mentioned in the script.
+If docker and/or docker-compose are already installed in the system but the installed version of the docker/docker-compose is older than the intended docker/docker-compose version (which is mentioned in the script) then the script uninstalls the older version of docker/docker-compose &amp; re-installs the intended version mentioned in the script. The script also configures the proxy settings for docker client and docker daemon to connect to internet.</p>
+<p>The <a class="reference external" href="build/pre_requisites.sh">build/pre_requisites.sh</a> script also does proxy setting configuration for both system wide proxy &amp; docker proxy. The script prompts for the proxy address to be entered by the user, if the system is behind a proxy.
+The script also configures proxy setting system wide <code class="docutils literal notranslate"><span class="pre">/etc/environment</span></code> and for docker by taking the proxy value as user input if the system is running behind proxy. The proxy settings for <code class="docutils literal notranslate"><span class="pre">/etc/apt/apt.conf</span></code> is also set by this script to enable apt updates &amp; installations.</p>
+<hr class="docutils" />
+<p><strong>Note</strong>:</p>
+<ul>
+<li><p>It is recommended to install the required <code class="docutils literal notranslate"><span class="pre">docker-compose</span> <span class="pre">version</span></code>
+which is <code class="docutils literal notranslate"><span class="pre">1.29.0</span></code>. Older version of docker-compose binary less than 1.29.0 may not work with the video-usecase docker-compose.yml files. It is observed that <code class="docutils literal notranslate"><span class="pre">device_cgroup_rules</span></code> command is not supported in certain docker-compose binaries versions less than <code class="docutils literal notranslate"><span class="pre">1.29.0</span></code>.</p></li>
+<li><p>If one still needs to use the older versions of docker-compose then
+<code class="docutils literal notranslate"><span class="pre">device_cgroup_rules</span></code> command needs to be commented in <code class="docutils literal notranslate"><span class="pre">ia_video_ingestion</span></code> and <code class="docutils literal notranslate"><span class="pre">ia_video_analytics</span></code> service which could result in limited inference and device support.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span>    <span class="nt">ia_video_ingestion</span><span class="p">:</span>
+      <span class="l l-Scalar l-Scalar-Plain">...</span>
+      <span class="l l-Scalar l-Scalar-Plain">#device_cgroup_rules</span><span class="p p-Indicator">:</span>
+        <span class="c1">#- &#39;c 189:* rmw&#39;</span>
+        <span class="c1">#- &#39;c 209:* rmw&#39;</span>
+</pre></div>
+</div>
+<p>After making changes to the docker-compose.yml file refer <code class="docutils literal notranslate"><span class="pre">Using</span> <span class="pre">builder</span> <span class="pre">script</span></code> section to re-run <code class="docutils literal notranslate"><span class="pre">builder.py</span></code> script before running the services using <code class="docutils literal notranslate"><span class="pre">docker-compose</span> <span class="pre">up</span></code></p>
+</li>
+</ul>
+<hr class="docutils" />
+<ol class="simple">
+<li><p><strong>Steps to run the pre-requisites script is as follows</strong>:</p></li>
+</ol>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> <span class="o">[</span>WORKDIR<span class="o">]</span>/IEdgeInsights/build
+$ sudo -E ./pre_requisites.sh --help
+
+Usage :: sudo -E ./pre_requisites.sh <span class="o">[</span>OPTION...<span class="o">]</span>
+
+List of available options...
+
+--proxy         proxies, required when the gateway/edge node running EII <span class="o">(</span>or any of EII profile<span class="o">)</span> is connected behind proxy
+
+--help / -h         display this <span class="nb">help</span> and <span class="nb">exit</span>
+
+Note : If --proxy option is not provided <span class="k">then</span> script will run without proxy
+
+Different use cases...
+
+                <span class="m">1</span>. RUNS WITHOUT PROXY
+                <span class="nv">$sudo</span> -E ./pre_requisites.sh
+
+
+                <span class="m">2</span>.RUNS WITH PROXY
+                <span class="nv">$sudo</span> -E ./pre_requisites.sh --proxy<span class="o">=</span><span class="s2">&quot;proxy.intel.com:891&quot;</span>
+</pre></div>
+</div>
+<ol>
+<li><p><strong>Optional:</strong> For enabling full security for production deployments, make sure host machine and docker daemon are configured with below security recommendations. <a class="reference internal" href="build/docker_security_recommendation.html"><span class="doc">build/docker_security_recommendation.md</span></a></p></li>
+<li><p><strong>Optional:</strong> If one wishes to enable log rotation for docker containers</p>
+<p>There are two ways to configure logging driver for docker containers</p>
+<ul>
+<li><p>Set logging driver as part of docker daemon (<strong>applies to all docker containers by default</strong>):</p>
+<ul>
+<li><p>Configure <code class="docutils literal notranslate"><span class="pre">json-file</span></code> driver as default logging driver by following <a class="reference external" href="https://docs.docker.com/config/containers/logging/json-file/">https://docs.docker.com/config/containers/logging/json-file/</a>. Sample json-driver config which can be copied to <code class="docutils literal notranslate"><span class="pre">/etc/docker/daemon.json</span></code> is provided below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;log-driver&quot;</span><span class="p">:</span> <span class="s2">&quot;json-file&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;log-opts&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;max-size&quot;</span><span class="p">:</span> <span class="s2">&quot;10m&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;max-file&quot;</span><span class="p">:</span> <span class="s2">&quot;5&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>Reload the docker daemon</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl daemon-reload
+</pre></div>
+</div>
+</li>
+<li><p>Restart docker</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl restart docker
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>Set logging driver as part of docker compose which is conatiner specific and which always overwrites 1st option (i.e /etc/docker/daemon.json)</p>
+<p>Example to enable logging driver only for video_ingestion service:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ia_video_ingestion</span><span class="p">:</span>
+    <span class="o">...</span>
+    <span class="o">...</span>
+    <span class="n">logging</span><span class="p">:</span>
+     <span class="n">driver</span><span class="p">:</span> <span class="n">json</span><span class="o">-</span><span class="n">file</span>
+     <span class="n">options</span><span class="p">:</span>
+      <span class="nb">max</span><span class="o">-</span><span class="n">size</span><span class="p">:</span> <span class="mi">10</span><span class="n">m</span>
+      <span class="nb">max</span><span class="o">-</span><span class="n">file</span><span class="p">:</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="generate-deployment-and-configuration-files">
+<h2>Generate deployment and configuration files<a class="headerlink" href="#generate-deployment-and-configuration-files" title="Permalink to this headline">¶</a></h2>
+<p>The section assumes the EII software is already downloaded from the release package or from git.</p>
+<p>Run all the below commands in this section from <code class="docutils literal notranslate"><span class="pre">[WORKDIR]/IEdgeInsights/build/</span></code> directory.</p>
+<div class="section" id="generating-consolidated-deployment-and-configuration-files">
+<h3>Generating consolidated deployment and configuration files:<a class="headerlink" href="#generating-consolidated-deployment-and-configuration-files" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p></p>
+<ol class="simple">
+<li><p>Whenever we make changes to individual EII app/service directories files as mentioned above in the description column
+or in the <a class="reference external" href="build/.env">build/.env</a> file, it is required to re-run the <code class="docutils literal notranslate"><span class="pre">builder.py</span></code> script before provisioning and running
+the EII stack to ensure that the changes done reflect in the required consolidated files.</p></li>
+<li><p>Manual editing of above consolidated files is not recommended and we would recommend to do the required changes to
+respective files in EII app/service directories and use <a class="reference external" href="build/builder.py">build/builder.py</a> script to generate the conslidated ones.</p></li>
+<li><p>This <a class="reference external" href="build/builder.py">build/builder.py</a> script removes the subscriber or client interface for EII service/app(s) configuration in consolidated <a class="reference external" href="build/provision/config/eii_config.json">eii_config.json</a>
+if the corresponding publisher or server interface in any EII service/app(s) is missing based on the default <code class="docutils literal notranslate"><span class="pre">builder.py</span></code> execution or <code class="docutils literal notranslate"><span class="pre">builder.py</span></code> execution with <code class="docutils literal notranslate"><span class="pre">-f</span></code> switch.
+<strong>Please note if one runs into issues where the DNS server is being overwhelmed with DNS queries for the EII service/app name, most likely this would be happening if those EII services are intentionally
+stopped, please ensure to restart those EII services/app(s). If the intention is to not have that application/service running, please execute the <code class="docutils literal notranslate"><span class="pre">builder.py</span></code> by providing usecase yml file with that application/service not
+listed, so the corresponding subscriber/client interfaces from other EII service/app(s) are automatically removed before provisioning and deployment of EII stack. Please check
+<a class="reference external" href="#running-builder-to-generate-the-above-listed-consolidated-files-for-a-subset-of-eii-services">#running-builder-to-generate-the-above-listed-consolidated-files-for-a-subset-of-eii-services</a> for selectively choosing required
+EII services</strong></p></li>
+</ol>
+</div>
+<p>EII is equipped with <a class="reference external" href="build/builder.py">builder</a>, a robust python tool to auto-generate the required configuration files to deploy EII services on single/multiple nodes. The tool is    capable of auto-generating the following consolidated files by fetching the respective files from EII service directories which are required to bring up different EII use-cases:</p>
+<table class="table" id="id0">
+<caption><span class="caption-text"></span><a class="headerlink" href="#id0" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+
+<thead>
+
+<tr class="row-odd">
+<th class="head"><p>file name</p></th>
+
+<th class="head"><p>Description</p></th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr class="row-even">
+<td><p>docker-compose.yml</p></td>
+
+<td><p>Consolidated <code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code> file used to launch EII docker containers in a given single node using <code class="docutils literal notranslate"><span class="pre">docker-compose</span></code> tool</p></td>
+
+</tr>
+
+<tr class="row-odd">
+<td><p>docker-compose.override.yml</p></td>
+
+<td><p>Consolidated <code class="docutils literal notranslate"><span class="pre">docker-compose-dev.override.yml</span></code> of every app that is generated only in DEV mode for EII deployment on a given single node using <code class="docutils literal notranslate"><span class="pre">docker-compose</span></code> tool</p></td>
+
+</tr>
+
+<tr class="row-even">
+<td><p>docker-compose-build.yml</p></td>
+
+<td><p>Consolidated <code class="docutils literal notranslate"><span class="pre">docker-compose-build.yml</span></code> file having EII base images and <code class="docutils literal notranslate"><span class="pre">depends_on</span></code> and <code class="docutils literal notranslate"><span class="pre">build</span></code> keys required for building EII services</p></td>
+
+</tr>
+
+<tr class="row-odd">
+<td><p>docker-compose-push.yml</p></td>
+
+<td><p>Consolidated <code class="docutils literal notranslate"><span class="pre">docker-compose-push.yml</span></code> file (same as <code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code> file with just dummy <code class="docutils literal notranslate"><span class="pre">build</span></code> key added), used for pushing EII services to docker registry</p></td>
+
+</tr>
+
+<tr class="row-even">
+<td><p>eii_config.json</p></td>
+
+<td><p>Consolidated <code class="docutils literal notranslate"><span class="pre">config.json</span></code> of every app which will be put into etcd during provisioning</p></td>
+
+</tr>
+
+<tr class="row-odd">
+<td><p>values.yaml</p></td>
+
+<td><p>Consolidated <code class="docutils literal notranslate"><span class="pre">values.yaml</span></code> of every app inside helm-eii/eii-deploy directory, which is required to deploy EII services via helm</p></td>
+
+</tr>
+
+<tr class="row-even">
+<td><p>Template yaml files</p></td>
+
+<td><p>Files copied from helm/templates directory of every app to helm-eii/eii-deploy/templates directory, which are required to deploy EII services via helm</p></td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+<div class="section" id="using-builder-script">
+<h3>Using builder script<a class="headerlink" href="#using-builder-script" title="Permalink to this headline">¶</a></h3>
+<p>Builder script usage:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ python3 builder.py -h
+usage: builder.py <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>-f YML_FILE<span class="o">]</span> <span class="o">[</span>-v VIDEO_PIPELINE_INSTANCES<span class="o">]</span>
+                    <span class="o">[</span>-d OVERRIDE_DIRECTORY<span class="o">]</span>
+
+optional arguments:
+    -h, --help            show this <span class="nb">help</span> message and <span class="nb">exit</span>
+    -f YML_FILE, --yml_file YML_FILE
+                        Optional config file <span class="k">for</span> list of services to include.
+                        Eg: python3 builder.py -f video-streaming.yml
+                        <span class="o">(</span>default: None<span class="o">)</span>
+    -v VIDEO_PIPELINE_INSTANCES, --video_pipeline_instances VIDEO_PIPELINE_INSTANCES
+                        Optional number of video pipeline instances to be
+                        created. Eg: python3 builder.py -v <span class="m">6</span> <span class="o">(</span>default:
+                        <span class="m">1</span><span class="o">)</span>
+    -d OVERRIDE_DIRECTORY, --override_directory OVERRIDE_DIRECTORY
+                        Optional directory consisting of of benchmarking
+                        configs to be present <span class="k">in</span> each app directory. Eg:
+                        python3 builder.py -d benchmarking <span class="o">(</span>default:
+                        None<span class="o">)</span>
+</pre></div>
+</div>
+<div class="section" id="running-builder-to-generate-the-above-listed-consolidated-files-for-all-applicable-eii-services">
+<h4>Running builder to generate the above listed consolidated files for all applicable EII services<a class="headerlink" href="#running-builder-to-generate-the-above-listed-consolidated-files-for-all-applicable-eii-services" title="Permalink to this headline">¶</a></h4>
+<p>Builder will parse the top level directories under <strong>IEdgeInsights</strong> to generate the above listed consolidated files.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ python3 builder.py
+</pre></div>
+</div>
+</div>
+<div class="section" id="running-builder-to-generate-the-above-listed-consolidated-files-for-a-subset-of-eii-services">
+<h4>Running builder to generate the above listed consolidated files for a subset of EII services:<a class="headerlink" href="#running-builder-to-generate-the-above-listed-consolidated-files-for-a-subset-of-eii-services" title="Permalink to this headline">¶</a></h4>
+<p>This is achieved by providing a yml file to Builder as config which has list of services to include. User can mention the service name as path relative to <strong>IEdgeInsights</strong> or Full path to the service in the config yml file.</p>
+<p>If user wants to include only a certain number of services in the EII stack, he can opt to provide the <strong>-f or yml_file</strong> flag of builder.py to allow only the services provided in the yml file mentioned with the <strong>-f or yml_file</strong>. Few examples of such yml files for different usecases are provided at <a class="reference external" href="build/usecases/video-streaming.yml">video</a>, <a class="reference external" href="build/usecases/time-series.yml">time-series</a>, <a class="reference external" href="build/usecases/video-streaming-azure.yml">Azure</a> etc.,</p>
+<p>An example for running Builder with this flag is given below:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ python3 builder.py -f usecases/video-streaming.yml
+</pre></div>
+</div>
+<hr class="docutils" />
+<p><strong>NOTE</strong>:</p>
+<ul class="simple">
+<li><p><strong>Main usecases</strong>:
+| Usecase                    | yaml file                                                |
+| :—                       | :—                                                    |
+| Video + Timeseries         | <a class="reference external" href="build/usecases/video-timeseries.yml">build/usecases/video-timeseries.yml</a> |
+| Video                      | <a class="reference external" href="build/usecases/video.yml">build/usecases/video.yml</a>                       |
+| Timeseries                 | <a class="reference external" href="build/usecases/time-series.yml">build/usecases/time-series.yml</a>           |</p></li>
+<li><p><strong>Video pipeline sub-usecases</strong>:</p></li>
+</ul>
+<table class="table" id="id0">
+<caption><span class="caption-text"></span><a class="headerlink" href="#id0" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+
+<thead>
+
+<tr class="row-odd">
+<th class="head"><p>Usecase</p></th>
+
+<th class="head"><p>yaml file</p></th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr class="row-even">
+<td><p>Video streaming</p></td>
+
+<td><p><a class="reference external" href="build/usecases/video-streaming.yml">build/usecases/video-streaming.yml</a></p></td>
+
+</tr>
+
+<tr class="row-odd">
+<td><p>Video streaming and historical</p></td>
+
+<td><p><a class="reference external" href="build/usecases/video-streaming-storage.yml">build/usecases/video-streaming-storage.yml</a></p></td>
+
+</tr>
+
+<tr class="row-even">
+<td><p>Video streaming with AzureBridge</p></td>
+
+<td><p><a class="reference external" href="build/usecases/video-streaming-azure.yml">build/usecases/video-streaming-azure.yml</a></p></td>
+
+</tr>
+
+<tr class="row-odd">
+<td><p>Video streaming and custom udfs</p></td>
+
+<td><p><a class="reference external" href="build/usecases/video-streaming-all-udfs.yml">build/usecases/video-streaming-all-udfs.yml</a></p></td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+<hr class="docutils" />
+<div class="section" id="running-builder-to-generate-multi-instance-configs">
+<h4>Running builder to generate multi instance configs:<a class="headerlink" href="#running-builder-to-generate-multi-instance-configs" title="Permalink to this headline">¶</a></h4>
+<p>Based on the user’s requirements, builder can also generate multi-instance docker-compose.yml, config.json respectively.</p>
+<p>If user wants to generate boiler plate config for multiple stream use cases, he can do so by using the <strong>-v or video_pipeline_instances</strong> flag of builder. This flag creates multi stream boiler plate config for docker-compose.yml, eii_config.json files respectively.</p>
+<p>An example for running builder to generate multi instance boiler plate config for 3 streams of <strong>video-streaming</strong> use case has been provided below:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ python3 builder.py -v <span class="m">3</span> -f usecases/video-streaming.yml
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>
+This multi-instance feature support of Builder works only for the video pipeline i.e., <strong>usecases/video-streaming.yml</strong> use case alone and not with any other use case yml files like <strong>usecases/video-streaming-storage.yml</strong> etc., Also, it doesn’t work for cases without <code class="docutils literal notranslate"><span class="pre">-f</span></code> switch too. In other words, only the above example works with <code class="docutils literal notranslate"><span class="pre">-v</span></code> taking in any +ve number</p>
+</div>
+</div>
+<div class="section" id="running-builder-to-generate-benchmarking-configs">
+<h4>Running builder to generate benchmarking configs:<a class="headerlink" href="#running-builder-to-generate-benchmarking-configs" title="Permalink to this headline">¶</a></h4>
+<p>If user wants to provide a different set of docker-compose.yml, config.json other than the ones present in every service directory, he can opt to provide the <strong>-d or override_directory</strong> flag which indicates to search for these required set of files within a directory provided by the flag. For example, if user wants to pick up these files from a directory named <strong>benchmarking</strong>, he can run the command provided below:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ python3 builder.py -d benchmarking
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p></p>
+<ul class="simple">
+<li><p>If using the override directory feature of builder, it is recommended to include set of all 3 files mentioned above. Failing to provide any of the files in the override directory results in builder not including that service in the generated final config.</p></li>
+<li><p>If user wishes to spawn a single Subscriber/Client container subscribing/receiving on multiple Publisher/Server containers, he can do so by adding the AppName of Subscriber/Client container in <strong>subscriber_list</strong> of <a class="reference external" href="build/builder_config.json">builder_config.json</a> ensuring the Publisher/Server container <strong>AppName</strong> is added in the <strong>publisher_list</strong> of <a class="reference external" href="build/builder_config.json">builder_config.json</a>. For services not mentioned in <strong>subscriber_list</strong>, multiple containers specified by the <strong>-v</strong> flag are spawned.
+For eg: If builder is run with <strong>-v 3</strong> option and <strong>Visualizer</strong> isn’t added in <strong>subscriber_list</strong> of <a class="reference external" href="build/builder_config.json">builder_config.json</a>, 3 <strong>Visualizer</strong> instances are spawned, each of them subscribing to 3 <strong>VideoAnalytics</strong> services. If <strong>Visualizer</strong> is added in <strong>subscriber_list</strong> of <a class="reference external" href="build/builder_config.json">builder_config.json</a>, a single <strong>Visualizer</strong> instance subscribing to 3 multiple <strong>VideoAnalytics</strong> is spawned.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="adding-new-eii-service-so-it-gets-picked-up-by-builder">
+<h3>Adding new EII service so it gets picked up by Builder<a class="headerlink" href="#adding-new-eii-service-so-it-gets-picked-up-by-builder" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>
+Please refer EII sample apps at <a class="reference external" href="https://github.com/open-edge-insights/eii-samples/blob/master/README.md">Samples</a> written in C++, python and golang using EII Core libraries for more details on adding new EII services</p>
+</div>
+<p>Since the builder takes care of registering and running any service present in it’s own directory in the <a class="reference external" href="eii-core/./">IEdgeInsights</a> directory, this section describes on how to add any new service into the EII stack, subscribe to <a class="reference external" href="https://github.com/open-edge-insights/video-analytics">VideoAnalytics</a> and publish on a new port.</p>
+<p>Any service that needs to be added into the EII stack should be added as a new directory in the <a class="reference external" href="eii-core/./">IEdgeInsights</a> directory. The directory should contain a <strong>docker-compose.yml</strong> which will be used to deploy the service as a docker container and it should also contain a <strong>config.json</strong> which contains the required config for the service to run once it is deployed. The <strong>config.json</strong> will mainly consist of a <strong>config</strong> section which includes the configuration related parameters required to run the application and an <strong>interfaces</strong> section which includes the configuration of how this service interacts with other services of the EII stack. The <strong>AppName</strong> present in <strong>environment</strong> section in <strong>docker-compose.yml</strong> file is appended to the <strong>config</strong> &amp; <strong>interfaces</strong> like <strong>/AppName/config</strong> &amp; <strong>/AppName/interfaces</strong> before being put into the main <code class="docutils literal notranslate"><span class="pre">build/provision/config/eii_config.json</span></code>.</p>
+<p>An example has been provided below on how to write the <strong>config.json</strong> for any new service, subscribe to <strong>VideoAnalytics</strong> and publish on a new port:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span>    <span class="p">{</span>
+        <span class="s2">&quot;config&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;paramOne&quot;</span><span class="o">:</span> <span class="s2">&quot;Value&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;paramTwo&quot;</span><span class="o">:</span> <span class="p">[</span><span class="mf">1</span><span class="p">,</span> <span class="mf">2</span><span class="p">,</span> <span class="mf">3</span><span class="p">],</span>
+            <span class="s2">&quot;paramThree&quot;</span><span class="o">:</span> <span class="mf">4000</span><span class="p">,</span>
+            <span class="s2">&quot;paramFour&quot;</span><span class="o">:</span> <span class="kc">true</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;interfaces&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;Subscribers&quot;</span><span class="o">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;Name&quot;</span><span class="o">:</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Type&quot;</span><span class="o">:</span> <span class="s2">&quot;zmq_tcp&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;EndPoint&quot;</span><span class="o">:</span> <span class="s2">&quot;127.0.0.1:65013&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;PublisherAppName&quot;</span><span class="o">:</span> <span class="s2">&quot;VideoAnalytics&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Topics&quot;</span><span class="o">:</span> <span class="p">[</span>
+                        <span class="s2">&quot;camera1_stream_results&quot;</span>
+                    <span class="p">]</span>
+                <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;Publishers&quot;</span><span class="o">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;Name&quot;</span><span class="o">:</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Type&quot;</span><span class="o">:</span> <span class="s2">&quot;zmq_tcp&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;EndPoint&quot;</span><span class="o">:</span> <span class="s2">&quot;127.0.0.1:65113&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Topics&quot;</span><span class="o">:</span> <span class="p">[</span>
+                        <span class="s2">&quot;publish_stream&quot;</span>
+                    <span class="p">],</span>
+                    <span class="s2">&quot;AllowedClients&quot;</span><span class="o">:</span> <span class="p">[</span>
+                        <span class="s2">&quot;ClientOne&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;ClientTwo&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;ClientThree&quot;</span>
+                    <span class="p">]</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>In the above specified <strong>config.json</strong>, the value of <strong>config</strong> key is the config required by the service to run and the value of the <strong>interfaces</strong> key is the config required by the service to interact with other services of EII stack over EII message bus.</p>
+<p>The <strong>Subscribers</strong> value in the <strong>interfaces</strong> section denotes that this service should act as a subscriber to the stream being published by the value specified by <strong>PublisherAppName</strong> on the
+endpoint mentioned in value specified by <strong>EndPoint</strong> on topics specified in value of <strong>Topics</strong> key.</p>
+<p>The <strong>Publishers</strong> value in the <strong>interfaces</strong> section denotes that this service publishes a stream of data after obtaining and processing it from <strong>VideoAnalytics</strong>. The stream is published on
+the endpoint mentioned in value of <strong>EndPoint</strong> key on topics mentioned in the value of <strong>Topics</strong> key. The services mentioned in the value of <strong>AllowedClients</strong> are the only clients able to
+subscribe to the published stream if being published securely over the EIIMessageBus.</p>
+<p>Similar to above interface keys, EII services can also have “Servers” and “Clients” interface keys too. For example, check <a class="reference external" href="https://github.com/open-edge-insights/video-ingestion/blob/master/config.json">config.json</a> of VideoIngestion service and <a class="reference external" href="https://github.com/open-edge-insights/eii-tools/blob/master/SWTriggerUtility/config.json">config.json</a> of SWTriggerUtility tool on how to use.</p>
+<p>More details on the <code class="docutils literal notranslate"><span class="pre">interfaces</span></code> key responsible for the EII MessageBus endpoint configuration
+can be found at <a class="reference external" href="common/libs/ConfigMgr/README.html#interfaces">common/libs/ConfigMgr/README.md#interfaces</a>. For more details on Etcd secrets configuration, visit <a class="reference internal" href="Etcd_Secrets_Configuration.html"><span class="doc">Etcd_Secrets_Configuration</span></a></p>
+</div>
+</div>
+<div class="section" id="distribution-of-eii-container-images">
+<h2>Distribution of EII container images<a class="headerlink" href="#distribution-of-eii-container-images" title="Permalink to this headline">¶</a></h2>
+<p>EII services are available as pre-built container images in docker hub at https://hub.docker.com/u/openedgeinsights</p>
+<p>Below are the list of pre-built container images that are accessible at https://hub.docker.com/u/openedgeinsights:</p>
+<ol class="simple">
+<li><p><strong>Provisioning images</strong></p></li>
+</ol>
+<ul class="simple">
+<li><p>openedgeinsights/ia_etcd_provision</p></li>
+<li><p>openedgeinsights/ia_etcd</p></li>
+</ul>
+<ol class="simple">
+<li><p><strong>Common EII images applicable for video and timeseries use cases</strong></p></li>
+</ol>
+<ul class="simple">
+<li><p>openedgeinsights/ia_etcd_ui</p></li>
+<li><p>openedgeinsights/ia_influxdbconnector</p></li>
+<li><p>openedgeinsights/ia_rest_export</p></li>
+<li><p>openedgeinsights/ia_opcua_export</p></li>
+</ul>
+<ol class="simple">
+<li><p><strong>Video pipeline images</strong></p></li>
+</ol>
+<ul class="simple">
+<li><p>openedgeinsights/ia_video_ingestion</p></li>
+<li><p>openedgeinsights/ia_video_analytics</p></li>
+<li><p>openedgeinsights/ia_web_visualizer</p></li>
+<li><p>openedgeinsights/ia_visualizer</p></li>
+<li><p>openedgeinsights/ia_imagestore</p></li>
+<li><p>openedgeinsights/ia_azure_bridge</p></li>
+<li><p>openedgeinsights/ia_azure_simple_subscriber</p></li>
+</ul>
+<ol class="simple">
+<li><p><strong>Timeseries pipeline images</strong></p></li>
+</ol>
+<ul class="simple">
+<li><p>openedgeinsights/ia_grafana</p></li>
+</ul>
+<p>Additionally, we have <code class="docutils literal notranslate"><span class="pre">openedgeinsights/ia_edgeinsights_src</span></code> image available at the above docker hub
+location which consists of source code of GPL/LGPL/AGPL components of EII stack.</p>
+<p>For the EII docker images not listed on docker hub at above location, one needs to do the build from source
+before running <code class="docutils literal notranslate"><span class="pre">docker-compose</span> <span class="pre">up</span> <span class="pre">-d</span></code> command or bringing up the pod in kubernetes cluster on the build/development
+node.</p>
+<p>Eg:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="c1"># Update the DOCKER_REGISTRY value in [WORKDIR]/IEdgeInsights/build/.env as DOCKER_RESISTRY=&lt;docker_registry&gt; (Make sure `docker login &lt;docker_registry&gt;` to the docker reigstry works)</span>
+$ <span class="nb">cd</span> <span class="o">[</span>WORKDIR<span class="o">]</span>/IEdgeInsights/build
+$ <span class="c1"># Base images that needs to be built</span>
+$ docker-compose -f docker-compose-build.yml build ia_eiibase
+$ docker-compose -f docker-compose-build.yml build ia_common
+$ <span class="c1"># Assuming here that the `python3 builder.py` step is been executed and ia_kapacitor</span>
+$ <span class="c1"># service exists in the generated compose files and also, provisioning step is done</span>
+$ docker-compose -f docker-compose-build.yml build ia_kapacitor
+$ docker-compose up -d
+$ <span class="c1"># Push all the applicable EII images to &lt;docker_registry&gt;. Ensure to use the same DOCKER_REGISTRY value on the deployment machine while deployment</span>
+$ docker-compose -f docker-compose-push.yml push
+</pre></div>
+</div>
+</div>
+<div class="section" id="provision">
+<h2>Provision<a class="headerlink" href="#provision" title="Permalink to this headline">¶</a></h2>
+<p><b>By default EII is provisioned in Secure mode</b>.</p>
+<p>Follow below steps to provision. Provisioning must be done before deploying EII on any node. It will start ETCD as a container and load it with configuration required to run EII for single node or multi node cluster set up.</p>
+<p>Please follow below steps to provision in Developer mode. Developer mode will have all security disabled.</p>
+<ul class="simple">
+<li><p>Please update DEV_MODE=true in <a class="reference external" href="build/.env">build/.env</a> to provision in Developer mode.</p></li>
+<li><p>Please re-run the <a class="reference external" href="build/builder.py">build/builder.py</a> to re-generate the consolidated files as mentioned above</p></li>
+</ul>
+<p>Following actions will be performed as part of Provisioning</p>
+<ul class="simple">
+<li><p>Loading initial ETCD values from json file located at <code class="docutils literal notranslate"><span class="pre">build/provision/config/eii_config.json</span></code>.</p></li>
+<li><p>For Secure mode only, Generating ZMQ secret/public keys for each app and putting them in ETCD.</p></li>
+<li><p>Generating required X509 certs and putting them in etcd.</p></li>
+<li><p>All server certificates will be generated with 127.0.0.1, localhost and HOST_IP mentioned in <a class="reference external" href="build/.env">build/.env</a>.</p></li>
+<li><p>If HOST_IP is blank in <a class="reference external" href="build/.env">build/.env</a>, then HOST_IP will be automatically detected when server certificates are generated.</p></li>
+</ul>
+<p><strong>Optional:</strong> In case of any errors during provisioning w.r.t existing volumes, please remove the existing volumes by running the EII uninstaller script: <a class="reference external" href="build/eii_uninstaller.sh">eii_uninstaller.sh</a></p>
+<p>Run all the below commands in this section from <code class="docutils literal notranslate"><span class="pre">[WORKDIR]/IEdgeInsights/build/provision</span></code> directory.</p>
+<p>Below script starts <code class="docutils literal notranslate"><span class="pre">etcd</span></code> as a container and provision. Please pass docker-compose file as argument, against which provisioning will be done.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> <span class="o">[</span>WORKDIR<span class="o">]</span>/IEdgeInsights/build/provision
+$ sudo -E ./provision.sh &lt;path_to_eii_docker_compose_file&gt;
+
+$ <span class="c1"># eq. $ sudo -E ./provision.sh ../docker-compose.yml</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>Optional</strong>: By default, the provisioning step will pull the provisioning images from docker registry. In case the user wants to build the images, <code class="docutils literal notranslate"><span class="pre">--build</span></code> flag should be provided in the provisioning command i.e.</p>
+</div></blockquote>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo -E ./provision.sh &lt;path_to_eii_docker_compose_file&gt; --build
+$ <span class="c1"># eq. $ sudo -E ./provision.sh ../docker-compose.yml --build</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>
+The above command only <code class="docutils literal notranslate"><span class="pre">build</span></code> the provisioining images, will not do any other functions of provisioning script.</p>
+</div>
+<p><strong>Optional:</strong> For capturing the data back from Etcd to a JSON file, run the <a class="reference external" href="build/provision/etcd_capture.sh">etcd_capture.sh</a> script. This can be achieved using the following command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ./etcd_capture.sh
+</pre></div>
+</div>
+</div>
+<div class="section" id="build-and-run-eii-video-timeseries-use-cases">
+<h2>Build and Run EII video/timeseries use cases<a class="headerlink" href="#build-and-run-eii-video-timeseries-use-cases" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p></p>
+<ul class="simple">
+<li><p>For running EII services in IPC mode, make sure that the same user should be there in publisher and subscriber.
+If publisher is running as root (eg: VI, VA), then the subscriber also need to run as root.
+In <code class="docutils literal notranslate"><span class="pre">build/docker-compose.yml</span></code> if <code class="docutils literal notranslate"><span class="pre">user:</span> <span class="pre">${EII_UID}</span></code> is in publisher service, then the
+same <code class="docutils literal notranslate"><span class="pre">user:</span> <span class="pre">${EII_UID}</span></code> has to be in subscriber service. If the publisher doesn’t have the user specified like above,
+then the subscriber service should not have that too.</p></li>
+<li><p>If services needs to be running in multiple nodes in TCP mode of communication, msgbus subscribers and clients of <code class="docutils literal notranslate"><span class="pre">AppName</span></code> are required to configure the “EndPoint” in config.json with HOST_IP and PORT under “Subscribers/Publishers” or “Clients/Servers” interfaces section.</p></li>
+<li><p>Make sure the PORT is being exposed in <code class="docutils literal notranslate"><span class="pre">build/docker-compose.yml</span></code> of the respective <code class="docutils literal notranslate"><span class="pre">AppName</span></code>
+Eg: If the <code class="docutils literal notranslate"><span class="pre">&quot;EndPoint&quot;:</span> <span class="pre">&lt;HOST_IP&gt;:65012</span></code> is configured in <code class="docutils literal notranslate"><span class="pre">config.json</span></code>, then expose the port 65012 in <code class="docutils literal notranslate"><span class="pre">build/docker-compose.yml</span></code> of the service <code class="docutils literal notranslate"><span class="pre">ia_video_ingestion</span></code></p></li>
+</ul>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>```yaml
+  ia_video_ingestion:
+    ...
+    ports:
+      - 65012:65012
+```
+</pre></div>
+</div>
+<hr class="docutils" />
+<p>All the below EII build and run commands needs to be executed from the <code class="docutils literal notranslate"><span class="pre">[WORKDIR]/IEdgeInsights/build/</span></code> directory.</p>
+<p>Below are the usecases supported by EII to bring up the respective services mentioned in the
+yaml file.</p>
+<div class="section" id="build-eii-stack">
+<h3>Build EII stack<a class="headerlink" href="#build-eii-stack" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p></p>
+<ol class="simple">
+<li><p>This step is optional if one wants to use the EII pre-built
+container images itself and doesn’t want to build from source.
+For more details, refer: <a class="reference external" href="#distribution-of-eii-container-images">Distribution of EII container images</a></p></li>
+<li><p>Base EII services like ia_eiibase, ia_video_common etc., are required only at the build time and not at
+the runtime.</p></li>
+</ol>
+</div>
+<p>Builds all EII services in the <code class="docutils literal notranslate"><span class="pre">build/docker-compose-build.yml</span></code> along with the base EII services.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ docker-compose -f docker-compose-build.yml build
+</pre></div>
+</div>
+<p>If any of the services fails during build, it can be built using below command</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ docker-compose -f docker-compose-build.yml build --no-cache &lt;service name&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="run-eii-services">
+<h3>Run EII services<a class="headerlink" href="#run-eii-services" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p></p>
+<p>If the images tagged with EII_VERSION as in <a class="reference external" href="build/.env">build/.env</a> does not exist locally on the system,
+they would be pulled if those images exist int he docker hub during <code class="docutils literal notranslate"><span class="pre">docker-compose</span> <span class="pre">up</span></code>.</p>
+</div>
+<p>Runs all the EII services in the <code class="docutils literal notranslate"><span class="pre">build/docker-compose.yml</span></code></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ xhost +
+$ docker-compose up -d
+</pre></div>
+</div>
+<p>A successful run will open Visualizer UI with results of video analytics for all video usecases.</p>
+</div>
+<div class="section" id="push-required-eii-images-to-docker-registry">
+<h3>Push required EII images to docker registry<a class="headerlink" href="#push-required-eii-images-to-docker-registry" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>
+By default, the images gets published to hub.docker.com if DOCKER_REGISTRY is empty in <a class="reference external" href="build/.env">build/.env</a>. Please make sure to take off
+<code class="docutils literal notranslate"><span class="pre">openedgeinsights/</span></code> org from the image name(s) while pushing to docker hub as it doesn’t support repository/image name having multiple slashes.
+This limitation doesn’t exist in other docker registries like Azure Container Registry(ACR), Harbor registry etc.,</p>
+</div>
+<p>Pushes all the EII service docker images in the <code class="docutils literal notranslate"><span class="pre">build/docker-compose-push.yml</span></code>. Ensure to update the DOCKER_REGISTRY value in <a class="reference external" href="build/.env">.env</a> file.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ docker-compose -f docker-compose-push.yml push
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="list-of-all-eii-services">
+<h2>List of All EII Services<a class="headerlink" href="#list-of-all-eii-services" title="Permalink to this headline">¶</a></h2>
+<p>EII stack comes with following services, which can be included/excluded in docker-compose file based on requirements.</p>
+<div class="section" id="common-eii-services">
+<h3>Common EII services<a class="headerlink" href="#common-eii-services" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p><a class="reference external" href="EtcdUI/README">EtcdUI</a></p></li>
+<li><p><a class="reference external" href="https://github.com/open-edge-insights/eii-influxdb-connector/blob/master/README.md">InfluxDBConnector</a></p></li>
+<li><p><a class="reference external" href="https://github.com/open-edge-insights/eii-opcua-export/blob/master/README.md">OpcuaExport</a> - Optional service to read from VideoAnalytics container to publish data to opcua clients</p></li>
+<li><p><a class="reference external" href="https://github.com/open-edge-insights/eii-rest-data-export/blob/master/README.md">RestDataExport</a> - Optional service to read the metadata and image blob from InfluxDBConnector and ImageStore services respectively</p></li>
+</ol>
+</div>
+<div class="section" id="video-related-services">
+<h3>Video related services<a class="headerlink" href="#video-related-services" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p><a class="reference external" href="https://github.com/open-edge-insights/video-ingestion/blob/master/README.md">VideoIngestion</a></p></li>
+<li><p><a class="reference external" href="https://github.com/open-edge-insights/video-analytics/blob/master/README.md">VideoAnalytics</a></p></li>
+<li><p><a class="reference external" href="https://github.com/open-edge-insights/video-native-visualizer/blob/master/README.md">Visualizer</a></p></li>
+<li><p><a class="reference external" href="https://github.com/open-edge-insights/video-web-visualizer/blob/master/README.md">WebVisualizer</a></p></li>
+<li><p><a class="reference external" href="https://github.com/open-edge-insights/video-imagestore/blob/master/README.md">ImageStore</a></p></li>
+<li><p><a class="reference external" href="https://github.com/open-edge-insights/eii-azure-bridge/blob/master/README.md">AzureBridge</a></p></li>
+<li><p><a class="reference external" href="https://github.com/open-edge-insights/eii-factoryctrl/blob/master/README.md">FactoryControlApp</a> - Optional service to read from VideoAnalytics container if one wants to control the light based on defective/non-defective data</p></li>
+</ol>
+</div>
+<div class="section" id="timeseries-related-services">
+<h3>Timeseries related services<a class="headerlink" href="#timeseries-related-services" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p><a class="reference external" href="https://github.com/open-edge-insights/ts-telegraf/blob/master/README.md">Telegraf</a></p></li>
+<li><p><a class="reference external" href="https://github.com/open-edge-insights/ts-kapacitor/blob/master/README.md">Kapacitor</a></p></li>
+<li><p><a class="reference external" href="https://github.com/open-edge-insights/ts-grafana/blob/master/README.md">Grafana</a></p></li>
+<li><p><a class="reference external" href="https://github.com/open-edge-insights/eii-zmq-broker/blob/master/README.md">ZMQ Broker</a></p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="video-pipeline-analytics">
+<h2>Video pipeline Analytics<a class="headerlink" href="#video-pipeline-analytics" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="enable-camera-based-video-ingestion">
+<h3>Enable camera based Video Ingestion<a class="headerlink" href="#enable-camera-based-video-ingestion" title="Permalink to this headline">¶</a></h3>
+<p>For detailed description on configuring different types of cameras and  filter algorithms, refer to the <a class="reference external" href="https://github.com/open-edge-insights/video-ingestion/blob/master/README.md">VideoIngestion/README.md</a>.</p>
+</div>
+<div class="section" id="using-video-accelerators-in-ingestion-analytics-containers">
+<h3>Using video accelerators in ingestion/analytics containers<a class="headerlink" href="#using-video-accelerators-in-ingestion-analytics-containers" title="Permalink to this headline">¶</a></h3>
+<p>EII supports running inference on <code class="docutils literal notranslate"><span class="pre">CPU</span></code>, <code class="docutils literal notranslate"><span class="pre">GPU</span></code>, <code class="docutils literal notranslate"><span class="pre">MYRIAD</span></code>(NCS2), and <code class="docutils literal notranslate"><span class="pre">HDDL</span></code> devices by accepting <code class="docutils literal notranslate"><span class="pre">device</span></code> value (“CPU”|”GPU”|”MYRIAD”|”HDDL”), part of the <code class="docutils literal notranslate"><span class="pre">udf</span></code> object configuration in <code class="docutils literal notranslate"><span class="pre">udfs</span></code>
+key. The <code class="docutils literal notranslate"><span class="pre">device</span></code> field in UDF config of <code class="docutils literal notranslate"><span class="pre">udfs</span></code> key in <code class="docutils literal notranslate"><span class="pre">VideoIngestion</span></code> and <code class="docutils literal notranslate"><span class="pre">VideoAnalytics</span></code> configs can either be changed in the <code class="docutils literal notranslate"><span class="pre">build/provision/config/eii_config.json</span></code>
+before provisioning (or re-provision it again after the change to the apps config.json, re-running <code class="docutils literal notranslate"><span class="pre">builder.py</span></code> script and then re-running the provisioning script) or at run-time via EtcdUI. For more details on the udfs config,
+check <a class="reference external" href="https://github.com/open-edge-insights/video-common/blob/master/udfs/README.md">common/udfs/README.md</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>
+There is an initial delay of upto ~30s while running inference on <code class="docutils literal notranslate"><span class="pre">GPU</span></code> (only for the first frame) as dynamically certain packages get created during runtime.</p>
+</div>
+<div class="section" id="to-run-on-usb-devices">
+<h4><strong>To run on USB devices</strong><a class="headerlink" href="#to-run-on-usb-devices" title="Permalink to this headline">¶</a></h4>
+<p>For actual deployment in case USB camera is required then mount the device node of the USB camera for <code class="docutils literal notranslate"><span class="pre">ia_video_ingestion</span></code> service. When multiple USB cameras are connected to host m/c the required camera should be identified with the device node and mounted.</p>
+<p>Eg: Mount the two USB cameras connected to the host m/c with device node as <code class="docutils literal notranslate"><span class="pre">video0</span></code> and <code class="docutils literal notranslate"><span class="pre">video1</span></code></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span>  <span class="nt">ia_video_ingestion</span><span class="p">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">...</span>
+    <span class="l l-Scalar l-Scalar-Plain">devices</span><span class="p p-Indicator">:</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;/dev/dri&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;/dev/video0:/dev/video0&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;/dev/video1:/dev/video1&quot;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>
+/dev/dri is needed for Graphic drivers</p>
+</div>
+</div>
+<div class="section" id="to-run-on-myriad-devices">
+<h4><strong>To run on MYRIAD devices</strong><a class="headerlink" href="#to-run-on-myriad-devices" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>To run inference on <code class="docutils literal notranslate"><span class="pre">MYRIAD</span></code> device <code class="docutils literal notranslate"><span class="pre">root</span></code> user permissions needs to be used at runtime. To enable root user at runtime in either <code class="docutils literal notranslate"><span class="pre">ia_video_ingestion</span></code>, <code class="docutils literal notranslate"><span class="pre">ia_video_analytics</span></code> or any of the custom udf services add <code class="docutils literal notranslate"><span class="pre">user:</span> <span class="pre">root</span></code> command in the respective docker-compose.yml file.</p>
+<p>Eg: To use <code class="docutils literal notranslate"><span class="pre">MYRAID</span></code> device in <code class="docutils literal notranslate"><span class="pre">ia_video_analytics</span></code> service refer the below example</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span> <span class="nt">ia_video_analytics</span><span class="p">:</span>
+   <span class="l l-Scalar l-Scalar-Plain">...</span>
+   <span class="l l-Scalar l-Scalar-Plain">user</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">root</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Troubleshooting issues for MYRIAD(NCS2) devices</strong></p>
+<ul>
+<li><p>Following is an workaround can be excercised if in case user observes <code class="docutils literal notranslate"><span class="pre">NC_ERROR</span></code> during device initialization of NCS2 stick.
+While running EII if NCS2 devices failed to initialize properly then user can re-plug the device for the init to happen freshly.
+User can verify the successfull initialization by executing <em><strong>dmesg</strong></em>* &amp; <em><strong>lsusb</strong></em>  as below:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>lsusb <span class="p">|</span> grep <span class="s2">&quot;03e7&quot;</span> <span class="o">(</span>03e7 is the VendorID and <span class="m">2485</span> is one of the  productID <span class="k">for</span> MyriadX<span class="o">)</span>
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>dmesg &gt; dmesg.txt
+<span class="o">[</span> <span class="m">3818</span>.214919<span class="o">]</span> usb <span class="m">3</span>-4: new high-speed USB device number <span class="m">10</span> using xhci_hcd
+<span class="o">[</span> <span class="m">3818</span>.363542<span class="o">]</span> usb <span class="m">3</span>-4: New USB device found, <span class="nv">idVendor</span><span class="o">=</span>03e7, <span class="nv">idProduct</span><span class="o">=</span><span class="m">2485</span>
+<span class="o">[</span> <span class="m">3818</span>.363546<span class="o">]</span> usb <span class="m">3</span>-4: New USB device strings: <span class="nv">Mfr</span><span class="o">=</span><span class="m">1</span>, <span class="nv">Product</span><span class="o">=</span><span class="m">2</span>, <span class="nv">SerialNumber</span><span class="o">=</span><span class="m">3</span>
+<span class="o">[</span> <span class="m">3818</span>.363548<span class="o">]</span> usb <span class="m">3</span>-4: Product: Movidius MyriadX
+<span class="o">[</span> <span class="m">3818</span>.363550<span class="o">]</span> usb <span class="m">3</span>-4: Manufacturer: Movidius Ltd.
+<span class="o">[</span> <span class="m">3818</span>.363552<span class="o">]</span> usb <span class="m">3</span>-4: SerialNumber: 03e72485
+<span class="o">[</span> <span class="m">3829</span>.153556<span class="o">]</span> usb <span class="m">3</span>-4: USB disconnect, device number <span class="m">10</span>
+<span class="o">[</span> <span class="m">3831</span>.134804<span class="o">]</span> usb <span class="m">3</span>-4: new high-speed USB device number <span class="m">11</span> using xhci_hcd
+<span class="o">[</span> <span class="m">3831</span>.283430<span class="o">]</span> usb <span class="m">3</span>-4: New USB device found, <span class="nv">idVendor</span><span class="o">=</span>03e7, <span class="nv">idProduct</span><span class="o">=</span><span class="m">2485</span>
+<span class="o">[</span> <span class="m">3831</span>.283433<span class="o">]</span> usb <span class="m">3</span>-4: New USB device strings: <span class="nv">Mfr</span><span class="o">=</span><span class="m">1</span>, <span class="nv">Product</span><span class="o">=</span><span class="m">2</span>, <span class="nv">SerialNumber</span><span class="o">=</span><span class="m">3</span>
+<span class="o">[</span> <span class="m">3831</span>.283436<span class="o">]</span> usb <span class="m">3</span>-4: Product: Movidius MyriadX
+<span class="o">[</span> <span class="m">3831</span>.283438<span class="o">]</span> usb <span class="m">3</span>-4: Manufacturer: Movidius Ltd.
+<span class="o">[</span> <span class="m">3831</span>.283439<span class="o">]</span> usb <span class="m">3</span>-4: SerialNumber: 03e72485
+<span class="o">[</span> <span class="m">3906</span>.460590<span class="o">]</span> usb <span class="m">3</span>-4: USB disconnect, device number <span class="m">11</span>
+</pre></div>
+</div>
+</li>
+<li><p>The below link can be referred in case user observes <code class="docutils literal notranslate"><span class="pre">global</span> <span class="pre">mutex</span> <span class="pre">initialization</span> <span class="pre">failed</span></code> during device initialization of NCS2 stick
+https://www.intel.com/content/www/us/en/support/articles/000033390/boards-and-kits.html</p></li>
+<li><p>For VPU troubleshooting refer the below link:
+https://docs.openvinotoolkit.org/2021.4/openvino_docs_install_guides_installing_openvino_linux_ivad_vpu.html#troubleshooting</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="to-run-on-hddl-devices">
+<h4><strong>To run on HDDL devices</strong><a class="headerlink" href="#to-run-on-hddl-devices" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Download the full package for OpenVINO toolkit for Linux version “2021.4”
+(<code class="docutils literal notranslate"><span class="pre">OPENVINO_IMAGE_VERSION</span></code> used in <a class="reference external" href="build/.env">build/.env</a>) from the official website
+(https://software.intel.com/en-us/openvino-toolkit/choose-download/free-download-linux).
+Please refer to the OpenVINO links below for to install and running the HDDL daemon on host.</p>
+<ol class="simple">
+<li><p>OpenVINO install:
+https://docs.openvinotoolkit.org/2021.4/_docs_install_guides_installing_openvino_linux.html#install-openvino</p></li>
+<li><p>HDDL daemon setup:
+https://docs.openvinotoolkit.org/2021.4/_docs_install_guides_installing_openvino_linux_ivad_vpu.html</p></li>
+</ol>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="note">
+<h2><strong>NOTE</strong>:<a class="headerlink" href="#note" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>OpenVINO 2021.4 installation creates a symbolic link to latest installation with
+filename as <code class="docutils literal notranslate"><span class="pre">openvino_2021</span></code> instead of <code class="docutils literal notranslate"><span class="pre">openvino</span></code>. Hence one can create a symbolic link with filename as <code class="docutils literal notranslate"><span class="pre">openvino</span></code> to the latest installation using the below steps.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /opt/intel
+$ sudo ln -s &lt;OpenVINO latest installation&gt; openvino
+</pre></div>
+</div>
+<p>Eg: sudo ln -s openvino_2021.4.582 openvino</p>
+<p>In case there are older versions of OpenVINO installed on the host system please un-install them.</p>
+</li>
+</ul>
+<ol class="simple">
+<li><p>Running hddldaemon:
+Refer the below command to run the hddldaemon once the setup is done(it should run in a different terminal or in the background on the host system where inference would be done)</p></li>
+</ol>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">source</span> /opt/intel/openvino/bin/setupvars.sh
+$ <span class="nv">$HDDL_INSTALL_DIR</span>/bin/hddldaemon
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Changing ownership of hddl files on host system.
+Before running inference with EII, ownership of hddl files should be changed to the value of <code class="docutils literal notranslate"><span class="pre">EII_USER_NAME</span></code> key set in <a class="reference external" href="build/.env">build/.env</a>.
+Refer the below command to set the ownership of hddl files on the host system.<code class="docutils literal notranslate"><span class="pre">EII_USER_NAME=eiiuser</span></code> in <a class="reference external" href="build/.env">build/.env</a>.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo chown -R eiiuser /var/tmp/hddl_*
+</pre></div>
+</div>
+<ul>
+<li><p>For actual deployment one could choose to mount only the required devices for
+services using OpenVINO with HDDL (<code class="docutils literal notranslate"><span class="pre">ia_video_analytics</span></code> or <code class="docutils literal notranslate"><span class="pre">ia_video_ingestion</span></code>) in <code class="docutils literal notranslate"><span class="pre">build/docker-compose.yml</span></code>.</p>
+<p>Eg: Mount only the Graphics and HDDL ion device for <code class="docutils literal notranslate"><span class="pre">ia_video_anaytics</span></code> service</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">ia_video_analytics</span><span class="p">:</span>
+    <span class="o">...</span>
+    <span class="n">devices</span><span class="p">:</span>
+            <span class="o">-</span> <span class="s2">&quot;/dev/dri&quot;</span>
+            <span class="o">-</span> <span class="s2">&quot;/dev/ion:/dev/ion&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Troubleshooting issues for HDDL devices</strong></p>
+<ul class="simple">
+<li><p>Please verify the hddldaemon started on host m/c to verify if it is using the libraries of the correct OpenVINO version used in <a class="reference external" href="build/.env">build/.env</a>. One could enable the <code class="docutils literal notranslate"><span class="pre">device_snapshot_mode</span></code> to <code class="docutils literal notranslate"><span class="pre">full</span></code> in $HDDL_INSTALL_DIR/config/hddl_service.config on host m/c to get the complete snapshot of the hddl device.</p></li>
+<li><p>For VPU troubleshooting refer the below link:
+https://docs.openvinotoolkit.org/2021.4/openvino_docs_install_guides_installing_openvino_linux_ivad_vpu.html#troubleshooting</p></li>
+<li><p>Please refer OpenVINO 2021.4 release notes in the below link for new features and changes from the previous versions.
+https://software.intel.com/content/www/us/en/develop/articles/openvino-relnotes.html</p></li>
+<li><p>Refer OpenVINO website in the below link to skim through known issues, limitations and troubleshooting
+https://docs.openvinotoolkit.org/2021.4/index.html</p></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="to-run-on-intel-r-processor-graphics-gpu-igpu">
+<h3><strong>To run on Intel(R) Processor Graphics (GPU/iGPU)</strong><a class="headerlink" href="#to-run-on-intel-r-processor-graphics-gpu-igpu" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>
+The below step is required only for 11th gen Intel Processors</p>
+</div>
+<p>Upgrade the kernel version to 5.8 and install the required drivers from the below OpenVINO link:
+https://docs.openvinotoolkit.org/latest/openvino_docs_install_guides_installing_openvino_linux.html#additional-GPU-steps</p>
+</div>
+<div class="section" id="custom-udfs">
+<h3>Custom Udfs<a class="headerlink" href="#custom-udfs" title="Permalink to this headline">¶</a></h3>
+<p>The following are the two Custom Udfs workflow which EII supports:</p>
+<ol>
+<li><p>Build / Run custom udfs as standalone applications</p>
+<p>For running custom udfs as standalone application one must download the video-custom-udfs repo and refer <a class="reference external" href="https://github.com/open-edge-insights/video-custom-udfs/blob/master/README.md">CustomUdfs/README.md</a></p>
+</li>
+<li><p>Build / Run custom udfs in VI or VA</p>
+<p>For running custom udfs either in VI or VA one must refer <a class="reference external" href="https://github.com/open-edge-insights/video-ingestion/blob/master/docs/custom_udfs_doc.md">VideoIngestion/docs/custom_udfs_doc.md</a></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="time-series-analytics">
+<h2>Time-series Analytics<a class="headerlink" href="#time-series-analytics" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>:
+By default, <code class="docutils literal notranslate"><span class="pre">ia_telegraf</span></code> uses the mqtt plugin to talk to the <code class="docutils literal notranslate"><span class="pre">ia_mqtt_broker</span></code> service, so please make sure <code class="docutils literal notranslate"><span class="pre">ia_mqtt_broker</span></code> service is running and you are publishing the sample sensor data by
+following the guide at https://github.com/open-edge-insights/eii-tools/blob/master/mqtt/README.md. If one does not want to run MQTT broker, please make sure to comment/remove the <code class="docutils literal notranslate"><span class="pre">[[inputs.mqtt_consumer]]</span></code> sections to avoid DNS queries on <code class="docutils literal notranslate"><span class="pre">ia_mqtt_broker</span></code> in the <a class="reference external" href="https://github.com/open-edge-insights/ts-telegraf/tree/master/config/Telegraf">respective conf files</a> based on DEV or PROD mode.</p>
+</div>
+<p>For time-series data, a sample analytics flow uses Telegraf for ingestion, Influx DB for storage and Kapacitor for classification. This is demonstrated with an MQTT based ingestion of sample temperature sensor data and analytics with a Kapacitor UDF which does threshold detection on the input values.</p>
+<p>The services mentioned in <a class="reference external" href="build/usecases/time-series.yml">build/usecases/time-series.yml</a> will be available in the consolidated <code class="docutils literal notranslate"><span class="pre">build/docker-compose.yml</span></code> and consolidated <code class="docutils literal notranslate"><span class="pre">build/provision/config/eii_config.json</span></code> of the EII stack for timeseries use case when built via <code class="docutils literal notranslate"><span class="pre">builder.py</span></code> as called out in previous steps.</p>
+<p>This will enable building of Telegraf and the Kapacitor based analytics containers.
+More details on enabling this mode can be referred from <a class="reference external" href="https://github.com/open-edge-insights/ts-kapacitor/blob/master/README.md">Kapacitor/README.md</a></p>
+<p>The sample temperature sensor can be simulated using the <a class="reference external" href="https://github.com/open-edge-insights/eii-tools/blob/master/mqtt-publisher/README.md">tools/mqtt/README.md</a> application.</p>
+</div>
+<div class="section" id="eii-multi-node-cluster-provision-and-deployment">
+<h2>EII multi node cluster provision and deployment<a class="headerlink" href="#eii-multi-node-cluster-provision-and-deployment" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="without-orchestrator">
+<h3><strong>Without orchestrator</strong><a class="headerlink" href="#without-orchestrator" title="Permalink to this headline">¶</a></h3>
+<p>By default EII is provisioned with single node cluster.</p>
+<p>One of the below options could be tried out:</p>
+<ul class="simple">
+<li><p>[<code class="docutils literal notranslate"><span class="pre">Recommended</span></code>] For deploying through ansible playbook on multiple nodes automatically, please refer <a class="reference external" href="build/ansible/README.html#updating-the-eii-source-folder-usecase--proxy-settings-in-group-variables">build/ansible/README.md</a></p></li>
+<li><p>In order to deploy EII on multiple nodes using docker registry and provision ETCD, please follow <a class="reference internal" href="build/deploy/README.html"><span class="doc">build/deploy/README.md</span></a>.</p></li>
+</ul>
+</div>
+<div class="section" id="with-k8s-orchestrator">
+<h3><strong>With k8s orchestrator</strong><a class="headerlink" href="#with-k8s-orchestrator" title="Permalink to this headline">¶</a></h3>
+<p>One of the below options could be tried out:</p>
+<ul class="simple">
+<li><p>[<code class="docutils literal notranslate"><span class="pre">Recommended</span></code>] For deploying through ansible playbook on multiple nodes automatically, please refer <a class="reference external" href="build/ansible/README.html##deploying-eii-using-helm-in-kubernetes-k8s-environment">build/ansible/README.md</a></p></li>
+<li><p>Please refer <a class="reference internal" href="build/helm-eii/README.html"><span class="doc">build/helm-eii/README.md</span></a> on using helm charts to provision the node and
+deploy EII services</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="eii-tools">
+<h2>EII tools<a class="headerlink" href="#eii-tools" title="Permalink to this headline">¶</a></h2>
+<p>EII stack has below set of tools which run as containers too:</p>
+<ul class="simple">
+<li><p>Benchmarking</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/open-edge-insights/eii-tools/blob/master/Benchmarking/video-benchmarking-tool/README.md">Video Benchmarking</a></p></li>
+<li><p><a class="reference external" href="https://github.com/open-edge-insights/eii-tools/blob/master/Benchmarking/time-series-benchmarking-tool/README.md">Time-series Benchmarking</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://github.com/open-edge-insights/eii-tools/blob/master/DiscoverHistory/README.md">DiscoverHistory</a></p></li>
+<li><p><a class="reference external" href="https://github.com/open-edge-insights/eii-tools/blob/master/EmbPublisher/README.md">EmbPublisher</a></p></li>
+<li><p><a class="reference external" href="https://github.com/open-edge-insights/eii-tools/blob/master/EmbSubscriber/README.md">EmbSubscriber</a></p></li>
+<li><p><a class="reference external" href="https://github.com/open-edge-insights/eii-tools/blob/master/GigEConfig/README.md">GigEConfig</a></p></li>
+<li><p><a class="reference external" href="https://github.com/open-edge-insights/eii-tools/blob/master/HttpTestServer/README.md">HttpTestServer</a></p></li>
+<li><p><a class="reference external" href="https://github.com/open-edge-insights/eii-tools/blob/master/JupyterNotebook/README.md">JupyterNotebook</a></p></li>
+<li><p><a class="reference external" href="https://github.com/open-edge-insights/eii-tools/blob/master/mqtt-publisher/README.md">mqtt</a></p></li>
+<li><p><a class="reference external" href="https://github.com/open-edge-insights/eii-tools/blob/master/SWTriggerUtility/README.md">SWTriggerUtility</a></p></li>
+<li><p><a class="reference external" href="https://github.com/open-edge-insights/eii-tools/blob/master/TimeSeriesProfiler/README.md">TimeSeriesProfiler</a></p></li>
+<li><p><a class="reference external" href="https://github.com/open-edge-insights/eii-tools/blob/master/VideoProfiler/README.md">VideoProfiler</a></p></li>
+</ul>
+</div>
+<div class="section" id="elk-usage-for-centralized-logging-of-eii-services-logs">
+<h2>ELK usage for centralized logging of EII services logs<a class="headerlink" href="#elk-usage-for-centralized-logging-of-eii-services-logs" title="Permalink to this headline">¶</a></h2>
+<p>Please find more details about this capability at <a class="reference internal" href="build/remote_logging/README.html"><span class="doc">build/remote_logging/README.md</span></a></p>
+</div>
+<div class="section" id="eii-uninstaller">
+<h2>EII Uninstaller<a class="headerlink" href="#eii-uninstaller" title="Permalink to this headline">¶</a></h2>
+<p>The uninstaller script automates the removal of all the EII Docker configuration installed on a system. This uninstaller will perform the following tasks:</p>
+<ol class="simple">
+<li><p><strong>Stops and removes all EII running and stopped containers</strong></p></li>
+<li><p><strong>Removes all EII docker volumes</strong></p></li>
+<li><p><strong>Removes all EII docker images [Optional]</strong></p></li>
+<li><p><strong>Removes all EII install directory</strong></p></li>
+</ol>
+<p>Run the below commmand from <code class="docutils literal notranslate"><span class="pre">[WORKDIR]/IEdgeInsights/build/</span></code> directory.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ./eii_uninstaller.sh -h
+Usage: ./eii_uninstaller.sh <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>-d<span class="o">]</span>
+
+ This script uninstalls previous EII version.
+ Where:
+    -h show the <span class="nb">help</span>
+    -d triggers the deletion of docker images <span class="o">(</span>by default it will not trigger<span class="o">)</span>
+
+ Example:
+  <span class="m">1</span><span class="o">)</span> Deleting only EII Containers and Volumes
+    $ ./eii_uninstaller.sh
+
+  <span class="m">2</span><span class="o">)</span> Deleting EII Containers, Volumes and Images
+    $ <span class="nb">export</span> <span class="nv">EII_VERSION</span><span class="o">=</span><span class="m">2</span>.4
+    $ ./eii_uninstaller.sh -d
+    above example will delete EII containers, volumes and all the docker images having <span class="m">2</span>.4 version.
+</pre></div>
+</div>
+</div>
+<div class="section" id="debugging-options">
+<h2>Debugging options<a class="headerlink" href="#debugging-options" title="Permalink to this headline">¶</a></h2>
+<ol>
+<li><p>To check if all the EII images are built successfully, use cmd: <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">images|grep</span> <span class="pre">ia</span></code> and
+to check if all containers are running, use cmd: <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">ps</span></code> (<code class="docutils literal notranslate"><span class="pre">one</span> <span class="pre">should</span> <span class="pre">see</span> <span class="pre">all</span> <span class="pre">the</span> <span class="pre">dependency</span> <span class="pre">containers</span> <span class="pre">and</span> <span class="pre">EII</span> <span class="pre">containers</span> <span class="pre">up</span> <span class="pre">and</span> <span class="pre">running</span></code>). If you see issues where the build is failing due to non-reachability to Internet, please ensure you have correctly configured proxy settings and restarted docker service. Even after doing this, if you are running into the same issue, please add below instrcutions to all the dockerfiles in <code class="docutils literal notranslate"><span class="pre">build\dockerfiles</span></code> at the top after the LABEL instruction and retry the building EII images:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ENV http_proxy http://proxy.iind.intel.com:911
+ENV https_proxy http://proxy.iind.intel.com:911
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">ps</span></code> should list all the enabled containers which are included in docker-compose.yml</p></li>
+<li><p>To verify if the default video pipeline with EII is working fine i.e., from video ingestion-&gt;video analytics-&gt;visualizer, please check the visualizer UI</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/opt/intel/eii</span></code> root directory gets created - This is the installation path for EII:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">data/</span></code> - stores the backup data for persistent imagestore and influxdb</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sockets/</span></code> - stores the IPC ZMQ socket files</p></li>
+</ul>
+</li>
+</ol>
+<hr class="docutils" />
+<p><strong>Note</strong>:</p>
+<ol class="simple">
+<li><p>Few useful docker-compose and docker commands:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">docker-compose</span> <span class="pre">-f</span> <span class="pre">docker-compose-build.yml</span> <span class="pre">build</span></code> - builds all the service containers. To build a single service container, use <code class="docutils literal notranslate"><span class="pre">docker-compose</span> <span class="pre">-f</span> <span class="pre">docker-compose-build.yml</span> <span class="pre">build</span> <span class="pre">[serv_cont_name]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">docker-compose</span> <span class="pre">down</span></code> - stops and removes the service containers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">docker-compose</span> <span class="pre">up</span> <span class="pre">-d</span></code> - brings up the service containers by picking the changes done in <code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">ps</span></code> - check running containers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">ps</span> <span class="pre">-a</span></code> - check running and stopped containers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">stop</span> <span class="pre">$(docker</span> <span class="pre">ps</span> <span class="pre">-a</span> <span class="pre">-q)</span></code> - stops all the containers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">rm</span> <span class="pre">$(docker</span> <span class="pre">ps</span> <span class="pre">-a</span> <span class="pre">-q)</span></code> - removes all the containers. Useful when you run into issue of already container is in use.</p></li>
+<li><p><a class="reference external" href="https://docs.docker.com/compose/reference/overview/">docker compose cli</a></p></li>
+<li><p><a class="reference external" href="https://docs.docker.com/compose/compose-file/">docker compose reference</a></p></li>
+<li><p><a class="reference external" href="https://docs.docker.com/engine/reference/commandline/cli/#configuration-files">docker cli</a></p></li>
+</ul>
+</li>
+<li><p>If you want to run the docker images separately i.e, one by one, run the command <code class="docutils literal notranslate"><span class="pre">docker-compose</span> <span class="pre">run</span> <span class="pre">--no-deps</span> <span class="pre">[service_cont_name]</span></code> Eg: <code class="docutils literal notranslate"><span class="pre">docker-compose</span> <span class="pre">run</span> <span class="pre">--name</span> <span class="pre">ia_video_ingestion</span> <span class="pre">--no-deps</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">ia_video_ingestion</span></code> to run VI container and the switch <code class="docutils literal notranslate"><span class="pre">--no-deps</span></code> will not bring up it’s dependencies mentioned in the docker-compose file. If the container is not launching, there could be
+some issue with entrypoint program which could be overrided by providing this extra switch <code class="docutils literal notranslate"><span class="pre">--entrypoint</span> <span class="pre">/bin/bash</span></code> before the service container name in the docker-compose run command above, this would let one inside the container and run the actual entrypoint program from the container’s terminal to rootcause the issue. If the container is running and one wants to get inside, use cmd: <code class="docutils literal notranslate"><span class="pre">docker-compose</span> <span class="pre">exec</span> <span class="pre">[service_cont_name]</span> <span class="pre">/bin/bash</span></code> or <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">exec</span> <span class="pre">-it</span> <span class="pre">[cont_name]</span> <span class="pre">/bin/bash</span></code></p></li>
+<li><p>Best way to check logs of containers is to use command: <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">logs</span> <span class="pre">-f</span> <span class="pre">[cont_name]</span></code>. If one wants to see all the docker-compose service container logs at once, then just run
+<code class="docutils literal notranslate"><span class="pre">docker-compose</span> <span class="pre">logs</span> <span class="pre">-f</span></code></p></li>
+</ol>
+</div>
+<hr class="docutils" />
+<div class="section" id="troubleshooting-guide">
+<h2>Troubleshooting guide<a class="headerlink" href="#troubleshooting-guide" title="Permalink to this headline">¶</a></h2>
+<ol>
+<li><p>Please refer to <a class="reference internal" href="TROUBLESHOOT.html"><span class="doc">TROUBLESHOOT.md</span></a> guide for any troubleshooting tips related to EII configuration and installation</p></li>
+<li><p>If any issues are observed w.r.t the python package installation then manually install the python packages as shown below :</p>
+<p><strong>Note</strong>: It is highly recommended that you use a python virtual environment to install the python packages, so that the system python installation doesn’t get
+altered. Details on setting up and using python virtual environment can be found here: https://www.geeksforgeeks.org/python-virtual-environment/</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> <span class="o">[</span>WORKDIR<span class="o">]</span>/IEdgeInsights/build
+<span class="c1"># Install requirements for builder.py</span>
+$ pip3 install -r requirements.txt
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../eii-azure-bridge/README.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Azure Bridge</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../eii-messagebus/README.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">EII Message Bus</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By various<br/>
+        
+            &copy; Copyright 2021, various.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

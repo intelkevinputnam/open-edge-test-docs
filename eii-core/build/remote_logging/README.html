@@ -1,0 +1,301 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EII distributed services centralized logging using ELK &#8212; eii-test  documentation</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">eii-test  documentation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contents:
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../eii-azure-bridge/README.html">
+   Azure Bridge
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../README.html">
+   EII Core
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../eii-messagebus/README.html">
+   EII Message Bus
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/eii-core/build/remote_logging/README.md.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pre-requisites">
+   Pre-requisites
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="eii-distributed-services-centralized-logging-using-elk">
+<h1>EII distributed services centralized logging using ELK<a class="headerlink" href="#eii-distributed-services-centralized-logging-using-elk" title="Permalink to this headline">¶</a></h1>
+<p>“ELK” is the acronym for three open source projects: Elasticsearch, Logstash, and Kibana. Elasticsearch is a search and analytics engine. Logstash is a server‑side data processing pipeline that ingests data from multiple sources simultaneously, transforms it, and then sends it to a “stash” like Elasticsearch. Kibana lets users visualize data with charts and graphs in Elasticsearch.</p>
+<p>The guide below demonstrates how the logs of EII services running in distributed environment can be centralized via ELK stack. It allows you to search all the logs in a single place.</p>
+<div class="section" id="pre-requisites">
+<h2>Pre-requisites<a class="headerlink" href="#pre-requisites" title="Permalink to this headline">¶</a></h2>
+<ol>
+<li><p>EII centralized logging using ELK expects a set of config, interfaces &amp; public private keys to be present in ETCD as a pre-requisite.
+To achieve this, please ensure an entry for <code class="docutils literal notranslate"><span class="pre">remote_logging</span></code> with its relative path from <a class="reference external" href="eii-core/build/remote_logging/../">IEdgeInsights</a> directory is set in the use-case yml file present in <a class="reference external" href="https://github.com/open-edge-insights/eii-core/tree/master/build/usecases">build/usecases</a> directory. An example has been provided below:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>    AppContexts:
+    - Grafana
+    - InfluxDBConnector
+    - Kapacitor
+    - Telegraf
+    - build/remote_logging
+</pre></div>
+</div>
+</li>
+<li><p>With the above pre-requisite done, please run the below command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>    python3 builder.py -f ./usecases/&lt;use-case&gt;.yml
+</pre></div>
+</div>
+</li>
+<li><p>Generate the certificates required to run the Kibana Server using the following command</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./generate_kibana_certs.sh test-server-ip
+</pre></div>
+</div>
+</li>
+<li><p>The EII centralized logging architecture can be visualized as eii-containers—&gt;rsyslog—&gt;logstash—&gt;elasticsearch—&gt;kibana</p></li>
+<li><p>The eii-containers logs has to be forwarded to the rsyslog, running onto the local system.
+For that, the eii-container’s logging driver need to be syslog.
+Anyone wants to forward the eii-container’s log to the local rsyslog has to modify the file named ‘/etc/docker/daemon.json’.
+The sample ‘daemon.json’ is availale in the directory.
+After the modification of ‘daemon.json’ docker daemon has to be restarted using the below command</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl restart docker
+</pre></div>
+</div>
+<p>In case of sending the logs over a secure channel from docker daemon to rsyslog, please refer the ‘daemon.json.secure’.
+In this sample configuration, please replace
+CA_CERT_PATH : CA certificate path
+DOCKER_CERT_PATH : Docker certificate path
+DOCKER_KEY_PATH : Docker key path</p>
+</li>
+<li><p>The rsyslog has to forward the received logs from containers to logstash.
+The file named ‘eii.conf’ has to be copied into the directory name ‘/etc/rsyslog.d/’
+After copying this file, install rsyslog module using the below command(The rsyslog module
+installation is one time activity).</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo apt-get install rsyslog-gnutls
+</pre></div>
+</div>
+<p>Then rsyslog service need to restarted using the below command</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl restart rsyslog
+</pre></div>
+</div>
+<p>For more information on the rsyslog,please refer <a class="reference external" href="https://www.rsyslog.com/plugins/">https://www.rsyslog.com/plugins/</a></p>
+<p>In case of receiving the logs from docker over the secure channel, please refer the sample config file ‘eii.conf.secure’
+In this sample configuration, please replace
+CA_CERT_PATH : CA certificate path
+DOCKER_CERT_PATH : Docker certificate path
+DOCKER_KEY_PATH : Docker key path
+If case of docker daemon sending logs to remote rsyslog agent, then replace ‘127.0.0.1’ (address=”127.0.0.1”) with the
+actual IP address of the machine where rsyslog is running.</p>
+</li>
+<li><p>To start ELK containers Please follow below commands</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo sysctl -w vm.max_map_count<span class="o">=</span><span class="m">262144</span>
+</pre></div>
+</div>
+</li>
+<li><p>Refer <a class="reference external" href="https://github.com/open-edge-insights/eii-core/blob/master/README.md">README.md</a> to provision and run the services</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ docker-compose -f docker-compose-build.yml build 
+$ docker-compose -f docker-compose.yml up -d <span class="c1"># this will work in both DEV or PROD mode automatically</span>
+</pre></div>
+</div>
+<p>Please visit <a class="reference external" href="https://host-ip:5601">https://host-ip:5601</a> for viewing the logs in KIBANA UI.
+Create new index pattern with the elasticsearch indices<code class="docutils literal notranslate"><span class="pre">logstash</span></code> pattern</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>: The certificate attached to kibana is self signed and has to be accepted in
+browser as an exception. The attached certificates are sample certificates only and need to
+be replaced for production environment.
+host-ip : Actual IP address of the machine where kibana is running</p>
+</div>
+<ol class="simple">
+<li><p>After above 4 steps, please start/restart the EII services.
+Note:</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>: In case of logs are not showing in the KIBANA UI, restart the rsyslog service
+using the command <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">rsyslog</span></code></p>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By various<br/>
+        
+            &copy; Copyright 2021, various.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

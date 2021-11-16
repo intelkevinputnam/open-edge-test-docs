@@ -1,0 +1,15 @@
+{
+    "subscriber_list": {
+        "Visualizer": "",
+        "WebVisualizer": "",
+        "VideoProfiler": "",
+        "EtcdUI": "",
+        "ImageStore": "",
+        "InfluxDBConnector": ""
+    },
+    "publisher_list": {
+        "VideoAnalytics": "outputVA",
+        "InfluxDBConnector": "pointClsOutput"
+    },
+    "increment_rtsp_port": true
+}

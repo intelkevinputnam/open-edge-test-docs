@@ -1,0 +1,408 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi-node Provisioning &amp; Deployment &#8212; eii-test  documentation</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">eii-test  documentation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contents:
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../eii-azure-bridge/README.html">
+   Azure Bridge
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../README.html">
+   EII Core
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../eii-messagebus/README.html">
+   EII Message Bus
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/eii-core/build/deploy/README.md.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Multi-node Provisioning &amp; Deployment
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-1-provision-the-leader-node">
+   Step 1 Provision the Leader node
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-2-set-up-docker-registry-url-then-build-and-push-images">
+   Step 2 Set up Docker Registry URL then Build and Push Images
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-3-choosing-the-eii-services-to-run-on-worker-node">
+   Step 3 Choosing the EII services to run on worker node.
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-4-provisioning-the-worker-node">
+   Step 4 Provisioning the worker node
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-5-creating-eii-bundle-for-worker-node">
+   Step 5 Creating eii bundle for worker node
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-6-eii-multinode-deployment">
+   Step 6 EII-Multinode deployment
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="multi-node-provisioning-deployment">
+<h1>Multi-node Provisioning &amp; Deployment<a class="headerlink" href="#multi-node-provisioning-deployment" title="Permalink to this headline">¶</a></h1>
+<p>Perform the below steps  to achieve provisioning &amp; deployment on multiple nodes</p>
+<p><a class="reference external" href="#step-1-provision-the-leader-node">Step 1 Provision the Leader node</a></p>
+<p><a class="reference external" href="#step-2-set-up-docker-registry-url-then-build-and-push-images">Step 2 Set up Docker Registry URL then Build and Push Images</a></p>
+<p><a class="reference external" href="#step-3-choosing-the-eii-services-to-run-on-worker-node">Step 3 Choosing the EII services to run on worker node</a></p>
+<p><a class="reference external" href="#step-4-provisioning-the-worker-node">Step 4 Provisioning the worker node</a></p>
+<p><a class="reference external" href="#step-5-creating-eii-bundle-for-worker-node">Step 5 Creating eii bundle for worker node</a></p>
+<p><a class="reference external" href="#step-6-eii-multinode-deployment">Step 6 EII-Multinode deployment</a></p>
+</div>
+<div class="section" id="step-1-provision-the-leader-node">
+<h1>Step 1 Provision the Leader node<a class="headerlink" href="#step-1-provision-the-leader-node" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><strong>Pre-requisite</strong>:
+Please follow the EII Pre-requisites before Provisioning.
+<a class="reference external" href="../../README.html#eii-pre-requisites">EII Pre-requisites</a></p>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>:</p>
+<ul class="simple">
+<li><p>EII services can run on leader as well as worker nodes</p></li>
+<li><p>Leader node should have the entire repo/source code present</p></li>
+<li><p>Leader node is the primary administative node and has following attributes:</p>
+<ol class="simple">
+<li><p>Generating required certificates and secrets.</p></li>
+<li><p>Loading Initial ETCD values.</p></li>
+<li><p>Generating bundles to provision new nodes.</p></li>
+<li><p>Generating bundles to deploy EII services on new/worker nodes.</p></li>
+</ol>
+</li>
+</ul>
+</div>
+<p>For running EII in multi node, we have to identify one node to run ETCD server (this node is called as <code class="docutils literal notranslate"><span class="pre">leader</span></code> node). For a leader node, ETCD_NAME in <a class="reference external" href="../.env">build/.env</a> must be set to <code class="docutils literal notranslate"><span class="pre">leader</span></code>. Rest other nodes are <code class="docutils literal notranslate"><span class="pre">Worker</span></code> nodes which doesn’t run ETCD server, instead all the worker nodes remotely connect to the ETCD server running on the <code class="docutils literal notranslate"><span class="pre">Leader</span></code> node only. Make sure the <code class="docutils literal notranslate"><span class="pre">date</span></code> and <code class="docutils literal notranslate"><span class="pre">time</span></code> are in sync in all nodes.</p>
+<p>Provision the Leader node using the below command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> <span class="o">[</span>WORK_DIR<span class="o">]</span>/IEdgeInsights/build/provision
+$ sudo -E ./provision.sh &lt;path_to_eii_docker_compose_file&gt;
+
+$ <span class="c1"># eq. $ sudo -E ./provision.sh ../docker-compose.yml</span>
+</pre></div>
+</div>
+<p>This creates the ETCD server (Container ia_etcd) on the leader edge node.</p>
+</div>
+<div class="section" id="step-2-set-up-docker-registry-url-then-build-and-push-images">
+<h1>Step 2 Set up Docker Registry URL then Build and Push Images<a class="headerlink" href="#step-2-set-up-docker-registry-url-then-build-and-push-images" title="Permalink to this headline">¶</a></h1>
+<p>EII Deployment on multiple node must be done using a docker registry.</p>
+<p>Follow below steps:</p>
+<ul>
+<li><p>Please update docker registry url in DOCKER_REGISTRY variable in  <a class="reference external" href="../.env">build/.env</a> on any node(leader/worker). Please use full registry URL with a traliling /</p></li>
+<li><p>Building EII images and pushing the same to docker registry.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>```sh
+docker-compose -f docker-compose-build.yml build
+docker-compose -f docker-compose-push.yml push
+```
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="step-3-choosing-the-eii-services-to-run-on-worker-node">
+<h1>Step 3 Choosing the EII services to run on worker node.<a class="headerlink" href="#step-3-choosing-the-eii-services-to-run-on-worker-node" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p>Note: This deployment bundle generated can be used to provision and also to deploy EII stack on new node</p>
+</div></blockquote>
+<ol>
+<li><p>This software works only on python3+ version.</p></li>
+<li><p>Please update the <a class="reference external" href="./config.json">config.json</a> file</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="p">{</span>
+      <span class="s2">&quot;docker_compose_file_version&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;docker_compose_file_version which is compose file version supported by deploying docker engine&gt;&quot;</span><span class="p">,</span>
+
+      <span class="s2">&quot;exclude_services&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">list</span> <span class="n">of</span> <span class="n">services</span> <span class="n">which</span> <span class="n">you</span> <span class="n">want</span> <span class="n">exclude</span> <span class="k">for</span> <span class="n">your</span> <span class="n">deployement</span><span class="p">]</span>
+      <span class="s2">&quot;include_services&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">list</span> <span class="n">of</span> <span class="n">services</span> <span class="n">needed</span> <span class="ow">in</span> <span class="n">final</span> <span class="n">deployment</span> <span class="n">docker</span><span class="o">-</span><span class="n">compose</span><span class="o">.</span><span class="n">yml</span><span class="p">]</span>
+
+  <span class="p">}</span>
+</pre></div>
+</div>
+<p><em><strong>Note</strong></em>:</p>
+<blockquote>
+<div><ol class="simple">
+<li><p>Please validate the json.</p></li>
+</ol>
+</div></blockquote>
+<blockquote>
+<div><ol class="simple">
+<li><p>Please ensure that you have updated the DOCKER_REGISTRY in <a class="reference external" href="../.env">build/.env</a> file</p></li>
+</ol>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="step-4-provisioning-the-worker-node">
+<h1>Step 4 Provisioning the worker node<a class="headerlink" href="#step-4-provisioning-the-worker-node" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    # Please ensure the following fields are correctly set in the leader node before generating the provisioning bundle:
+    ETCD_HOST=&lt;IP address of leader node&gt;
+    DOCKER_REGISTRY=&lt;Docker registry details&gt;
+
+    # commands to be executed on leader node:
+    $ cd build/deploy
+    $ sudo python3 generate_eii_bundle.py -p
+
+    This will generate the &#39;worker_provisioning.tar.gz&#39;.
+    Do a manual copy of this bundle on worker node. And then follow below commands
+    on worker node.
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    # commands to be executed on worker node.
+    $ tar -xvzf worker_provisioning.tar.gz
+    $ cd worker_provisioning/provision/
+    $ sudo -E ./provision.sh
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-5-creating-eii-bundle-for-worker-node">
+<h1>Step 5 Creating eii bundle for worker node<a class="headerlink" href="#step-5-creating-eii-bundle-for-worker-node" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>: Before proceeding this step, please make sure, you have followed steps 1-4.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    # Please ensure the following fields are correctly set in the leader node before generating the eii bundle:
+    ETCD_HOST=&lt;IP address of leader node&gt;
+    DOCKER_REGISTRY=&lt;Docker registry details&gt;
+
+    # commands to be executed on leader node:
+    $ cd build/deploy
+    $ sudo python3 generate_eii_bundle.py
+
+    This will generate the .tar.gz which has all the required artifacts by which eii services
+    can be started on worker node.
+</pre></div>
+</div>
+<p><em><strong>Note</strong></em>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">1.</span> <span class="n">Default</span> <span class="n">Values</span> <span class="n">of</span> <span class="n">Bundle</span> <span class="n">Name</span> <span class="ow">is</span> <span class="s2">&quot;eii_bundle.tar.gz&quot;</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">tag</span> <span class="n">name</span> <span class="ow">is</span> <span class="s2">&quot;eii_bundle&quot;</span>
+
+<span class="mf">2.</span> <span class="n">Using</span> <span class="o">*-</span><span class="n">t</span><span class="o">*</span> <span class="n">options</span> <span class="n">you</span> <span class="n">can</span> <span class="n">give</span> <span class="n">your</span> <span class="n">custom</span> <span class="n">tag</span> <span class="n">name</span> <span class="n">which</span> <span class="n">will</span> <span class="n">be</span> <span class="n">used</span> <span class="k">as</span> <span class="n">same</span> <span class="n">name</span> <span class="k">for</span> <span class="n">bundle</span> <span class="n">generation</span><span class="o">.</span>
+
+<span class="mf">3.</span> <span class="n">Default</span> <span class="n">values</span> <span class="k">for</span> <span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">yml</span> <span class="n">path</span> <span class="ow">is</span> <span class="s2">&quot;../docker-compose.yml&quot;</span>
+</pre></div>
+</div>
+<p>For more help:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$sudo python3 generate_eii_bundle.py
+
+
+usage: generate_eii_bundle.py [-h] [-f COMPOSE_FILE_PATH] [-t BUNDLE_TAG_NAME]
+
+EII Bundle Generator: This Utility helps to Generate the bundle to deploy EII.
+
+optional arguments:
+    -h, --help            show this help message and exit
+    -t BUNDLE_TAG_NAME    Tag Name used for Bundle Generation (default:eii_bundle)
+</pre></div>
+</div>
+<p>Now this bundle can be used to deploy an eii on worker node. This bundle has all the required artifacts to start the eii
+services on worker node.</p>
+</div>
+<div class="section" id="step-6-eii-multinode-deployment">
+<h1>Step 6 EII-Multinode deployment<a class="headerlink" href="#step-6-eii-multinode-deployment" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>: Before proceeding this step, please make sure, you have followed steps 1-5. Please make sure to copy and untar the above bundle on a secure location having root only access as it contains secrets. Please ensure you mandatorily run the below commands with sudo option as shown below.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    $ sudo tar -xvzf &lt;eii_bundle gz generated in Step No. 5&gt;
+    $ cd eii_bundle
+    $ docker-compose up -d
+
+    eq.
+
+    $ sudo tar -xvzf eii_bundle.tar.gz
+    $ cd eii_bundle
+    $ docker-compose up -d
+</pre></div>
+</div>
+</div>
+
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By various<br/>
+        
+            &copy; Copyright 2021, various.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

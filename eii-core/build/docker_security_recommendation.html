@@ -1,0 +1,434 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Configuring the Host as per Docker security recommendations. &#8212; eii-test  documentation</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">eii-test  documentation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contents:
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../eii-azure-bridge/README.html">
+   Azure Bridge
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   EII Core
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../eii-messagebus/README.html">
+   EII Message Bus
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/eii-core/build/docker_security_recommendation.md.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   <strong>
+    Configuring the Host as per Docker security recommendations.
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#configuring-as-per-docker-security-recommendations">
+   Configuring as per Docker security recommendations
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p><strong>Contents</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="#configuring-the-host-as-per-docker-security-recommendations"><strong>Configuring the Host as per Docker security recommendations.</strong></a></p></li>
+<li><p><a class="reference external" href="#configuring-the-docker-daemon-as-per-docker-security-recommendations">Configuring the Docker Daemon as per Docker security recommendations</a></p></li>
+</ul>
+<div class="section" id="configuring-the-host-as-per-docker-security-recommendations">
+<h1><strong>Configuring the Host as per Docker security recommendations.</strong><a class="headerlink" href="#configuring-the-host-as-per-docker-security-recommendations" title="Permalink to this headline">¶</a></h1>
+<p><strong>1) Ensure a separate partition for containers has been created</strong></p>
+<p>• To ensure proper isolation, it’s a good idea to keep Docker containers and all of /var/lib/docker on their own filesystem partition.</p>
+<p>After installing docker, in order to steps:</p>
+<p>Remove all Docker containers and images.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>	docker rm -f $(docker ps -aq); docker rmi -f $(docker images -q) 
+</pre></div>
+</div>
+<p>Stop the Docker service.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>	<span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">stop</span> <span class="n">docker</span> 
+</pre></div>
+</div>
+<p>Remove the Docker storage directory.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>	<span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">docker</span>
+</pre></div>
+</div>
+<p>Create a new /var/lib/docker storage directory.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>	<span class="n">mkdir</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">docker</span>
+</pre></div>
+</div>
+<p>Use bind mount to set the new location. For example, to set the new location as /mnt/docker run the following commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>	<span class="n">mkdir</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">docker</span>
+    
+	<span class="n">mount</span> <span class="o">--</span><span class="n">rbind</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">docker</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">docker</span>
+</pre></div>
+</div>
+<p>Start the Docker service.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  	<span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">start</span> <span class="n">docker</span>
+</pre></div>
+</div>
+<p>• Please find below instruction for creating new partition</p>
+<p>[Ubuntu]- https://help.ubuntu.com/community/HowtoPartition/CreatingPartitions</p>
+<p>[Clear Linux]-
+https://clearlinux.org/documentation/clear-linux/get-started/bare-metal-install/cgdisk-manual-install</p>
+<p><strong>2) Ensure Docker is up to Date</strong></p>
+<p>Check which version is the current stable release by visiting the Docker CE release notes. If you’re not up to date, please upgrade the Docker package.</p>
+<p><strong>3) Ensure auditing is configured for various Docker files</strong></p>
+<p>Install and configure auditd to enable auditing of some of Docker’s files, directories, and sockets. Auditd is a Linux access monitoring and accounting subsystem that logs noteworthy system operations at the kernel level. More info https://www.systutorials.com/docs/linux/man/7-audit.rules/</p>
+<p>Place the following snippet at the bottom of the file “/etc/audit/audit.rules”</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>	<span class="o">-</span><span class="n">w</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">docker</span> <span class="o">-</span><span class="n">p</span> <span class="n">wa</span>
+	<span class="o">-</span><span class="n">w</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">docker</span> <span class="o">-</span><span class="n">p</span> <span class="n">wa</span>
+	<span class="o">-</span><span class="n">w</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">docker</span> <span class="o">-</span><span class="n">p</span> <span class="n">wa</span>
+	<span class="o">-</span><span class="n">w</span> <span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">systemd</span><span class="o">/</span><span class="n">system</span><span class="o">/</span><span class="n">docker</span><span class="o">.</span><span class="n">service</span> <span class="o">-</span><span class="n">p</span> <span class="n">wa</span>
+	<span class="o">-</span><span class="n">w</span> <span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">systemd</span><span class="o">/</span><span class="n">system</span><span class="o">/</span><span class="n">docker</span><span class="o">.</span><span class="n">socket</span> <span class="o">-</span><span class="n">p</span> <span class="n">wa</span>
+	<span class="o">-</span><span class="n">w</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">default</span><span class="o">/</span><span class="n">docker</span> <span class="o">-</span><span class="n">p</span> <span class="n">wa</span>
+	<span class="o">-</span><span class="n">w</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">docker</span><span class="o">/</span><span class="n">daemon</span><span class="o">.</span><span class="n">json</span> <span class="o">-</span><span class="n">p</span> <span class="n">wa</span>
+	<span class="o">-</span><span class="n">w</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">docker</span><span class="o">-</span><span class="n">containerd</span> <span class="o">-</span><span class="n">p</span> <span class="n">wa</span>
+	<span class="o">-</span><span class="n">w</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">docker</span><span class="o">-</span><span class="n">runc</span> <span class="o">-</span><span class="n">p</span> <span class="n">wa</span>
+	<span class="o">-</span><span class="n">w</span> <span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">containerd</span> <span class="o">-</span><span class="n">p</span> <span class="n">wa</span>
+	<span class="o">-</span><span class="n">w</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">dockerd</span> <span class="o">-</span><span class="n">p</span> <span class="n">wa</span>
+	<span class="o">-</span><span class="n">w</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">containerd</span><span class="o">/</span><span class="n">config</span><span class="o">.</span><span class="n">toml</span> <span class="o">-</span><span class="n">p</span> <span class="n">wa</span>
+	<span class="o">-</span><span class="n">w</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">containerd</span> <span class="o">-</span><span class="n">p</span> <span class="n">wa</span>
+	<span class="o">-</span><span class="n">w</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">containerd</span><span class="o">-</span><span class="n">shim</span> <span class="o">-</span><span class="n">p</span> <span class="n">wa</span>
+	<span class="o">-</span><span class="n">w</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">containerd</span><span class="o">-</span><span class="n">shim</span><span class="o">-</span><span class="n">runc</span><span class="o">-</span><span class="n">v1</span> <span class="o">-</span><span class="n">p</span> <span class="n">wa</span>
+	<span class="o">-</span><span class="n">w</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">containerd</span><span class="o">-</span><span class="n">shim</span><span class="o">-</span><span class="n">runc</span><span class="o">-</span><span class="n">v2</span> <span class="o">-</span><span class="n">p</span> <span class="n">wa</span>
+        <span class="o">-</span><span class="n">w</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">runc</span> <span class="o">-</span><span class="n">p</span> <span class="n">wa</span>
+</pre></div>
+</div>
+<p>**4) Enable execute access to the docker cli binary to only the current user / admin **</p>
+<p>Change the user ownership of Docker binary</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    sudo chown $USER /usr/bin/docker
+</pre></div>
+</div>
+<p>Change the permission of Docker binary</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">sudo</span> <span class="n">chmod</span> <span class="mi">744</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">docker</span>
+</pre></div>
+</div>
+<p>**5) Selectively mount only the required devices from <code class="docutils literal notranslate"><span class="pre">/dev</span></code> as mounting whole <code class="docutils literal notranslate"><span class="pre">/dev</span></code> is not recommended for production deployment</p>
+<p>Following devices under /dev filesystem will be needed based on use case for video ingestion
+and video analytics containers:</p>
+<ul class="simple">
+<li><p>/dev/dri - GPU</p></li>
+<li><p>/dev/ion - VPU</p></li>
+<li><p>/dev/video* - USB camera devices</p></li>
+</ul>
+<p>**6) On the production system, please have the right firewall policies set for the containers port(s) that are getting published on the host machine
+and are accessible outside. For more details, please refer guide like https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-20-04</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="configuring-as-per-docker-security-recommendations">
+<h1>Configuring as per Docker security recommendations<a class="headerlink" href="#configuring-as-per-docker-security-recommendations" title="Permalink to this headline">¶</a></h1>
+<p><strong>Ensure security related parameter exists for Docker Daemon</strong></p>
+<p>This section deals with the configuration of the Docker daemon. Create a configuration file for the daemon called daemon.json, to which we’ll add some security-related configuration parameters.</p>
+<p>To begin, open up the configuration file in your favorite editor:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>	<span class="n">sudo</span> <span class="n">nano</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">docker</span><span class="o">/</span><span class="n">daemon</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+<p>This will present you with a blank text file. Paste in the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="p">{</span>
+        <span class="s2">&quot;icc&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+	<span class="s2">&quot;log-driver&quot;</span><span class="p">:</span> <span class="s2">&quot;syslog&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;live-restore&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+	<span class="s2">&quot;userland-proxy&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+	<span class="s2">&quot;no-new-privileges&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+	<span class="s2">&quot;userns-remap&quot;</span><span class="p">:</span> <span class="s2">&quot;default&quot;</span>
+    
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>Save and close the file, then restart the Docker daemon so it picks up this new configuration:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>	<span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">restart</span> <span class="n">docker</span>
+</pre></div>
+</div>
+<p><strong>Ensure that authorization for Docker client commands is enabled</strong></p>
+<p>If you need to allow network access to the Docker socket you should run the docker daemon with <a class="reference external" href="https://docs.docker.com/engine/extend/plugins_authorization/">authorization-plugin</a> by following the steps below.</p>
+<ol class="simple">
+<li><p>Create an empty policy definition that will allow all requests.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">docker</span><span class="o">/</span><span class="n">policies</span>
+<span class="n">cat</span> <span class="o">&gt;&gt;</span>  <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">docker</span><span class="o">/</span><span class="n">policies</span><span class="o">/</span><span class="n">authz</span><span class="o">.</span><span class="n">rego</span> <span class="o">&lt;&lt;</span> <span class="n">EOF</span>
+<span class="n">package</span> <span class="n">docker</span><span class="o">.</span><span class="n">authz</span>
+
+<span class="n">allow</span> <span class="o">=</span> <span class="n">true</span>
+<span class="n">EOF</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Install a plugin or <a class="reference external" href="https://docs.docker.com/engine/reference/commandline/plugin_create/">create one plugin</a>.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">plugin</span> <span class="n">install</span> <span class="o">&lt;</span><span class="n">plugin</span><span class="o">&gt;</span>
+<span class="k">for</span> <span class="n">eg</span><span class="p">:</span>
+<span class="n">docker</span> <span class="n">plugin</span> <span class="n">install</span> <span class="n">openpolicyagent</span><span class="o">/</span><span class="n">opa</span><span class="o">-</span><span class="n">docker</span><span class="o">-</span><span class="n">authz</span><span class="o">-</span><span class="n">v2</span><span class="p">:</span><span class="mf">0.4</span> <span class="n">opa</span><span class="o">-</span><span class="n">args</span><span class="o">=</span><span class="s2">&quot;-policy-file /opa/policies/authz.rego&quot;</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Configure the Docker daemon to use the plugin for authorization by appending following in /etc/docker/daemon.json.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="p">{</span>
+    <span class="s2">&quot;authorization-plugins&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;&lt;plugin_name&gt;&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Restart the docker daemon.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">restart</span> <span class="n">docker</span>
+</pre></div>
+</div>
+<p><strong>Ensure Content trust for Docker is Enabled</strong></p>
+<p>User can verify images pull or deploy from a registry server by setting following env variables :</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">export</span> <span class="nv">DOCKER_CONTENT_TRUST</span><span class="o">=</span><span class="m">1</span>
+$ <span class="nb">export</span> <span class="nv">DOCKER_BUILDKIT</span><span class="o">=</span><span class="m">1</span>
+</pre></div>
+</div>
+<p><strong>Note</strong></p>
+<blockquote>
+<div><p>Please find more information about Docker bench security below. The Docker Bench for Security is a script that checks for dozens of common best-practices around deploying Docker containers in production.</p>
+</div></blockquote>
+<blockquote>
+<div><p>https://github.com/docker/docker-bench-security</p>
+</div></blockquote>
+<hr class="docutils" />
+<p><strong>Secure Docker registries</strong></p>
+<p>Do not use insecure registries: Docker considers a private registry either secure or insecure. By default, registries are considered secure. A secure registry uses TLS. A copy of registry’s CA certificate is placed on the Docker host at ‘/etc/docker/certs.d//’ directory. Do not use any insecure registries in the production environment.
+Disable operations on legacy registry (v1): The latest Docker registry is v2. Restrict all operations on the legacy registry version (v1).</p>
+<p><strong>Configure TLS authentication for the Docker daemon</strong></p>
+<p>Configure TLS authentication to restrict access to Docker daemon via IP and port. It is possible to make the Docker daemon to listen on a specific IP and port and any other Unix socket other than default Unix socket. Hence, do not bind the Docker daemon to another IP/port or a Unix socket.</p>
+<p>If you must expose the Docker daemon via a network socket, configure TLS authentication for the daemon and Docker Swarm APIs (if using). This would restrict the connections to your Docker daemon over the network to a limited number of clients who could successfully authenticate over TLS. Manage and guard certificates and keys for Docker daemon and Docker clients.</p>
+<p><strong>Secure daemon configuration files</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Set</span> <span class="n">docker</span><span class="o">.</span><span class="n">service</span> <span class="n">file</span> <span class="n">ownership</span> <span class="n">to</span> <span class="n">root</span><span class="p">:</span><span class="n">root</span><span class="o">.</span>
+<span class="n">Set</span> <span class="n">docker</span><span class="o">.</span><span class="n">service</span> <span class="n">file</span> <span class="n">permissions</span> <span class="n">to</span> <span class="mi">644</span> <span class="ow">or</span> <span class="n">more</span> <span class="n">restrictive</span><span class="o">.</span>
+<span class="n">Set</span> <span class="n">docker</span><span class="o">.</span><span class="n">socket</span> <span class="n">file</span> <span class="n">ownership</span> <span class="n">to</span> <span class="n">root</span><span class="p">:</span><span class="n">root</span><span class="o">.</span>
+<span class="n">Set</span> <span class="n">docker</span><span class="o">.</span><span class="n">socket</span> <span class="n">file</span> <span class="n">permissions</span> <span class="n">to</span> <span class="mi">644</span> <span class="ow">or</span> <span class="n">more</span> <span class="n">restrictive</span><span class="o">.</span>
+<span class="n">Set</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">docker</span> <span class="n">directory</span> <span class="n">ownership</span> <span class="n">to</span> <span class="n">root</span><span class="p">:</span><span class="n">root</span><span class="o">.</span>
+<span class="n">Set</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">docker</span> <span class="n">directory</span> <span class="n">permissions</span> <span class="n">to</span> <span class="mi">755</span> <span class="ow">or</span> <span class="n">more</span> <span class="n">restrictive</span><span class="o">.</span>
+<span class="n">Set</span> <span class="n">registry</span> <span class="n">certificate</span> <span class="n">file</span> <span class="n">ownership</span> <span class="n">to</span> <span class="n">root</span><span class="p">:</span><span class="n">root</span><span class="o">.</span>
+<span class="n">Registry</span> <span class="n">certificate</span> <span class="n">files</span> <span class="n">are</span> <span class="n">usually</span> <span class="n">found</span> <span class="n">under</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">docker</span><span class="o">/</span><span class="n">certs</span><span class="o">.</span><span class="n">d</span><span class="o">/</span> <span class="n">directory</span><span class="o">.</span>
+<span class="n">Set</span> <span class="n">registry</span> <span class="n">certificate</span> <span class="n">file</span> <span class="n">permissions</span> <span class="n">to</span> <span class="mi">444</span> <span class="ow">or</span> <span class="n">more</span> <span class="n">restrictive</span><span class="o">.</span>
+<span class="n">Set</span> <span class="n">TLS</span> <span class="n">CA</span> <span class="n">certificate</span> <span class="n">file</span> <span class="n">ownership</span> <span class="n">to</span> <span class="n">root</span><span class="p">:</span><span class="n">root</span><span class="o">.</span>
+<span class="n">TLS</span> <span class="n">CA</span> <span class="n">certificate</span> <span class="n">file</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">file</span> <span class="n">that</span> <span class="ow">is</span> <span class="n">passed</span> <span class="n">alongwith</span><span class="o">--</span><span class="n">tlscacert</span> <span class="n">parameter</span><span class="o">.</span>
+<span class="n">Set</span> <span class="n">TLS</span> <span class="n">CA</span> <span class="n">certificate</span> <span class="n">file</span> <span class="n">permissions</span> <span class="n">to</span> <span class="mi">444</span> <span class="ow">or</span> <span class="n">more</span> <span class="n">restrictive</span><span class="o">.</span>
+<span class="n">Set</span> <span class="n">Docker</span> <span class="n">server</span> <span class="n">certificate</span> <span class="n">file</span> <span class="n">ownership</span> <span class="n">to</span> <span class="n">root</span><span class="p">:</span><span class="n">root</span><span class="o">.</span>
+<span class="n">Docker</span> <span class="n">server</span> <span class="n">certificate</span> <span class="n">file</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">file</span> <span class="n">that</span> <span class="ow">is</span> <span class="n">passed</span> <span class="n">alongwith</span><span class="o">--</span><span class="n">tlscert</span> <span class="n">parameter</span><span class="o">.</span>
+<span class="n">Set</span> <span class="n">Docker</span> <span class="n">server</span> <span class="n">certificate</span> <span class="n">file</span> <span class="n">permissions</span> <span class="n">to</span> <span class="mi">444</span> <span class="ow">or</span> <span class="n">more</span> <span class="n">restrictive</span><span class="o">.</span>
+<span class="n">Set</span> <span class="n">Docker</span> <span class="n">server</span> <span class="n">certificate</span> <span class="n">key</span> <span class="n">file</span> <span class="n">ownership</span> <span class="n">to</span> <span class="n">root</span><span class="p">:</span><span class="n">root</span><span class="o">.</span>
+<span class="n">Docker</span> <span class="n">server</span> <span class="n">certificate</span> <span class="n">key</span> <span class="n">file</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">file</span> <span class="n">that</span> <span class="ow">is</span> <span class="n">passed</span> <span class="n">alongwith</span><span class="o">--</span><span class="n">tlskey</span> <span class="n">parameter</span><span class="o">.</span>
+<span class="n">Set</span> <span class="n">Docker</span> <span class="n">server</span> <span class="n">certificate</span> <span class="n">key</span> <span class="n">file</span> <span class="n">permissions</span> <span class="n">to</span> <span class="mf">400.</span>
+<span class="n">Set</span> <span class="n">Docker</span> <span class="n">socket</span> <span class="n">file</span> <span class="n">ownership</span> <span class="n">to</span> <span class="n">root</span><span class="p">:</span><span class="n">docker</span><span class="o">.</span>
+<span class="n">Docker</span> <span class="n">daemon</span> <span class="n">runs</span> <span class="k">as</span> <span class="s1">&#39;root&#39;</span><span class="o">.</span> <span class="n">The</span> <span class="n">default</span> <span class="n">Unix</span> <span class="n">socket</span> <span class="n">hence</span> <span class="n">must</span> <span class="n">be</span> <span class="n">owned</span> <span class="n">by</span> <span class="s1">&#39;root&#39;</span><span class="o">.</span> <span class="n">Additionally</span><span class="p">,</span> <span class="n">the</span> <span class="n">Docker</span> <span class="n">installer</span> <span class="n">creates</span> <span class="n">a</span> <span class="n">Unix</span> <span class="n">group</span> <span class="n">called</span> <span class="s1">&#39;docker&#39;</span><span class="o">.</span> <span class="n">You</span> <span class="n">can</span> <span class="n">add</span> <span class="n">users</span> <span class="n">to</span> <span class="n">this</span> <span class="n">group</span><span class="p">,</span> <span class="ow">and</span> <span class="n">then</span> <span class="n">those</span> <span class="n">users</span> <span class="n">would</span> <span class="n">be</span> <span class="n">able</span> <span class="n">to</span> <span class="n">read</span> <span class="ow">and</span> <span class="n">write</span> <span class="n">to</span> <span class="n">the</span> <span class="n">default</span> <span class="n">Docker</span> <span class="n">Unix</span> <span class="n">socket</span><span class="o">.</span> <span class="n">The</span> <span class="n">membership</span> <span class="n">to</span> <span class="n">the</span> <span class="s1">&#39;docker&#39;</span> <span class="n">group</span> <span class="n">should</span> <span class="n">be</span> <span class="n">tightly</span> <span class="n">controlled</span> <span class="n">by</span> <span class="n">the</span> <span class="n">system</span> <span class="n">administrator</span><span class="o">.</span>
+<span class="n">Set</span> <span class="n">Docker</span> <span class="n">socket</span> <span class="n">file</span> <span class="n">permissions</span> <span class="n">to</span> <span class="mi">660</span> <span class="ow">or</span> <span class="n">more</span> <span class="n">restrictive</span><span class="o">.</span>
+<span class="n">Set</span> <span class="n">daemon</span><span class="o">.</span><span class="n">json</span> <span class="n">file</span> <span class="n">ownership</span> <span class="n">to</span> <span class="n">root</span><span class="p">:</span><span class="n">root</span><span class="o">.</span>
+<span class="n">Set</span> <span class="n">daemon</span><span class="o">.</span><span class="n">json</span> <span class="n">file</span> <span class="n">permissions</span> <span class="n">to</span> <span class="mi">644</span> <span class="ow">or</span> <span class="n">more</span> <span class="n">restrictive</span><span class="o">.</span>
+<span class="n">Set</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">default</span><span class="o">/</span><span class="n">docker</span> <span class="n">file</span> <span class="n">ownership</span> <span class="n">to</span> <span class="n">root</span><span class="p">:</span><span class="n">root</span><span class="o">.</span>
+<span class="n">Set</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">default</span><span class="o">/</span><span class="n">docker</span> <span class="n">file</span> <span class="n">permissions</span> <span class="n">to</span> <span class="mi">644</span> <span class="ow">or</span> <span class="n">more</span> <span class="n">restrictive</span><span class="o">.</span>
+</pre></div>
+</div>
+<p><strong>Configure Linux Security Modules</strong></p>
+<p>AppArmor protects the Linux OS and applications from various threats by enforcing security policy which is also known as AppArmor profile. You can create your own AppArmor profile for containers or use the Docker’s default AppArmor profile. This would enforce security policies on the containers as defined in the profile.
+Do not disable AppArmor Profile</p>
+<p>AppArmor is an effective and easy-to-use Linux application security system. It is available on quite a few Linux distributions by default such as Debian and Ubuntu.
+The container (process) would have set of restrictions as defined in AppArmor profile. If your AppArmor profile is mis-configured, then the container may not entirely work as expected.</p>
+<p><strong>Restrict containers from acquiring additional privileges</strong></p>
+<p>Restrict the container from acquiring additional privileges via suid or sgid bits.no_new_priv prevents LSMs like SELinux from transitioning to process labels that have access not allowed to the current process.</p>
+<p>This can be achieved by configuring the flag no-new-privileges in the docker daemon as mentioned in the documentation: https://docs.docker.com/engine/reference/commandline/dockerd/</p>
+<p><strong>Only allow trusted users to control the Docker daemon</strong></p>
+<p>Remove any users from the ‘docker’ group that are not trusted. Additionally, do not create a mapping of sensitive directories on the host to the container volumes. The impact is that the rights to build and execute containers as a normal user would be restricted. The Docker daemon currently requires ‘root’ privileges. If the user are added to the ‘docker’ group, it gives them full ‘root’ access rights.</p>
+<p><strong>Audit the Docker daemon and its files</strong></p>
+<p>Follow these guidelines to audit Docker daemon and important Docker files and directories:
+Audit Docker daemon.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Audit</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">docker</span> <span class="n">directory</span><span class="p">:</span> <span class="n">It</span> <span class="n">holds</span> <span class="nb">all</span> <span class="n">the</span> <span class="n">information</span> <span class="n">about</span> <span class="n">containers</span><span class="o">.</span>
+<span class="n">Audit</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">docker</span> <span class="n">directory</span><span class="p">:</span> <span class="n">It</span> <span class="n">holds</span> <span class="n">various</span> <span class="n">certificates</span> <span class="ow">and</span> <span class="n">keys</span> <span class="n">used</span> <span class="k">for</span> <span class="n">TLS</span> <span class="n">communication</span> <span class="n">between</span> <span class="n">Docker</span> <span class="n">daemon</span> <span class="ow">and</span> <span class="n">Docker</span> <span class="n">client</span><span class="o">.</span>
+<span class="n">Audit</span> <span class="n">docker</span><span class="o">.</span><span class="n">service</span> <span class="n">file</span><span class="p">:</span> <span class="n">The</span> <span class="n">docker</span><span class="o">.</span><span class="n">service</span> <span class="n">file</span> <span class="n">might</span> <span class="n">be</span> <span class="n">present</span> <span class="k">if</span> <span class="n">the</span> <span class="n">daemon</span> <span class="n">parameters</span> <span class="n">have</span> <span class="n">been</span> <span class="n">changed</span> <span class="n">by</span> <span class="n">an</span> <span class="n">administrator</span><span class="o">.</span> <span class="n">It</span> <span class="n">holds</span> <span class="n">various</span> <span class="n">parameters</span> <span class="k">for</span> <span class="n">Docker</span> <span class="n">daemon</span><span class="o">.</span>
+<span class="n">Audit</span> <span class="n">docker</span><span class="o">.</span><span class="n">socket</span> <span class="n">file</span><span class="p">:</span> <span class="n">It</span> <span class="n">holds</span> <span class="n">various</span> <span class="n">parameters</span> <span class="k">for</span> <span class="n">Docker</span> <span class="n">daemon</span> <span class="n">socket</span><span class="o">.</span>
+<span class="n">Audit</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">default</span><span class="o">/</span><span class="n">docker</span> <span class="n">file</span><span class="p">:</span> <span class="n">It</span> <span class="n">holds</span> <span class="n">various</span> <span class="n">parameters</span> <span class="k">for</span> <span class="n">Docker</span> <span class="n">daemon</span><span class="o">.</span>
+<span class="n">Audit</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">docker</span><span class="o">/</span><span class="n">daemon</span><span class="o">.</span><span class="n">json</span> <span class="n">file</span><span class="p">:</span> <span class="n">It</span> <span class="n">holds</span> <span class="n">various</span> <span class="n">parameters</span> <span class="k">for</span> <span class="n">Docker</span> <span class="n">daemon</span><span class="o">.</span>
+<span class="n">Audit</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">docker</span><span class="o">-</span><span class="n">containerd</span> <span class="n">file</span><span class="p">:</span> <span class="n">Docker</span> <span class="n">now</span> <span class="n">relies</span> <span class="n">on</span> <span class="n">containerd</span> <span class="ow">and</span> <span class="n">runC</span> <span class="n">to</span> <span class="n">spawn</span> <span class="n">containers</span><span class="o">.</span>
+<span class="n">Audit</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">docker</span><span class="o">-</span><span class="n">runc</span> <span class="n">file</span><span class="p">:</span> <span class="n">Docker</span> <span class="n">now</span> <span class="n">relies</span> <span class="n">on</span> <span class="n">containerd</span> <span class="ow">and</span> <span class="n">runC</span> <span class="n">to</span> <span class="n">spawn</span> <span class="n">containers</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Note 1: Auditing generates quite big log files. Ensure to rotate and archive them periodically. Also, create a separate partition of audit to avoid filling root file system.
+Note 2: By default, Docker related files and directories are not audited. Some of these files may not be available on the system. In that case, the recommendations are not applicable.</p>
+<p><strong>Enable live restore</strong></p>
+<p>Enable –live-restore for full support of daemon-less containers in docker. It ensures that docker does not stop containers on shutdown or restore and properly reconnects to the container when restarted. This can be enabled by following the guide https://docs.docker.com/config/containers/live-restore/ .</p>
+</div>
+
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By various<br/>
+        
+            &copy; Copyright 2021, various.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

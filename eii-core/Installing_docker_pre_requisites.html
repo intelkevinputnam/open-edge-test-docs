@@ -1,0 +1,258 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manual steps to install docker daemon and docker-compose with proxy settings configuration &#8212; eii-test  documentation</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">eii-test  documentation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contents:
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../eii-azure-bridge/README.html">
+   Azure Bridge
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="README.html">
+   EII Core
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../eii-messagebus/README.html">
+   EII Message Bus
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/eii-core/Installing_docker_pre_requisites.md.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p><strong>Contents</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="#manual-steps-to-install-docker-daemon-and-docker-compose-with-proxy-settings-configuration">Manual steps to install docker daemon and docker-compose with proxy settings configuration</a></p></li>
+</ul>
+<div class="section" id="manual-steps-to-install-docker-daemon-and-docker-compose-with-proxy-settings-configuration">
+<h1>Manual steps to install docker daemon and docker-compose with proxy settings configuration<a class="headerlink" href="#manual-steps-to-install-docker-daemon-and-docker-compose-with-proxy-settings-configuration" title="Permalink to this headline">¶</a></h1>
+<ol>
+<li><p>Install latest docker cli/docker daemon by following<br />https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce. Follow <code class="docutils literal notranslate"><span class="pre">Install</span> <span class="pre">using</span> <span class="pre">the</span> <span class="pre">repository</span></code> and <code class="docutils literal notranslate"><span class="pre">Install</span> <span class="pre">Docker</span> <span class="pre">CE</span></code> (follow first 2 steps) sections there. Also, follow the
+manage docker as a non-root user section at<br />https://docs.docker.com/install/linux/linux-postinstall/ to run docker without sudo</p></li>
+<li><p>Please follow the below steps only if the node/system on which the docker setup is tried out is<br />running behind a HTTP proxy server. If that’s not the case, this step can be skipped.</p>
+<ul>
+<li><p>Configure proxy settings for docker client to connect to internet and for containers to access
+internet by following https://docs.docker.com/network/proxy/. Sample proxy
+config that could be going into ~/.docker/config.json would look like below
+with appropriate proxy server and ports added.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;proxies&quot;</span><span class="p">:</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;default&quot;</span><span class="p">:</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;httpProxy&quot;</span><span class="p">:</span> <span class="s2">&quot;http://&lt;proxy_server&gt;:&lt;proxy_port&gt;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;httpsProxy&quot;</span><span class="p">:</span> <span class="s2">&quot;http://&lt;proxy_server:&lt;proxy_port&gt;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;noProxy&quot;</span><span class="p">:</span> <span class="s2">&quot;127.0.0.1,localhost,&lt;localadmin&gt;&quot;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>Configure proxy settings for docker daemon by following the steps at
+https://docs.docker.com/config/daemon/systemd/#httphttps-proxy. Use the values for http proxy
+and https proxy as used in previous step.</p>
+<p>The correct DNS servers need to be updated to the /etc/resolv.conf</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span> <span class="n">Ubuntu</span> <span class="mf">16.04</span> <span class="ow">and</span> <span class="n">earlier</span>
+
+   <span class="n">For</span> <span class="n">Ubuntu</span> <span class="mf">16.04</span> <span class="ow">and</span> <span class="n">earlier</span><span class="p">,</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">resolv</span><span class="o">.</span><span class="n">conf</span> <span class="n">was</span> <span class="n">dynamically</span> <span class="n">generated</span> <span class="n">by</span> <span class="n">NetworkManager</span><span class="o">.</span>
+
+   <span class="n">Comment</span> <span class="n">out</span> <span class="n">the</span> <span class="n">line</span> <span class="n">dns</span><span class="o">=</span><span class="n">dnsmasq</span> <span class="p">(</span><span class="k">with</span> <span class="n">a</span> <span class="c1">#) in /etc/NetworkManager/NetworkManager.conf</span>
+
+   <span class="n">Restart</span> <span class="n">the</span> <span class="n">NetworkManager</span> <span class="n">to</span> <span class="n">regenerate</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">resolv</span><span class="o">.</span><span class="n">conf</span> <span class="p">:</span>
+   <span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">restart</span> <span class="n">network</span><span class="o">-</span><span class="n">manager</span>
+
+   <span class="n">Verify</span> <span class="n">on</span> <span class="n">the</span> <span class="n">host</span><span class="p">:</span> <span class="n">cat</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">resolv</span><span class="o">.</span><span class="n">conf</span>
+
+<span class="n">B</span><span class="o">.</span> <span class="n">Ubuntu</span> <span class="mf">18.04</span> <span class="ow">and</span> <span class="n">later</span>
+
+   <span class="n">Ubuntu</span> <span class="mf">18.04</span> <span class="n">changed</span> <span class="n">to</span> <span class="n">use</span> <span class="n">systemd</span><span class="o">-</span><span class="n">resolved</span> <span class="n">to</span> <span class="n">generate</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">resolv</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span> <span class="n">Now</span> <span class="n">by</span> <span class="n">default</span> <span class="n">it</span> <span class="n">uses</span> <span class="n">a</span> <span class="n">local</span> <span class="n">DNS</span> <span class="n">cache</span> <span class="mf">127.0.0.53</span><span class="o">.</span> <span class="n">That</span> <span class="n">will</span> <span class="ow">not</span> <span class="n">work</span> <span class="n">inside</span> <span class="n">a</span> <span class="n">container</span><span class="p">,</span> <span class="n">so</span> <span class="n">Docker</span> <span class="n">will</span> <span class="n">default</span> <span class="n">to</span> <span class="n">Google</span><span class="s1">&#39;s 8.8.8.8 DNS server, which may break for people behind a firewall.</span>
+
+   <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">resolv</span><span class="o">.</span><span class="n">conf</span> <span class="ow">is</span> <span class="n">actually</span> <span class="n">a</span> <span class="n">symlink</span> <span class="p">(</span><span class="n">ls</span> <span class="o">-</span><span class="n">l</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">resolv</span><span class="o">.</span><span class="n">conf</span><span class="p">)</span> <span class="n">which</span> <span class="n">points</span> <span class="n">to</span> <span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">systemd</span><span class="o">/</span><span class="n">resolve</span><span class="o">/</span><span class="n">stub</span><span class="o">-</span><span class="n">resolv</span><span class="o">.</span><span class="n">conf</span> <span class="p">(</span><span class="mf">127.0.0.53</span><span class="p">)</span> <span class="n">by</span> <span class="n">default</span> <span class="ow">in</span> <span class="n">Ubuntu</span> <span class="mf">18.04</span><span class="o">.</span>
+
+   <span class="n">Just</span> <span class="n">change</span> <span class="n">the</span> <span class="n">symlink</span> <span class="n">to</span> <span class="n">point</span> <span class="n">to</span> <span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">systemd</span><span class="o">/</span><span class="n">resolve</span><span class="o">/</span><span class="n">resolv</span><span class="o">.</span><span class="n">conf</span><span class="p">,</span> <span class="n">which</span> <span class="n">lists</span> <span class="n">the</span> <span class="n">real</span> <span class="n">DNS</span> <span class="n">servers</span><span class="p">:</span>
+   <span class="n">sudo</span> <span class="n">ln</span> <span class="o">-</span><span class="n">sf</span> <span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">systemd</span><span class="o">/</span><span class="n">resolve</span><span class="o">/</span><span class="n">resolv</span><span class="o">.</span><span class="n">conf</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">resolv</span><span class="o">.</span><span class="n">conf</span>
+
+   <span class="n">Verify</span> <span class="n">on</span> <span class="n">the</span> <span class="n">host</span><span class="p">:</span> <span class="n">cat</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">resolv</span><span class="o">.</span><span class="n">conf</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</li>
+<li><p>Install docker-compose tool by following this<br />https://docs.docker.com/compose/install/#install-compose</p></li>
+</ol>
+</div>
+
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By various<br/>
+        
+            &copy; Copyright 2021, various.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

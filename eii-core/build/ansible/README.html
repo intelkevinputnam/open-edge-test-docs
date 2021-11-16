@@ -1,0 +1,715 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ansible based EII Prequisites setup, provisioning, build &amp; deployment &#8212; eii-test  documentation</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">eii-test  documentation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contents:
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../eii-azure-bridge/README.html">
+   Azure Bridge
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../README.html">
+   EII Core
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../eii-messagebus/README.html">
+   EII Message Bus
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/eii-core/build/ansible/README.md.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Ansible based EII Prequisites setup, provisioning, build &amp; deployment
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installing-ansible-on-ubuntu-control-node">
+   Installing Ansible on Ubuntu {Control node}
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prerequisite-step-needed-for-all-the-control-worker-nodes">
+   Prerequisite step needed for all the control/worker nodes.
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#generate-ssh-key-for-all-nodes">
+     Generate SSH KEY for all nodes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adding-ssh-authorized-key-from-control-node-to-all-the-nodes">
+   Adding SSH Authorized Key from control node to all the nodes
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#configure-sudoers-file-to-accept-no-password-for-sudo-operation">
+     Configure Sudoers file to accept NO PASSWORD for sudo operation.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#updating-the-leader-worker-node-s-information-for-using-remote-hosts">
+   Updating the leader &amp; worker node’s information for using remote hosts
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#updating-the-eii-source-folder-usecase-proxy-settings-in-group-variables">
+   Updating the EII Source Folder, Usecase &amp; Proxy Settings in Group Variables
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#non-orchestrated-multi-node-deployment-without-k8s">
+   Non-orchestrated multi node deployment (without k8s)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#select-eii-services-to-run-on-a-particular-node-in-multinode-deployment">
+   Select EII services to run on a particular node in multinode deployment
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#execute-ansible-playbook-from-eii-workdir-iedgeinsights-build-ansible-control-node-to-deploy-eii-services-in-single-multi-nodes">
+   Execute ansible Playbook from [EII_WORKDIR]/IEdgeInsights/build/ansible {Control node} to deploy EII services in single/multi nodes
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deploying-eii-using-helm-in-kubernetes-k8s-environment">
+     Deploying EII Using Helm in Kubernetes (k8s) environment
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p><strong>Contents</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="#ansible-based-eii-prequisites-setup-provisioning-build--deployment">Ansible based EII Prequisites setup, provisioning, build &amp; deployment</a></p></li>
+<li><p><a class="reference external" href="#installing-ansible-on-ubuntu-control-node">Installing Ansible on Ubuntu {Control node}</a></p></li>
+<li><p><a class="reference external" href="#prerequisite-step-needed-for-all-the-controlworker-nodes">Prerequisite step needed for all the control/worker nodes.</a></p>
+<ul>
+<li><p><a class="reference external" href="#generate-ssh-key-for-all-nodes">Generate SSH KEY for all nodes</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#adding-ssh-authorized-key-from-control-node-to-all-the-nodes">Adding SSH Authorized Key from control node to all the nodes</a></p>
+<ul>
+<li><p><a class="reference external" href="#configure-sudoers-file-to-accept-no-password-for-sudo-operation">Configure Sudoers file to accept NO PASSWORD for sudo operation.</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#updating-the-leader--worker-nodes-information-for-using-remote-hosts">Updating the leader &amp; worker node’s information for using remote hosts</a></p></li>
+<li><p><a class="reference external" href="#updating-the-eii-source-folder-usecase--proxy-settings-in-group-variables">Updating the EII Source Folder, Usecase &amp; Proxy Settings in Group Variables</a></p></li>
+<li><p><a class="reference external" href="#non-orchestrated-multi-node-deployment-without-k8s">Non-orchestrated multi node deployment (without k8s)</a></p></li>
+<li><p><a class="reference external" href="#select-eii-services-to-run-on-a-particular-node-in-multinode-deployment">Select EII services to run on a particular node in multinode deployment</a></p></li>
+<li><p><a class="reference external" href="#execute-ansible-playbook-from-eii_workdiriedgeinsightsbuildansible-control-node-to-deploy-eii-services-in-singlemulti-nodes">Execute ansible Playbook from [EII_WORKDIR]/IEdgeInsights/build/ansible {Control node} to deploy EII services in single/multi nodes</a></p>
+<ul>
+<li><p><a class="reference external" href="#deploying-eii-using-helm-in-kubernetes-k8s-environment">Deploying EII Using Helm in Kubernetes (k8s) environment</a></p></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="ansible-based-eii-prequisites-setup-provisioning-build-deployment">
+<h1>Ansible based EII Prequisites setup, provisioning, build &amp; deployment<a class="headerlink" href="#ansible-based-eii-prequisites-setup-provisioning-build-deployment" title="Permalink to this headline">¶</a></h1>
+<p>Ansible is the automation engine which can enable EII deployment across single/multi nodes.
+We need one control node where ansible is installed and optional hosts. We can also use the control node itself to deploy EII</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p></p>
+<ul class="simple">
+<li><p>Ansible can execute the tasks on control node based on the playbooks defined</p></li>
+<li><p>There are 3 types of nodes - control node where ansible must be installed, EII leader node where ETCD server will be running and optional worker nodes, all worker nodes remotely connect to ETCD server running on leader node. Control node and EII leader node can be same.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="installing-ansible-on-ubuntu-control-node">
+<h1>Installing Ansible on Ubuntu {Control node}<a class="headerlink" href="#installing-ansible-on-ubuntu-control-node" title="Permalink to this headline">¶</a></h1>
+<ol>
+<li><p>Execute the following command in the identified control node machine.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>    $ sudo apt update
+    $ sudo apt install software-properties-common
+    $ sudo apt-add-repository --yes --update ppa:ansible/ansible
+    $ sudo apt install ansible
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="prerequisite-step-needed-for-all-the-control-worker-nodes">
+<h1>Prerequisite step needed for all the control/worker nodes.<a class="headerlink" href="#prerequisite-step-needed-for-all-the-control-worker-nodes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="generate-ssh-key-for-all-nodes">
+<h2>Generate SSH KEY for all nodes<a class="headerlink" href="#generate-ssh-key-for-all-nodes" title="Permalink to this headline">¶</a></h2>
+<p>Generate the SSH KEY for all nodes using following command (to be executed in the only control node), ignore to run this command if you already have ssh keys generated in your system without id and passphrase,</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>    $ ssh-keygen
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>
+Dont give any passphrase and id, just press <code class="docutils literal notranslate"><span class="pre">Enter</span></code> for all the prompt which will generate the key.</p>
+</div>
+<p>For Eg.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ssh-keygen
+
+Generating public/private rsa key pair.
+Enter file in which to save the key (/root/.ssh/id_rsa):  &lt;ENTER&gt;
+Enter passphrase (empty for no passphrase):  &lt;ENTER&gt;
+Enter same passphrase again:  &lt;ENTER&gt;
+Your identification has been saved in ~/.ssh/id_rsa.
+Your public key has been saved in ~/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:vlcKVU8Tj8nxdDXTW6AHdAgqaM/35s2doon76uYpNA0 root@host
+The key&#39;s randomart image is:
++---[RSA 2048]----+
+|          .oo.==*|
+|     .   .  o=oB*|
+|    o . .  ..o=.=|
+|   . oE.  .  ... |
+|      ooS.       |
+|      ooo.  .    |
+|     . ...oo     |
+|      . .*o+.. . |
+|       =O==.o.o  |
++----[SHA256]-----+
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="adding-ssh-authorized-key-from-control-node-to-all-the-nodes">
+<h1>Adding SSH Authorized Key from control node to all the nodes<a class="headerlink" href="#adding-ssh-authorized-key-from-control-node-to-all-the-nodes" title="Permalink to this headline">¶</a></h1>
+<p>Please follow the steps to copy the generated keys from control node to all other nodes</p>
+<p>Execute the following command from <code class="docutils literal notranslate"><span class="pre">control</span></code> node.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>    $ ssh-copy-id &lt;USER_NAME&gt;@&lt;HOST_IP&gt;
+</pre></div>
+</div>
+<p>For Eg.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>    $ ssh-copy-id test@192.0.0.1
+
+    /usr/bin/ssh-copy-id: INFO: Source of key<span class="o">(</span>s<span class="o">)</span> to be installed: <span class="s2">&quot;/home/&lt;username&gt;/.ssh/id_rsa.pub&quot;</span>
+
+    Number of key<span class="o">(</span>s<span class="o">)</span> added: <span class="m">1</span>
+
+    Now try logging into the machine, with:   <span class="s2">&quot;ssh &#39;test@192.0.0.1&#39;&quot;</span>
+    and check to make sure that only the key<span class="o">(</span>s<span class="o">)</span> you wanted were added.
+</pre></div>
+</div>
+<div class="section" id="configure-sudoers-file-to-accept-no-password-for-sudo-operation">
+<h2>Configure Sudoers file to accept NO PASSWORD for sudo operation.<a class="headerlink" href="#configure-sudoers-file-to-accept-no-password-for-sudo-operation" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>
+Ansible need to execute some commands as <code class="docutils literal notranslate"><span class="pre">sudo</span></code>. The below configuration is needed so that <code class="docutils literal notranslate"><span class="pre">passwords</span></code> need not be saved in the ansible inventory file <code class="docutils literal notranslate"><span class="pre">hosts</span></code></p>
+</div>
+<p>Update <code class="docutils literal notranslate"><span class="pre">sudoers</span></code> file</p>
+<ol>
+<li><p>Open the <code class="docutils literal notranslate"><span class="pre">sudoers</span></code> file.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>    $ sudo visudo
+</pre></div>
+</div>
+</li>
+<li><p>Append the following to the <code class="docutils literal notranslate"><span class="pre">sudoers</span></code> file</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>
+Please append to the last line of the <code class="docutils literal notranslate"><span class="pre">sudoers</span></code> file.</p>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>    $ &lt;ansible_non_root_user&gt;  <span class="nv">ALL</span><span class="o">=(</span>ALL:ALL<span class="o">)</span> NOPASSWD: ALL
+</pre></div>
+</div>
+<p>For E.g:</p>
+<p>If in control node, the current non root user is <code class="docutils literal notranslate"><span class="pre">user1</span></code>, you should append as follows</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>   user1 <span class="nv">ALL</span><span class="o">=(</span>ALL:ALL<span class="o">)</span> NOPASSWD: ALL
+</pre></div>
+</div>
+</li>
+<li><p>Save &amp; Close the file</p></li>
+<li><p>For checking the <code class="docutils literal notranslate"><span class="pre">sudo</span></code> access for the enabled <code class="docutils literal notranslate"><span class="pre">user</span></code>, please logout and login to the session again
+check the following command.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>   $ sudo -l -U &lt;ansible_non_root_user&gt; 
+</pre></div>
+</div>
+<p>Now the above line authorizes <code class="docutils literal notranslate"><span class="pre">user1</span></code> user to do <code class="docutils literal notranslate"><span class="pre">sudo</span></code> operation in the control node without <code class="docutils literal notranslate"><span class="pre">PASSWORD</span></code> ask.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>
+The same procedure applies to all other nodes where ansible connection is involved.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="updating-the-leader-worker-node-s-information-for-using-remote-hosts">
+<h1>Updating the leader &amp; worker node’s information for using remote hosts<a class="headerlink" href="#updating-the-leader-worker-node-s-information-for-using-remote-hosts" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>
+By <code class="docutils literal notranslate"><span class="pre">default</span></code> both control/leader node <code class="docutils literal notranslate"><span class="pre">ansible_connection</span></code> will be <code class="docutils literal notranslate"><span class="pre">localhost</span></code> in single node deployment.</p>
+</div>
+<p>Please follow below steps to update the details of leader/worker nodes for multi node scenario.</p>
+<ul>
+<li><p>Update the hosts information in the inventory file <code class="docutils literal notranslate"><span class="pre">hosts</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="p">[</span><span class="n">group_name</span><span class="p">]</span>
+    <span class="o">&lt;</span><span class="n">nodename</span><span class="o">&gt;</span> <span class="n">ansible_connection</span><span class="o">=</span><span class="n">ssh</span> <span class="n">ansible_host</span><span class="o">=&lt;</span><span class="n">ipaddress</span><span class="o">&gt;</span> <span class="n">ansible_user</span><span class="o">=&lt;</span><span class="n">machine_user_name</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>For Eg:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">targets</span><span class="p">]</span>
+<span class="n">leader</span> <span class="n">ansible_connection</span><span class="o">=</span><span class="n">ssh</span> <span class="n">ansible_host</span><span class="o">=</span><span class="mf">192.0.0.1</span>  <span class="n">ansible_user</span><span class="o">=</span><span class="n">user1</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ansible_connection=ssh</span></code> is mandatory when you are updating any remote hosts, which makes ansible to connect via <code class="docutils literal notranslate"><span class="pre">ssh</span></code>.</p></li>
+<li><p>The above information is used by ansible to establish ssh connection to the nodes.</p></li>
+<li><p>control node will always be <code class="docutils literal notranslate"><span class="pre">ansible_connection=local</span></code>, <strong>don’t update the control node’s information</strong></p></li>
+<li><p>To deploy EII in single , <code class="docutils literal notranslate"><span class="pre">ansible_connection=local</span></code> and <code class="docutils literal notranslate"><span class="pre">ansible_host=localhost</span></code></p></li>
+<li><p>To deploy EII on multiple nodes, add hosts(worker1, worker2 etc..) details to the inventory file</p></li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="updating-the-eii-source-folder-usecase-proxy-settings-in-group-variables">
+<h1>Updating the EII Source Folder, Usecase &amp; Proxy Settings in Group Variables<a class="headerlink" href="#updating-the-eii-source-folder-usecase-proxy-settings-in-group-variables" title="Permalink to this headline">¶</a></h1>
+<ol>
+<li><p>Open <code class="docutils literal notranslate"><span class="pre">group_vars/all.yml</span></code> file</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>    $ vi group_vars/all.yml
+</pre></div>
+</div>
+</li>
+<li><p>Update Proxy Settings</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>    enable_system_proxy: <span class="nb">true</span>
+    http_proxy: &lt;proxy_server_details&gt;
+    https_proxy: &lt;proxy_server_details&gt;
+    no_proxy: &lt;managed_node ip&gt;,&lt;controller node ip&gt;,&lt;worker nodes ip&gt;,localhost,127.0.0.1
+</pre></div>
+</div>
+</li>
+<li><p>Update the <code class="docutils literal notranslate"><span class="pre">usecase</span></code> variable, based on the usecase <code class="docutils literal notranslate"><span class="pre">builder.py</span></code> generates the EII deployment &amp; config files.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p></p>
+<ol class="simple">
+<li><p>By default it will be <code class="docutils literal notranslate"><span class="pre">video-streaming</span></code>, For other usecases refer the <code class="docutils literal notranslate"><span class="pre">../usecases</span></code> folder and update only names without <code class="docutils literal notranslate"><span class="pre">.yml</span></code> extension</p></li>
+<li><p>For <code class="docutils literal notranslate"><span class="pre">all</span></code> usecase, it will bring up all <code class="docutils literal notranslate"><span class="pre">default</span></code> services of eii.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ia_kapacitor</span></code> and <code class="docutils literal notranslate"><span class="pre">ia_telegraf</span></code> container images are not distributed via docker hub, so one won’t be able to pull these images
+for time-series use case upon using <a class="reference external" href="../usecases/time-series.yml%60">../usecases/time-series.yml</a> for deployment. For more details,
+refer: [../README.md#distribution-of-eii-container-images]&gt; (../README.md#distribution-of-eii-container-images).</p></li>
+</ol>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>For Eg. If you want build &amp; deploy for `../usecases/time-series.yml` update the `usecase` key value as `time-series`
+```sh
+    usecase: &lt;time-series&gt;
+```
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Optionally you can choose number of video pipeline instances to be created by updating <code class="docutils literal notranslate"><span class="pre">instances</span></code> variable</p></li>
+<li><p>Update other optional variables provided if required</p></li>
+</ol>
+</div>
+<div class="section" id="non-orchestrated-multi-node-deployment-without-k8s">
+<h1>Non-orchestrated multi node deployment (without k8s)<a class="headerlink" href="#non-orchestrated-multi-node-deployment-without-k8s" title="Permalink to this headline">¶</a></h1>
+<p>Below configuration changes need to be made for multi node deployment without k8s</p>
+<ol>
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">multi_node:</span> <span class="pre">true</span></code> in <code class="docutils literal notranslate"><span class="pre">group_vars/all.yml</span></code> to enable multinode deployment and <code class="docutils literal notranslate"><span class="pre">false</span></code> to enable single node deployment. Update <code class="docutils literal notranslate"><span class="pre">vars/vars.yml</span></code> to the services to run on a specific node in case of multi_node deployment by following <a class="reference external" href="#Select-EII-services-to-run-on-a-particular-node-in-multinode-deployment">this</a>, where in single node deployment all the services based on the <code class="docutils literal notranslate"><span class="pre">usecase</span></code> chosen will be deployed.</p></li>
+<li><p>Update <code class="docutils literal notranslate"><span class="pre">docker</span></code> registry details in following section if using a custom/private registry</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>    <span class="nv">docker_registry</span><span class="o">=</span><span class="s2">&quot;&lt;regsitry_url&gt;&quot;</span>
+    <span class="nv">docker_login_user</span><span class="o">=</span><span class="s2">&quot;&lt;username&gt;&quot;</span>
+    <span class="nv">docker_login_passwd</span><span class="o">=</span><span class="s2">&quot;&lt;password&gt;&quot;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>
+Use of <code class="docutils literal notranslate"><span class="pre">docker_registry</span></code> and <code class="docutils literal notranslate"><span class="pre">build</span></code> flags</p>
+<ul class="simple">
+<li><p>Update <code class="docutils literal notranslate"><span class="pre">docker_registry</span></code> details to use docker images from custom registry, optionally set <code class="docutils literal notranslate"><span class="pre">build:</span> <span class="pre">true</span></code> to push docker images to this registry</p></li>
+<li><p>Unset <code class="docutils literal notranslate"><span class="pre">docker_registry</span></code> details if you don’t want to use custom registry and set <code class="docutils literal notranslate"><span class="pre">build:</span> <span class="pre">true</span></code> to save and load docker images from one node to another node</p></li>
+</ul>
+</div>
+</li>
+<li><p>If you are using images from docker hub, then set <code class="docutils literal notranslate"><span class="pre">build:</span> <span class="pre">false</span></code> and unset <code class="docutils literal notranslate"><span class="pre">docker_registry</span></code> details</p></li>
+</ol>
+</div>
+<div class="section" id="select-eii-services-to-run-on-a-particular-node-in-multinode-deployment">
+<h1>Select EII services to run on a particular node in multinode deployment<a class="headerlink" href="#select-eii-services-to-run-on-a-particular-node-in-multinode-deployment" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Edit <code class="docutils literal notranslate"><span class="pre">vars/vars.yml</span></code> -&gt; under <code class="docutils literal notranslate"><span class="pre">nodes</span></code> add a specific a node which was defined in the inventory file(<code class="docutils literal notranslate"><span class="pre">hosts</span></code>) and add EII services to <code class="docutils literal notranslate"><span class="pre">include_services</span></code> list</p>
+<p>Eg. if you want leader to run ia_video_ingestion, <code class="docutils literal notranslate"><span class="pre">vars/vars.yml</span></code> should be</p>
+<div class="highlight-yml notranslate"><div class="highlight"><pre><span></span>    nodes:
+      leader:
+        include_services:
+            - ia_video_ingestion
+</pre></div>
+</div>
+</li>
+<li><p>If you want to add <code class="docutils literal notranslate"><span class="pre">worker1</span></code> to <code class="docutils literal notranslate"><span class="pre">nodes</span></code> and bring up <code class="docutils literal notranslate"><span class="pre">ia_visualizer</span></code> in <code class="docutils literal notranslate"><span class="pre">worker1</span></code>:</p>
+<div class="highlight-yml notranslate"><div class="highlight"><pre><span></span>nodes:
+  leader:
+    include_services:
+        - ia_video_ingestion
+  worker1:
+    include_services:
+        - ia_visualizer
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>
+If a service is not added to <code class="docutils literal notranslate"><span class="pre">include_services</span></code> list, that service will not deployed on a particular node</p>
+</div>
+</div>
+<div class="section" id="execute-ansible-playbook-from-eii-workdir-iedgeinsights-build-ansible-control-node-to-deploy-eii-services-in-single-multi-nodes">
+<h1>Execute ansible Playbook from [EII_WORKDIR]/IEdgeInsights/build/ansible {Control node} to deploy EII services in single/multi nodes<a class="headerlink" href="#execute-ansible-playbook-from-eii-workdir-iedgeinsights-build-ansible-control-node-to-deploy-eii-services-in-single-multi-nodes" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p></p>
+<ul class="simple">
+<li><p>Updating messagebus endpoints to connect to interfaces is still the manual process. Make sure to update Application specific endpoints in <code class="docutils literal notranslate"><span class="pre">[AppName]/config.json</span></code></p></li>
+<li><p>After <code class="docutils literal notranslate"><span class="pre">pre-requisites</span></code> are successfully installed, please do logout and login to apply the changes</p></li>
+</ul>
+</div>
+<p><strong>For Single Point of Execution</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>:
+This will execute all the steps of EII as prequisite, build, provision, deploy &amp; setup leader node for multinode deployement usecase in one shot sequentialy.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>```sh
+$ ansible-playbook eii.yml
+```
+</pre></div>
+</div>
+<p><strong>Below steps are the individual execution of setups.</strong></p>
+<ul>
+<li><p>Load <code class="docutils literal notranslate"><span class="pre">.env</span></code> values from template</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ansible-playbook eii.yml --tags <span class="s2">&quot;load_env&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>For EII Prequisite Setup</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ansible-playbook eii.yml --tags <span class="s2">&quot;prerequisites&quot;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>
+After <code class="docutils literal notranslate"><span class="pre">pre-requisites</span></code> are successfully installed, please do logout and login to apply the changes</p>
+</div>
+</li>
+<li><p>To generate builder and config files, build images and push to registry</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ansible-playbook eii.yml --tags <span class="s2">&quot;build&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>To generate Certificates in control node</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ansible-playbook eii.yml --tags <span class="s2">&quot;gen_certs&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>To generate provision bundle for leader</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ansible-playbook eii.yml --tags <span class="s2">&quot;gen_leader_provision_bundle&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>To generate provision bundle for worker nodes</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ansible-playbook eii.yml --tags <span class="s2">&quot;gen_worker_provision_bundle&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>To generate eii bundles for leader, worker nodes</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ansible-playbook eii.yml --tags <span class="s2">&quot;gen_bundles&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Provision leader and bring up ETCD server</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ansible-playbook eii.yml --tags <span class="s2">&quot;leader_provision&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Provision worker node</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ansible-playbook eii.yml --tags <span class="s2">&quot;worker_provsion&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Provision EIS Config values to etcd</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ansible-playbook eii.yml --tags <span class="s2">&quot;etcd_provision&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>To generate deploy selected services to leader, worker nodes</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ansible-playbook eii.yml --tags <span class="s2">&quot;deploy&quot;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="section" id="deploying-eii-using-helm-in-kubernetes-k8s-environment">
+<h2>Deploying EII Using Helm in Kubernetes (k8s) environment<a class="headerlink" href="#deploying-eii-using-helm-in-kubernetes-k8s-environment" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p></p>
+<ol class="simple">
+<li><p>To Deploy EII using helm in k8s aenvironment, <code class="docutils literal notranslate"><span class="pre">k8s</span></code> setup is a prerequisite.</p></li>
+<li><p>You need update the <code class="docutils literal notranslate"><span class="pre">k8s</span></code> leader machine as leader node in <code class="docutils literal notranslate"><span class="pre">hosts</span></code> file.</p></li>
+<li><p>Non <code class="docutils literal notranslate"><span class="pre">k8s</span></code> leader machine the <code class="docutils literal notranslate"><span class="pre">helm</span></code> deployment will fail.</p></li>
+<li><p>For <code class="docutils literal notranslate"><span class="pre">helm</span></code> deployment <code class="docutils literal notranslate"><span class="pre">ansible-multinode</span></code> parameters will not applicable, Since
+node selection &amp; pod selection will be done by <code class="docutils literal notranslate"><span class="pre">k8s</span></code> orchestrator.</p></li>
+<li><p>Make sure you are deleting <code class="docutils literal notranslate"><span class="pre">/opt/intel/eii/data</span></code> when switch from <code class="docutils literal notranslate"><span class="pre">prod</span></code> mode to
+<code class="docutils literal notranslate"><span class="pre">dev</span></code> mode in all your <code class="docutils literal notranslate"><span class="pre">k8s</span></code> <code class="docutils literal notranslate"><span class="pre">worker</span></code> nodes.</p></li>
+</ol>
+</div>
+<ul>
+<li><p>Update the <code class="docutils literal notranslate"><span class="pre">DEPLOYMENT_MODE</span></code> flag as <code class="docutils literal notranslate"><span class="pre">k8s</span></code> in <code class="docutils literal notranslate"><span class="pre">group_vars/all.yml</span></code> file:</p>
+<ul class="simple">
+<li><p>Open <code class="docutils literal notranslate"><span class="pre">group_vars/all.yml</span></code> file</p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>    $ vi group_vars/all.yml
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Update the <code class="docutils literal notranslate"><span class="pre">DEPLOYMENT_MODE</span></code> flag as <code class="docutils literal notranslate"><span class="pre">k8s</span></code></p></li>
+</ul>
+<div class="highlight-yml notranslate"><div class="highlight"><pre><span></span>    ## Deploy in k8s mode using helm
+    DEPLOYMENT_MODE: &quot;k8s&quot;
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Save &amp; Close</p></li>
+</ul>
+</li>
+<li><p>For Single Point of Execution</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>
+This will execute all the steps of EII as prequisite, build, provision, deploy for a usecase in one shot sequentialy.</p>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ansible-playbook eii.yml
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>
+Below steps are the individual execution of setups.</p>
+</div>
+<ul>
+<li><p>Load <code class="docutils literal notranslate"><span class="pre">.env</span></code> values from template</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ansible-playbook eii.yml --tags <span class="s2">&quot;load_env&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>For EII Prequisite Setup</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ansible-playbook eii.yml --tags <span class="s2">&quot;prerequisites&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>For building EII containers</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ansible-playbook eii.yml --tags <span class="s2">&quot;build&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>To generate Certificates in control node</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ansible-playbook eii.yml --tags <span class="s2">&quot;gen_certs&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Prerequisites for deploy EII using Ansible helm environment.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ansible-playbook eii.yml --tags <span class="s2">&quot;helm_k8s_prerequisites&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Provision &amp; Deploy EII Using Ansible helm environment</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ansible-playbook eii.yml --tags <span class="s2">&quot;helm_k8s_deploy&quot;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By various<br/>
+        
+            &copy; Copyright 2021, various.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

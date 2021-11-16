@@ -1,0 +1,316 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Troubleshooting &#8212; eii-test  documentation</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">eii-test  documentation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contents:
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../eii-azure-bridge/README.html">
+   Azure Bridge
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="README.html">
+   EII Core
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../eii-messagebus/README.html">
+   EII Message Bus
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/eii-core/TROUBLESHOOT.md.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contents">
+   Contents
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#host-network-mode-is-incompatible-with-port-bindings-during-docker-compose-up">
+   1. “host” network_mode is incompatible with port_bindings during docker-compose up
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#eii-libs-installer-sh-script-failing-during-bare-metal-execution">
+   2. eii_libs_installer.sh script failing during bare-metal execution
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p><strong>Contents</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="#troubleshooting">Troubleshooting</a></p>
+<ul>
+<li><p><a class="reference external" href="#contents">Contents</a></p></li>
+<li><p><a class="reference external" href="#1-host-network_mode-is-incompatible-with-port_bindings-during-docker-compose-up">1. “host” network_mode is incompatible with port_bindings during docker-compose up</a></p></li>
+<li><p><a class="reference external" href="#2-eii_libs_installersh-script-failing-during-bare-metal-execution">2. eii_libs_installer.sh script failing during bare-metal execution</a></p></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="troubleshooting">
+<h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h1>
+<p>The troubleshooting guide here talks about the useful tips to address some of the EII configuration and installation issues.</p>
+<div class="section" id="contents">
+<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p><a class="reference external" href="#1-host-network_mode-is-incompatible-with-port_bindings-during-docker-compose-up">“host” network_mode is incompatible with port_bindings during docker-compose up</a></p></li>
+<li><p><a class="reference external" href="#2-eii_libs_installersh-script-failing-during-bare-metal-execution">eii_libs_installer.sh script failing during bare-metal execution</a></p></li>
+</ol>
+</div>
+<div class="section" id="host-network-mode-is-incompatible-with-port-bindings-during-docker-compose-up">
+<h2>1. “host” network_mode is incompatible with port_bindings during docker-compose up<a class="headerlink" href="#host-network-mode-is-incompatible-with-port-bindings-during-docker-compose-up" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Problem Description:</p>
+<p>Issue in starting InfluxDBConnector, Kapacitor and Grafana Services like InfluxDBConnector, Kapacitor, Grafana whose ports
+are exposed to start the service might fail to start during “docker-compose up”.</p>
+</li>
+<li><p>Error description:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">ERROR</span><span class="p">:</span> <span class="k">for</span> <span class="n">ia_kapacitor</span>  <span class="s2">&quot;host&quot;</span> <span class="n">network_mode</span> <span class="ow">is</span> <span class="n">incompatible</span> <span class="k">with</span> <span class="n">port_bindings</span> 
+
+  <span class="n">ERROR</span><span class="p">:</span> <span class="k">for</span> <span class="n">ia_grafana</span>  <span class="s2">&quot;host&quot;</span> <span class="n">network_mode</span> <span class="ow">is</span> <span class="n">incompatible</span> <span class="k">with</span> <span class="n">port_bindings</span> 
+
+  <span class="n">ERROR</span><span class="p">:</span> <span class="k">for</span> <span class="n">ia_influxdbconnector</span> <span class="s2">&quot;host&quot;</span> <span class="n">network_mode</span> <span class="ow">is</span> <span class="n">incompatible</span> <span class="k">with</span> <span class="n">port_bindings</span> 
+
+  <span class="n">docker</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">InvalidArgument</span><span class="p">:</span> <span class="s2">&quot;host&quot;</span> <span class="n">network_mode</span> <span class="ow">is</span> <span class="n">incompatible</span> <span class="k">with</span> <span class="n">port_bindings</span>
+</pre></div>
+</div>
+</li>
+<li><p>Possible Cause:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">might</span> <span class="n">have</span> <span class="n">been</span> <span class="n">installed</span> <span class="n">using</span> <span class="s2">&quot;pip&quot;</span> <span class="n">where</span> <span class="n">version</span> <span class="n">mismatch</span> <span class="n">might</span> <span class="n">be</span> <span class="n">causing</span> <span class="n">the</span> <span class="n">issue</span><span class="o">.</span>
+</pre></div>
+</div>
+</li>
+<li><p>Solution:</p>
+<p>Installation of docker-compose using “curl” as mentiond in <a class="reference internal" href="Installing_docker_pre_requisites.html"><span class="doc">Installing_docker_pre_requisites.md</span></a> will solve the
+issue. Also, following the below command should solve the issue.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo rm /usr/local/bin/docker-compose
+$ pip3 uninstall docker-compose
+$ sudo curl L https://github.com/docker/compose/releases/download/1.27.4/docker-compose-<span class="sb">`</span>uname -s<span class="sb">``</span>uname -m<span class="sb">`</span> -o /usr/local/bin/docker-compose
+$ sudo chmod +x /usr/local/bin/docker-compose
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="eii-libs-installer-sh-script-failing-during-bare-metal-execution">
+<h2>2. eii_libs_installer.sh script failing during bare-metal execution<a class="headerlink" href="#eii-libs-installer-sh-script-failing-during-bare-metal-execution" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Problem Description:</p>
+<p>One might run into issue of $GOPATH not being set appropriately which could result in the EII librarires installation failure when run on bare-metal</p>
+</li>
+<li><p>Error description:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  CMake Error at CMakeLists.txt:63 (message):
+  – $GOPATH envronmental variable is not set
+
+  – Configuring incomplete, errors occurred!
+
+  See also &quot;/home/eisval-desk6/FOG/EIIv2.4_RC6/IEdgeInsights/common/libs/ConfigMgr/build/CMakeFiles/CMakeOutput.log&quot;.
+  See also &quot;/home/eisval-desk6/FOG/EIIv2.4_RC6/IEdgeInsights/common/libs/ConfigMgr/build/CMakeFiles/CMakeError.log&quot;.
+  running install
+  running build
+  running build_py
+  running build_ext
+  building &#39;cfgmgr.app_config&#39; extension
+  x86_64-linux-gnu-gcc -pthread -DNDEBUG -g -fwrapv -O2 -Wall -g -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC -I/usr/include/python3.8 -c ./build/cython/./cfgmgr/app_config.c -o build/temp.linux-x86_64-3.6/./build/cython/./cfgmgr/app_config.o
+  ./build/cython/./cfgmgr/app_config.c:626:10: fatal error: eii/config_manager/cfgmgr.h: No such file or directory
+  #include &quot;eii/config_manager/cfgmgr.h&quot;
+  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  compilation terminated.
+  error: command &#39;x86_64-linux-gnu-gcc&#39; failed with exit status 1
+</pre></div>
+</div>
+</li>
+<li><p>Possible Cause:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">If</span> <span class="s2">&quot;GO&quot;</span> <span class="ow">is</span> <span class="n">already</span> <span class="n">installed</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">system</span><span class="p">,</span> <span class="n">eii_libs_installer</span> <span class="n">script</span> <span class="n">skips</span> <span class="n">the</span> <span class="n">installation</span> <span class="n">of</span> <span class="n">it</span><span class="o">.</span>
+
+  <span class="n">In</span> <span class="n">this</span> <span class="n">case</span> <span class="n">where</span> <span class="n">GO</span> <span class="ow">is</span> <span class="n">already</span> <span class="n">installed</span><span class="p">,</span> <span class="n">GOPATH</span> <span class="n">needs</span> <span class="n">to</span> <span class="n">be</span> <span class="nb">set</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">system</span><span class="o">.</span> <span class="n">If</span> <span class="ow">not</span><span class="p">,</span> <span class="n">then</span> <span class="n">above</span> <span class="n">error</span> <span class="n">occurs</span><span class="o">.</span>
+</pre></div>
+</div>
+</li>
+<li><p>Solution:</p>
+<p>Installing GO through eii_libs_installer script will install GO and set the required env variables like GOPATH. If not, then one need to set GOPATH
+environment variable with appropriate path.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">export</span> <span class="nv">GOPATH</span><span class="o">=</span>&lt;path_to_where_GO_is_installed&gt;
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By various<br/>
+        
+            &copy; Copyright 2021, various.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

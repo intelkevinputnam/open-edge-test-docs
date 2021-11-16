@@ -1,0 +1,1579 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EII Message Bus &#8212; eii-test  documentation</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="EII Core" href="../eii-core/README.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">eii-test  documentation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contents:
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../eii-azure-bridge/README.html">
+   Azure Bridge
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../eii-core/README.html">
+   EII Core
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   EII Message Bus
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/eii-messagebus/README.md.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dependency-installation">
+   Dependency Installation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compilation">
+   Compilation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#generating-documentation">
+     Generating Documentation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#potential-compilation-issues">
+     Potential Compilation Issues
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installation">
+   Installation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-python-binding">
+     Install Python Binding
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-golang-binding">
+     Install Golang Binding
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#running-unit-tests">
+   Running Unit Tests
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#configuration">
+   Configuration
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#zeromq-ipc-configuration">
+     ZeroMQ IPC Configuration
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#zeromq-tcp-configuration">
+     ZeroMQ TCP Configuration
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#publishers">
+       Publishers
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#subscribers">
+       Subscribers
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#services">
+       Services
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#requesters">
+       Requesters
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#using-zap-authentication">
+       Using ZAP Authentication
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#additional-zeromq-configuration-properties">
+     Additional ZeroMQ Configuration Properties
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-usage">
+   Example Usage
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#c-examples">
+     C Examples
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#publisher-many-example">
+       Publisher Many Example
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#python-examples">
+     Python Examples
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#go-examples">
+     Go Examples
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#running-go-examples-without-installing">
+     Running Go Examples without Installing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#brokered-publish-subscribe">
+     Brokered Publish/Subscribe
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#security">
+   Security
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-only-curvezmq-encryption">
+     Using Only CurveZMQ Encryption
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#publish-subscribe">
+       Publish/Subscribe
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#request-response">
+       Request/Response
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Using ZAP Authentication
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#disabling-security">
+     Disabling Security
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#known-issues">
+   Known issues
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="eii-message-bus">
+<h1>EII Message Bus<a class="headerlink" href="#eii-message-bus" title="Permalink to this headline">¶</a></h1>
+<p>Message bus used between containers inside of EII.</p>
+<div class="section" id="dependency-installation">
+<h2>Dependency Installation<a class="headerlink" href="#dependency-installation" title="Permalink to this headline">¶</a></h2>
+<p>The EII Message Bus depends on CMake version 3.11+. For Ubuntu 18.04 this is not
+the default version installed via <code class="docutils literal notranslate"><span class="pre">apt-get</span></code>. To install the correct version
+of CMake, execute the following commands:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Remove old CMake version</span>
+$ sudo apt -y purge cmake
+$ sudo apt -y autoremove
+
+<span class="c1"># Download CMake</span>
+$ wget https://cmake.org/files/v3.15/cmake-3.15.0-Linux-x86_64.sh
+
+<span class="c1"># Installation CMake</span>
+$ sudo mkdir /opt/cmake
+$ sudo cmake-3.15.0-Linux-x86_64.sh --prefix<span class="o">=</span>/opt/cmake --skip-license
+
+<span class="c1"># Make the command available to all users</span>
+$ sudo update-alternatives --install /usr/bin/cmake cmake /opt/cmake/bin/cmake <span class="m">1</span> --force
+</pre></div>
+</div>
+<p>To install the remaining dependencies for the message bus execute the following
+command:</p>
+<p><strong>Note</strong>: It is highly recommended that you use a python virtual environment to
+install the python packages, so that the system python installation doesn’t
+get altered. Details on setting up and using python virtual environment can
+be found here: https://www.geeksforgeeks.org/python-virtual-environment/</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo -E ./install.sh
+</pre></div>
+</div>
+<p>Additionally, EIIMessageBus depends on the below libraries. Follow their documentation to install them.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/open-edge-insights/eii-c-utils/blob/master/IntelSafeString/README.md">IntelSafeString</a></p></li>
+<li><p><a class="reference external" href="https://github.com/open-edge-insights/eii-c-utils/blob/master/README.md">EIIUtils</a></p></li>
+</ul>
+<p>If you wish to compile the Python binding as well, then run the <code class="docutils literal notranslate"><span class="pre">install.sh</span></code>
+script with the <code class="docutils literal notranslate"><span class="pre">--cython</span></code> flag (as shown below).</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo -E ./install.sh --cython
+</pre></div>
+</div>
+</div>
+<div class="section" id="compilation">
+<h2>Compilation<a class="headerlink" href="#compilation" title="Permalink to this headline">¶</a></h2>
+<p>The EII Message Bus utilizes CMake as the build tool for compiling the library.
+The simplest sequence of commands for building the library are shown below.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ mkdir build
+$ <span class="nb">cd</span> build
+$ cmake ..
+$ make
+</pre></div>
+</div>
+<p>This will compile only the C library for the EII Message Bus. If you wish to
+build with the Python binding, then specify the <code class="docutils literal notranslate"><span class="pre">WITH_PYTHON</span></code> flag when
+executing the <code class="docutils literal notranslate"><span class="pre">cmake</span> </code> command (as shown below).</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ cmake -DWITH_PYTHON<span class="o">=</span>ON ..
+</pre></div>
+</div>
+<p>If you wish to include installation of the Go binding with the installation of
+the EII library, then specify the <code class="docutils literal notranslate"><span class="pre">WITH_GO</span></code> flag when executing the <code class="docutils literal notranslate"><span class="pre">cmake</span></code>
+command (as shown below).</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ cmake -DWITH_GO<span class="o">=</span>ON ..
+</pre></div>
+</div>
+<p>Note that this only copies the Go binding library to your system’s <code class="docutils literal notranslate"><span class="pre">$GOPATH</span></code>.
+If you do not have your <code class="docutils literal notranslate"><span class="pre">$GOPATH</span></code> specified in your system’s environmental
+variables then an error will occur while executing the <code class="docutils literal notranslate"><span class="pre">cmake</span></code> command.</p>
+<p>In addition to the <code class="docutils literal notranslate"><span class="pre">WITH_PYTHON</span></code> and <code class="docutils literal notranslate"><span class="pre">WITH_GO</span></code> flags, the EII Message Bus
+CMake files add flags for building the C examples and the unit tests associated
+with the library. The table below specifies all of the available flags that can
+be given to CMake for building the EII Message Bus.</p>
+<table class="table" id="id0">
+<caption><span class="caption-text"></span><a class="headerlink" href="#id0" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+
+<thead>
+
+<tr class="row-odd">
+<th class="head"><p>Flag</p></th>
+
+<th class="head"><p>Default</p></th>
+
+<th class="head"><p>Description</p></th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr class="row-even">
+<td><p><code class="docutils literal notranslate"><span class="pre">WITH_TESTS</span></code></p></td>
+
+<td><p><code class="docutils literal notranslate"><span class="pre">OFF</span></code></p></td>
+
+<td><p>If set to <code class="docutils literal notranslate"><span class="pre">ON</span></code>, builds the C unit tests with the EII Message Bus compilation</p></td>
+
+</tr>
+
+<tr class="row-odd">
+<td><p><code class="docutils literal notranslate"><span class="pre">WITH_EXAMPLES</span></code></p></td>
+
+<td><p><code class="docutils literal notranslate"><span class="pre">OFF</span></code></p></td>
+
+<td><p>If set to <code class="docutils literal notranslate"><span class="pre">ON</span></code>, then CMake will compile the C examples in addition to the library</p></td>
+
+</tr>
+
+<tr class="row-even">
+<td><p><code class="docutils literal notranslate"><span class="pre">WITH_DOCS</span></code></p></td>
+
+<td><p><code class="docutils literal notranslate"><span class="pre">OFF</span></code></p></td>
+
+<td><p>If set to <code class="docutils literal notranslate"><span class="pre">ON</span></code>, then CMake will add a <code class="docutils literal notranslate"><span class="pre">docs</span></code> build target to generate documentation</p></td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p> These flags are in addition to any and all flags that are available
+for the <code class="docutils literal notranslate"><span class="pre">cmake</span></code> command. See the CMake documentation for additional flags.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p> See the <a class="reference external" href="#generating-documentation">Generating Documentation</a>
+section.</p>
+</div>
+<p>If you wish to compile the EII Message Bus in debug mode, then you can set the
+the <code class="docutils literal notranslate"><span class="pre">CMAKE_BUILD_TYPE</span></code> to <code class="docutils literal notranslate"><span class="pre">Debug</span></code> when executing the <code class="docutils literal notranslate"><span class="pre">cmake</span></code> command (as shown
+below).</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ cmake -DCMAKE_BUILD_TYPE<span class="o">=</span>Debug ..
+</pre></div>
+</div>
+<div class="section" id="generating-documentation">
+<h3>Generating Documentation<a class="headerlink" href="#generating-documentation" title="Permalink to this headline">¶</a></h3>
+<p>Generating the documentation has several dependencies which are not installed
+by the <code class="docutils literal notranslate"><span class="pre">install.sh</span></code> script. You must install the following packages in order
+to generate the documentation:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo apt install doxygen texlive-full
+</pre></div>
+</div>
+<p><strong>WARNING:</strong> This install way take a very long time. It will install &gt; <code class="docutils literal notranslate"><span class="pre">4GB</span></code> of
+packages.</p>
+<p>If you are building the Python binding (by using the <code class="docutils literal notranslate"><span class="pre">WITH_PYTHON</span></code> flag), then
+you must also install Sphinx and an extension for Sphinx. This can be
+accomplished with the following commands:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo apt install python3-sphinx
+$ sudo -H -E pip3 install m2r
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p> The commands above assume you already have Python 3.6 and pip
+installed on your system.</p>
+</div>
+<p><strong>Go documentation generation is WIP.</strong></p>
+<p>Once you have completed these steps, the documentation can be generated by
+running the following make command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ make docs <span class="o">&amp;&amp;</span> make docs
+</pre></div>
+</div>
+<p>Note that currently you need to run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">docs</span></code> twice so that the table of
+contents is generated correctly for each of the documents. This will be fixed
+in the future.</p>
+<p>The PDF documents will be in the <code class="docutils literal notranslate"><span class="pre">docs/pdfs/</span></code> directory within your <code class="docutils literal notranslate"><span class="pre">build</span></code>
+directory. There will be other log files and output files associated with the
+building of the PDFs. Any file that does not end in <code class="docutils literal notranslate"><span class="pre">.pdf</span></code> can be ignored.</p>
+</div>
+<div class="section" id="potential-compilation-issues">
+<h3>Potential Compilation Issues<a class="headerlink" href="#potential-compilation-issues" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><strong>CMake Python Version Issue:</strong> If CMake raises an error for finding the
+incorrect Python version, then add the following flag to the CMake
+command: <code class="docutils literal notranslate"><span class="pre">-DPYTHON_EXECUTABLE=/usr/bin/python3</span></code></p></li>
+<li><p><strong>Python Binding Changes Not Compiling:</strong> If a change is made to the Python
+binding and make has already been previously ran, then you must run
+<code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">clean</span></code> before running make again to compile the changes in the
+Python binding. This will need to be fixed later.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>If you wish to install the EII Message Bus on your system, execute the
+following command after building the library:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo make install
+</pre></div>
+</div>
+<p>By default, this command will install the EII Message Bus C library into
+<code class="docutils literal notranslate"><span class="pre">/opt/intel/eii/lib</span></code>. On some platforms this is not included in the <code class="docutils literal notranslate"><span class="pre">LD_LIBRARY_PATH</span></code>
+by default. As a result, you must add this directory to you <code class="docutils literal notranslate"><span class="pre">LD_LIBRARY_PATH</span></code>,
+otherwise you will encounter issues using the EII Message Bus. This can
+be accomplished with the following <code class="docutils literal notranslate"><span class="pre">export</span></code>:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$LD_LIBRARY_PATH</span>:/opt/intel/eii/lib
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p> You can also specify a different library prefix to CMake through
+the <code class="docutils literal notranslate"><span class="pre">CMAKE_INSTALL_PREFIX</span></code> flag. If different installation path is given via
+<code class="docutils literal notranslate"><span class="pre">CMAKE_INSTALL_PREFIX</span></code>, then <code class="docutils literal notranslate"><span class="pre">$LD_LIBRARY_PATH</span></code> should be appended by
+$CMAKE_INSTALL_PREFIX/lib.</p>
+</div>
+<div class="section" id="install-python-binding">
+<h3>Install Python Binding<a class="headerlink" href="#install-python-binding" title="Permalink to this headline">¶</a></h3>
+<p>To install the Python binding for the EII Message Bus execute the following
+commands:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change directories into the python/ directory</span>
+$ <span class="nb">cd</span> python/
+
+<span class="c1"># Install the Python package</span>
+$ sudo python3 setup.py install
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p> In order for the installation to be successful, you must have run
+the <code class="docutils literal notranslate"><span class="pre">install.sh</span></code> script with the <code class="docutils literal notranslate"><span class="pre">--cython</span></code> flag when installing the
+message bus dependencies.</p>
+</div>
+</div>
+<div class="section" id="install-golang-binding">
+<h3>Install Golang Binding<a class="headerlink" href="#install-golang-binding" title="Permalink to this headline">¶</a></h3>
+<p>To install the Golang binding for the EII Message Bus execute the following
+command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Copy the Golang source to your $GOPATH/src directory</span>
+$ cp -a go/EIIMessageBus/ <span class="nv">$GOPATH</span>/src/
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p> The above command assumes Golang is installed and configured on
+the target system.</p>
+</div>
+</div>
+</div>
+<div class="section" id="running-unit-tests">
+<h2>Running Unit Tests<a class="headerlink" href="#running-unit-tests" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p> The unit tests will only be compiled if the <code class="docutils literal notranslate"><span class="pre">WITH_TESTS=ON</span></code> option
+is specified when running CMake.</p>
+</div>
+<p>Execute one of the following commands from the <code class="docutils literal notranslate"><span class="pre">build/tests</span></code> folder to execute
+the message bus unit tests.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ./msgbus-tests
+$ ./msg-envelope-tests
+$ ./crc32-tests
+</pre></div>
+</div>
+<p>It is important to note that the <code class="docutils literal notranslate"><span class="pre">msgbus-tests</span></code> executable has an extra CLI
+option which the other unit test binaries do not have. This option allows for
+running the message bus tests to run over TCP rather than the IPC.</p>
+<p>To run the message bus tests over TCP, execute the following command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ./msgbus-tests --tcp
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>The EII Message Bus is configured through a <code class="docutils literal notranslate"><span class="pre">key,</span> <span class="pre">value</span></code> pair interface. The
+values can be objects, arrays, integers, floating point, boolean, or strings.
+The keys that are required to be available in the configuration are largly
+determined by the underlying protocol which the message bus will use. The
+protocol is specified via the <code class="docutils literal notranslate"><span class="pre">type</span></code> key and currently must be one of the
+following:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">zmq_ipc</span></code> - ZeroMQ over IPC protocol</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zmq_tcp</span></code> - ZeroMQ over TCP protocol</p></li>
+</ul>
+<p>The following sections specify the configuration attributes expected for the
+TCP and IPC ZeroMQ protocols.</p>
+<div class="section" id="zeromq-ipc-configuration">
+<h3>ZeroMQ IPC Configuration<a class="headerlink" href="#zeromq-ipc-configuration" title="Permalink to this headline">¶</a></h3>
+<p>The ZeroMQ IPC protocol implementation only requires one configuration
+attribute: <code class="docutils literal notranslate"><span class="pre">socket_dir</span></code>. The value of this attribute specifies the directory
+where the message bus should create the Unix socket files to establish the IPC
+based communication.</p>
+<p>The ZeroMQ IPC protocol also supports a few optional configuration properties.
+For all communication patterns (request/response and publisher/subscribe), the
+<code class="docutils literal notranslate"><span class="pre">socket_file</span></code> property can be specified for any service name or publish/subscribe
+topic. This makes it so that all communication happens over the specified socket
+file, instead of the default, which is for the message bus to use the topic/service
+name for the socket file name. This enables two specific use cases:</p>
+<ol class="simple">
+<li><p>Having a single application publish multiple topics over a single IPC socket
+file</p></li>
+<li><p>Connecting ZeroMQ IPC publishers to the ZeroMQ Broker</p></li>
+</ol>
+<p>For the second use case, there is an additional property which must be specified;
+the <code class="docutils literal notranslate"><span class="pre">brokered</span></code> configuration value. This is must be a boolean value, with <code class="docutils literal notranslate"><span class="pre">true</span></code>
+telling the publisher to connect to the broker and <code class="docutils literal notranslate"><span class="pre">false</span></code> for not connecting.
+Note that this value is not required. If it is <code class="docutils literal notranslate"><span class="pre">false</span></code> or is not specified, then
+the publisher will not connect to a broker and will bind to the given <code class="docutils literal notranslate"><span class="pre">socket_file</span></code>
+value.</p>
+<p><strong>IMPORTANT NOTE:</strong></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">socket_file</span></code> value should only be the name of a file. The socket itself
+will still be created in the specified <code class="docutils literal notranslate"><span class="pre">socket_dir</span></code> directory.</p>
+<p>Also, both the <code class="docutils literal notranslate"><span class="pre">socket_file</span></code> and <code class="docutils literal notranslate"><span class="pre">brokered</span></code> values must be specified in the
+configuration under an object with its key being the topic or service name.
+An example of this is shown below.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="c1">// Specifies the ZeroMQ IPC protocol</span>
+    <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;zmq_ipc&quot;</span><span class="p">,</span>
+
+    <span class="c1">// Specifies the socket directory</span>
+    <span class="s2">&quot;socket_dir&quot;</span><span class="o">:</span> <span class="s2">&quot;/tmp/socks&quot;</span><span class="p">,</span>
+
+    <span class="c1">// The key, &quot;example-topic&quot;, is the topic which the publisher shall publish</span>
+    <span class="c1">// on. This could also be a service name.</span>
+    <span class="s2">&quot;example-topic&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="c1">// For the example-topic, the below property specifies the socket file</span>
+        <span class="c1">// to use</span>
+        <span class="s2">&quot;socket_file&quot;</span><span class="o">:</span> <span class="s2">&quot;socket-filename&quot;</span><span class="p">,</span>
+
+        <span class="c1">// The below property is only supported by publishers, this specifies</span>
+        <span class="c1">// that the given publisher will be brokered through the ZeroMQ Broker</span>
+        <span class="s2">&quot;brokered&quot;</span><span class="o">:</span> <span class="kc">true</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The example above uses JSON to represent the EII Message Bus configuration.
+See the, “Examples”, below section for more details and more examples.</p>
+</div>
+<div class="section" id="zeromq-tcp-configuration">
+<h3>ZeroMQ TCP Configuration<a class="headerlink" href="#zeromq-tcp-configuration" title="Permalink to this headline">¶</a></h3>
+<p>The ZeroMQ TCP protocol has several configuration attributes which must be
+specified based on the communication pattern the application is using and
+based on the security the application wishes to enable for its communication.</p>
+<div class="section" id="publishers">
+<h4>Publishers<a class="headerlink" href="#publishers" title="Permalink to this headline">¶</a></h4>
+<p>For an application which wishes to publish messages over specific topics, the
+configuration must contain the key <code class="docutils literal notranslate"><span class="pre">zmq_tcp_publish</span></code>. This attribute must be
+an object which has the following keys:</p>
+<table class="table" id="id0">
+<caption><span class="caption-text"></span><a class="headerlink" href="#id0" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+
+<thead>
+
+<tr class="row-odd">
+<th class="head"><p>Key</p></th>
+
+<th class="head"><p>Type</p></th>
+
+<th class="head"><p>Required</p></th>
+
+<th class="head"><p>Description</p></th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr class="row-even">
+<td><p><code class="docutils literal notranslate"><span class="pre">host</span></code></p></td>
+
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+
+<td><p>Yes</p></td>
+
+<td><p>Specifies the host to publish as</p></td>
+
+</tr>
+
+<tr class="row-odd">
+<td><p><code class="docutils literal notranslate"><span class="pre">port</span></code></p></td>
+
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code></p></td>
+
+<td><p>Yes</p></td>
+
+<td><p>Specifies the port to publish messages on</p></td>
+
+</tr>
+
+<tr class="row-even">
+<td><p><code class="docutils literal notranslate"><span class="pre">server_secret_key</span></code></p></td>
+
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+
+<td><p>No</p></td>
+
+<td><p>Specifies the secret key for the port for authentication</p></td>
+
+</tr>
+
+<tr class="row-odd">
+<td><p><code class="docutils literal notranslate"><span class="pre">brokered</span></code></p></td>
+
+<td><p><code class="docutils literal notranslate"><span class="pre">boolean</span></code></p></td>
+
+<td><p>No</p></td>
+
+<td><p>Specifies whether or not to connect to the ZeroMQ Broker</p></td>
+
+</tr>
+
+</tbody>
+
+</table>
+<p>The <code class="docutils literal notranslate"><span class="pre">server_secret_key</span></code> must be a Curve Z85 encoded string value that is
+specified if the application wishes to use CurveZMQ authentication with to
+secure incoming connections from subscribers.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">brokered</span></code> key must be a boolean value. This will determine whether or not
+the publishers attempt to bind or connect to the given  TCP (host, port)
+combination.</p>
+</div>
+<div class="section" id="subscribers">
+<h4>Subscribers<a class="headerlink" href="#subscribers" title="Permalink to this headline">¶</a></h4>
+<p>To subscribe to messages coming from a publisher over TCP, the configuration
+must contain a key for the topic you wish to subscribe to. For example, if
+<em>Application 1</em> were publishing on topic <code class="docutils literal notranslate"><span class="pre">sensor-1</span></code>, then the subscribing
+application <em>Application 2</em> would need to contain a configuration key <code class="docutils literal notranslate"><span class="pre">sensor-1</span></code>
+which contains the keys required to configure the TCP connection to
+<em>Application 1</em>.</p>
+<p>The key that can be specified for a subscribers configuration are outline in the
+table below.</p>
+<table class="table" id="id0">
+<caption><span class="caption-text"></span><a class="headerlink" href="#id0" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+
+<thead>
+
+<tr class="row-odd">
+<th class="head"><p>Key</p></th>
+
+<th class="head"><p>Type</p></th>
+
+<th class="head"><p>Required</p></th>
+
+<th class="head"><p>Description</p></th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr class="row-even">
+<td><p><code class="docutils literal notranslate"><span class="pre">host</span></code></p></td>
+
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+
+<td><p>Yes</p></td>
+
+<td><p>Specifies the host of the publisher</p></td>
+
+</tr>
+
+<tr class="row-odd">
+<td><p><code class="docutils literal notranslate"><span class="pre">port</span></code></p></td>
+
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code></p></td>
+
+<td><p>Yes</p></td>
+
+<td><p>Specifies the port of the publisher</p></td>
+
+</tr>
+
+<tr class="row-even">
+<td><p><code class="docutils literal notranslate"><span class="pre">server_public_key</span></code></p></td>
+
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+
+<td><p>No</p></td>
+
+<td><p>Specifies the publisher's public key for authentication</p></td>
+
+</tr>
+
+<tr class="row-odd">
+<td><p><code class="docutils literal notranslate"><span class="pre">client_secret_key</span></code></p></td>
+
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+
+<td><p>No</p></td>
+
+<td><p>Specifies the subscribers's secret key for authentication</p></td>
+
+</tr>
+
+<tr class="row-even">
+<td><p><code class="docutils literal notranslate"><span class="pre">client_public_key</span></code></p></td>
+
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+
+<td><p>No</p></td>
+
+<td><p>Specifies the subcribers's public key for authentication</p></td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p> If one of the <code class="docutils literal notranslate"><span class="pre">*_key</span></code> values is specifed, then all of them must be
+specified.</p>
+</div>
+</div>
+<div class="section" id="services">
+<h4>Services<a class="headerlink" href="#services" title="Permalink to this headline">¶</a></h4>
+<p>The configuration to host a service to receive and respond to requests is
+similar to the configuration for doing publications on a message bus context.
+The only difference, is the configuration for a service is placed under a key
+which is the name of the service.</p>
+<p>For example, if <em>Application 1</em> wishes to host a service named <code class="docutils literal notranslate"><span class="pre">example-service</span></code>,
+then the configuration must contain an a key called <code class="docutils literal notranslate"><span class="pre">example-service</span></code>. The value
+for that key must be an object containing the keys listed in the table of
+the Publishers section.</p>
+</div>
+<div class="section" id="requesters">
+<h4>Requesters<a class="headerlink" href="#requesters" title="Permalink to this headline">¶</a></h4>
+<p>The configuration to issue requests to a service is the exact same as a
+subscriber. In the case of a requester, instead of the configuration being
+under the name of the topic, the configuration is placed under the name of
+the service it wishes to connect to. For the details of the allowed values,
+see the table in the Subscribers section above.</p>
+</div>
+<div class="section" id="using-zap-authentication">
+<h4>Using ZAP Authentication<a class="headerlink" href="#using-zap-authentication" title="Permalink to this headline">¶</a></h4>
+<p>For services and publishers additional security can be enabled for all incoming
+connections (i.e. requesters and subscribers). This method utilizes the ZMQ
+ZAP protocol to verify the incoming client public keys against a list of
+whitelisted clients.</p>
+<p>The list of allowed clients is given to the message bus via the <code class="docutils literal notranslate"><span class="pre">allowed_clients</span></code>
+key. This key must be a list of Z85 encoded CurveZMQ keys.</p>
+</div>
+</div>
+<div class="section" id="additional-zeromq-configuration-properties">
+<h3>Additional ZeroMQ Configuration Properties<a class="headerlink" href="#additional-zeromq-configuration-properties" title="Permalink to this headline">¶</a></h3>
+<p>The configuration interface for the ZeroMQ protocol exposes additional socket
+properties. The table below specifies each of the supported properties.</p>
+<table class="table" id="id0">
+<caption><span class="caption-text"></span><a class="headerlink" href="#id0" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+
+<thead>
+
+<tr class="row-odd">
+<th class="head"><p>Configuration</p></th>
+
+<th class="head"><p>Type</p></th>
+
+<th class="head"><p>Default</p></th>
+
+<th class="head"><p>Description</p></th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr class="row-even">
+<td><p><code class="docutils literal notranslate"><span class="pre">zmq_recv_hwm</span></code></p></td>
+
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code></p></td>
+
+<td><p><code class="docutils literal notranslate"><span class="pre">1000</span></code></p></td>
+
+<td><p>Sets <code class="docutils literal notranslate"><span class="pre">ZMQ_RCVHWM</span></code> socket property (queue size for pending received messages)</p></td>
+
+</tr>
+
+<tr class="row-odd">
+<td><p><code class="docutils literal notranslate"><span class="pre">zmq_connect_retries</span></code></p></td>
+
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code></p></td>
+
+<td><p><code class="docutils literal notranslate"><span class="pre">1000</span></code></p></td>
+
+<td><p>Sets number of connect failures before recreating ZMQ socket object</p></td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+<div class="section" id="example-usage">
+<h2>Example Usage<a class="headerlink" href="#example-usage" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p> Some of the example configurations contain public/private
+keys for the purpose of show how to use the message bus with security enabled.
+THESE KEYS SHOULD <strong>NEVER</strong> BE USED IN PRODUCTION.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p> The examples will only be compiled if the <code class="docutils literal notranslate"><span class="pre">WITH_EXAMPLES=ON</span></code> option
+is set when CMake is executed during compilation.</p>
+</div>
+<p>All of the examples provided for the EII Message Bus use a JSON configuration
+file to configure the EII Message Bus. There are several example configurations
+provided with the message bus for running in IPC and TCP mode accross the
+various different messaging patterns (i.e. Publish/Subscribe and Request/Response).
+All of these example configurations are in the <code class="docutils literal notranslate"><span class="pre">examples/configs/</span></code> directory.
+However, all of them are copied into the <code class="docutils literal notranslate"><span class="pre">examples/build/configs/</span></code> directory
+as well when build the examples.</p>
+<p>The table below specifies all of the provided example configurations.</p>
+<table class="table" id="id0">
+<caption><span class="caption-text"></span><a class="headerlink" href="#id0" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+
+<thead>
+
+<tr class="row-odd">
+<th class="head"><p>Configuration</p></th>
+
+<th class="head"><p>Description</p></th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr class="row-even">
+<td><p>ipc_example_config.json</p></td>
+
+<td><p>Configuration for IPC based communication. Works with all examples.</p></td>
+
+</tr>
+
+<tr class="row-odd">
+<td><p>ipc_example_config_multi_topics.json</p></td>
+
+<td><p>Configuration for IPC based communication to be used with multi-topic publishing/subscribing. Works with publisher-many &amp; subscriber examples.</p></td>
+
+</tr>
+
+<tr class="row-even">
+<td><p>ipc_publisher_brokered.json</p></td>
+
+<td><p>Publisher configuration for IPC based communication using the ZeroMQ Broker.</p></td>
+
+</tr>
+
+<tr class="row-odd">
+<td><p>ipc_subscriber_brokered.json</p></td>
+
+<td><p>Subscriber configuration for IPC based communication using the ZeroMQ Broker.</p></td>
+
+</tr>
+
+<tr class="row-even">
+<td><p>tcp_publisher_brokered_no_security.json</p></td>
+
+<td><p>TCP configuration for publishing with no security through the ZeroMQ Broker.</p></td>
+
+</tr>
+
+<tr class="row-odd">
+<td><p>tcp_publisher_no_security.json</p></td>
+
+<td><p>TCP configuration for publishing with no security.</p></td>
+
+</tr>
+
+<tr class="row-even">
+<td><p>tcp_publisher_with_security_no_auth.json</p></td>
+
+<td><p>TCP configuration for publishing with key based auth without ZAP auth.</p></td>
+
+</tr>
+
+<tr class="row-odd">
+<td><p>tcp_publisher_with_security_with_auth.json</p></td>
+
+<td><p>TCP configuration for publishing with key based auth and ZAP auth.</p></td>
+
+</tr>
+
+<tr class="row-even">
+<td><p>tcp_subscriber_no_security.json</p></td>
+
+<td><p>TCP configuration for subscribing to a topic with no security.</p></td>
+
+</tr>
+
+<tr class="row-odd">
+<td><p>tcp_subscriber_no_security_prefix_match.json</p></td>
+
+<td><p>TCP configuration for subscribing to multiple topics which share a common prefix, with no security.</p></td>
+
+</tr>
+
+<tr class="row-even">
+<td><p>tcp_subscriber_with_security.json</p></td>
+
+<td><p>TCP configuration for subscribing to a topic with security enabled.</p></td>
+
+</tr>
+
+<tr class="row-odd">
+<td><p>tcp_subscriber_with_security_prefix_match.json</p></td>
+
+<td><p>TCP configuration for subscribing to multiple topics which share a common prefix, with security.</p></td>
+
+</tr>
+
+<tr class="row-even">
+<td><p>tcp_service_server_no_security.json</p></td>
+
+<td><p>TCP configuration for a service server side (i.e. <code class="docutils literal notranslate"><span class="pre">echo-service</span></code>) without security.</p></td>
+
+</tr>
+
+<tr class="row-odd">
+<td><p>tcp_service_server_with_security_no_auth.json</p></td>
+
+<td><p>TCP configuration for a service server side with key based auth without ZAP auth.</p></td>
+
+</tr>
+
+<tr class="row-even">
+<td><p>tcp_service_server_with_security_with_auth.json</p></td>
+
+<td><p>TCP configuration for a service server side with key based auth and ZAP auth.</p></td>
+
+</tr>
+
+<tr class="row-odd">
+<td><p>tcp_service_client_no_security.json</p></td>
+
+<td><p>TCP configuration for a service client side (i.e. <code class="docutils literal notranslate"><span class="pre">echo-client</span></code>) with no security.</p></td>
+
+</tr>
+
+<tr class="row-even">
+<td><p>tcp_service_client_with_security.json</p></td>
+
+<td><p>TCP configuration for a service client side with security enabled.</p></td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p> When using the brokered examples, you must also launch the broker
+first. For more information on the broker and how to use it, see the
+ZmqBroker/README.md.</p>
+</div>
+<p>You will notice that for the publisher configurations and service server side
+configurations there are 3 configurations each, where as subscribers and service
+client side configurations only have 2. This is because for publishers and service
+server side applications there are two forms of security to enable: with ZAP authentication,
+and no ZAP authentication. In the configurations with ZAP authentication, an
+additional configuration value is provided which specifies the list of clients
+(i.e. subscribers or service client side connections) which are allowed to connect
+to the specified port. This list oporates as a whitelist of allowed client public
+keys. If a connection is attempted with a key not in that list, then the connection
+is denied.</p>
+<div class="section" id="c-examples">
+<h3>C Examples<a class="headerlink" href="#c-examples" title="Permalink to this headline">¶</a></h3>
+<p>There are currently 5 C examples:</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">examples/publisher.c</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">examples/subscriber.c</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">examples/echo_server.c</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">examples/echo_client.c</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">examples/publisher_many.c</span></code></p></li>
+</ol>
+<p>All of the C example executables are in the <code class="docutils literal notranslate"><span class="pre">build/examples/</span></code> directory. To run
+them, execute the following command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ./publisher ./configs/ipc_example_config.json
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p> The <code class="docutils literal notranslate"><span class="pre">tcp_example_config.json</span></code> can also be used in lieu of the IPC
+configuration file.</p>
+</div>
+<p>All of the examples follow the command structure above, i.e.
+<code class="docutils literal notranslate"><span class="pre">&lt;command&gt;</span> <span class="pre">&lt;json-config-file&gt;.json</span></code>, except for the <code class="docutils literal notranslate"><span class="pre">publisher_many.c</span></code>
+example. This example is explained more in-depth in the next section.</p>
+<div class="section" id="publisher-many-example">
+<h4>Publisher Many Example<a class="headerlink" href="#publisher-many-example" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">examples/publisher_many.c</span></code> example serves as a reference for implementing
+an application which contains many publishers. This also serves as a way of
+testing this functionality in the EII Message Bus.</p>
+<p>The example can be run with the following command (from the <code class="docutils literal notranslate"><span class="pre">build/examples/</span></code>
+directory):</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ./publisher-many ./configs/ipc_example_config.json <span class="m">5</span>
+</pre></div>
+</div>
+<p>In the case above, the example will create 5 publishers where the topic
+strings follow the pattern <code class="docutils literal notranslate"><span class="pre">pub-{0,N-1}</span></code> where <code class="docutils literal notranslate"><span class="pre">N</span></code> is the number of publishers
+specified through the CLI. Can replace this JSON config file with any other JSON
+config as mention in the table above.</p>
+<p>The behavior of how these topics are published depends on if the configuration
+is IPC or TCP (i.e. if <code class="docutils literal notranslate"><span class="pre">type</span></code> is set to <code class="docutils literal notranslate"><span class="pre">zmq_ipc</span></code> vs. <code class="docutils literal notranslate"><span class="pre">zmq_tcp</span></code> in the JSON
+configuration file).</p>
+<p>If IPC communication is being used, then each topic will be a different Unix
+socket file in the <code class="docutils literal notranslate"><span class="pre">socket_dir</span></code> directory specified in the configuration, if default IPC config file <code class="docutils literal notranslate"><span class="pre">ipc_example_config.json</span></code> is used. If the IPC config file <code class="docutils literal notranslate"><span class="pre">ipc_example_config_multi_topics.json</span></code> is used then each topic is published over
+the socket file that is mentioned in the configuration file. For example, in the
+default file <code class="docutils literal notranslate"><span class="pre">ipc_example_config_multi_topics.json</span></code>, all topics publish &amp; subscribe over the same socket file “multi-topics”. However, we can have each topic or a set of topics publish/subscribe over a different socket file.</p>
+<p>If TCP communication is being used, then each message will be published over
+the <code class="docutils literal notranslate"><span class="pre">host</span></code> and <code class="docutils literal notranslate"><span class="pre">port</span></code> specified under the <code class="docutils literal notranslate"><span class="pre">zmq_tcp_publish</span></code> JSON object in the
+configuration.</p>
+<p>In order to subscribe to the topics published by this example, use the
+<code class="docutils literal notranslate"><span class="pre">subscriber.c</span></code> example. If you are using TCP or even IPC with multiple topics subscription, then you will need to specify the topic in your configuration. For example, your JSON configuration will
+need to contain the following to subscribe to the <code class="docutils literal notranslate"><span class="pre">pub-0</span></code> topic:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;pub-0&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;port&quot;</span><span class="p">:</span> <span class="mi">5569</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p> The <code class="docutils literal notranslate"><span class="pre">host</span></code> and <code class="docutils literal notranslate"><span class="pre">port</span></code> are assumed above, they may be different.</p>
+</div>
+<p>In order to simplify the creation of the configuration for subscribing to
+topics over TCP, the <code class="docutils literal notranslate"><span class="pre">gen_tcp_sub_conf.py</span></code> helper script is provided. This
+Python script will generate a JSON file for you based on your TCP JSON
+configuration for the <code class="docutils literal notranslate"><span class="pre">publisher-many</span></code> example which contains all of the
+topics specified so you can subscribe to any of them.</p>
+<p>This helper script can be ran as follows:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ python3 ./gen_tcp_sub_conf.py &lt;CONFIG-FILE-PATH&gt;/tcp_publisher_no_security.json output.json <span class="m">5</span>
+</pre></div>
+</div>
+<p>The command above uses the <code class="docutils literal notranslate"><span class="pre">tcp_publisher_no_security.json</span></code> for the <code class="docutils literal notranslate"><span class="pre">publisher-many</span></code>
+configuration. Then it generates all 5 topics and outputs them into the
+<code class="docutils literal notranslate"><span class="pre">output.json</span></code> file.</p>
+<p>After generating this configuration, you can use the <code class="docutils literal notranslate"><span class="pre">subscriber.c</span></code> example as
+shown below to subscribe to the <code class="docutils literal notranslate"><span class="pre">pub-1</span></code> topic:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ./subscriber output.json pub-1
+</pre></div>
+</div>
+<p>Similiarly for IPC mode of communicatin with multi topics, the sample JSON configuration would look like below:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>    <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;zmq_ipc&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;socket_dir&quot;</span><span class="p">:</span> <span class="s2">&quot;${CMAKE_CURRENT_BINARY_DIR}/.socks&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;pub-0&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;socket_file&quot;</span><span class="p">:</span> <span class="s2">&quot;multi-topics&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;pub-1&quot;</span><span class="p">:</span> <span class="p">{</span>
+       <span class="nt">&quot;socket_file&quot;</span><span class="p">:</span> <span class="s2">&quot;multi-topics&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;pub-&quot;</span><span class="p">:</span> <span class="p">{</span>
+       <span class="nt">&quot;socket_file&quot;</span><span class="p">:</span> <span class="s2">&quot;multi-topics&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Here, <code class="docutils literal notranslate"><span class="pre">pub-0</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">pub-1</span></code> are the PUB topics &amp; <code class="docutils literal notranslate"><span class="pre">pub-</span></code> is the SUB topics, where we have given just the prefix name. If we don’t intend to give the SUB topic prefix, we can as well give the entire SUB topic name. In this example all these topics communicate over a common socket file <code class="docutils literal notranslate"><span class="pre">multi-topics</span></code>.</p>
+</div>
+</div>
+<div class="section" id="python-examples">
+<h3>Python Examples<a class="headerlink" href="#python-examples" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p> The Python examples will only be present if the <code class="docutils literal notranslate"><span class="pre">WITH_EXAMPLES=ON</span></code>
+and <code class="docutils literal notranslate"><span class="pre">WITH_PYTHON=ON</span></code> flags are set when CMake is executed during compilation.</p>
+</div>
+<p>There are currently 4 Python examples:</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">python/examples/publisher.py</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">python/examples/subscriber.py</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">python/examples/echo_server.py</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">python/examples/echo_client.py</span></code></p></li>
+</ol>
+<p>To run the Python examples, go to the <code class="docutils literal notranslate"><span class="pre">build/examples/</span></code> directory. Then source
+the <code class="docutils literal notranslate"><span class="pre">source.sh</span></code> script that is in the examples directory.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">source</span> ./source.sh
+</pre></div>
+</div>
+<p>Then, execute one of the following commands:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ python3 ./publisher.py &lt;CONFIG-FILE-PATH&gt;/ipc_example_config.json
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p> The <code class="docutils literal notranslate"><span class="pre">tcp_example_config.json</span></code> can also be used in lieu of the IPC
+configuration file.</p>
+</div>
+<p>All of the examples follow the same command structure as the <code class="docutils literal notranslate"><span class="pre">publisher.py</span></code>
+script, i.e. <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">&lt;python-script&gt;.py</span> <span class="pre">&lt;json-config-file&gt;.json</span></code>.</p>
+</div>
+<div class="section" id="go-examples">
+<h3>Go Examples<a class="headerlink" href="#go-examples" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p> It is assumed that when compiling the C library prior to
+running the examples that the <code class="docutils literal notranslate"><span class="pre">WITH_GO=ON</span></code> flag was specified when executing
+the <code class="docutils literal notranslate"><span class="pre">cmake</span></code> command. It is also assume that, <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">make</span> <span class="pre">install</span></code> has been
+ran. If it has not and you do not wish to install the library, see the
+“Running Go Examples without Installing” section below.</p>
+</div>
+<p>When the <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">make</span> <span class="pre">install</span></code> command is executed on your system, the Go binding
+will be copied to your system’s <code class="docutils literal notranslate"><span class="pre">$GOPATH</span></code>. To execute the examples provided
+with the EII Message Bus Go binding go to the <code class="docutils literal notranslate"><span class="pre">$GOPATH/src/EIIMessageBus/examples</span></code>
+directory on your system in a terminal window.</p>
+<p>Once you are in this directory choose an example (i.e. publisher, subscriber,
+etc.) and <code class="docutils literal notranslate"><span class="pre">cd</span></code> into that directory. Then, to run the example execute the
+following command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ go run main.go -configFile &lt;CONFIG-FILE&gt;.json -topic publish_test
+</pre></div>
+</div>
+<p>The example command above will run either the subscriber or publisher examples.
+For the echo-client and echo-server examples the <code class="docutils literal notranslate"><span class="pre">-topic</span></code> flag should be
+<code class="docutils literal notranslate"><span class="pre">-serviceName</span></code>.</p>
+<p>Additionally, there are example configurations provided in the
+<code class="docutils literal notranslate"><span class="pre">build/examples/configs/</span></code> directory after building the EII Message Bus library.</p>
+</div>
+<div class="section" id="running-go-examples-without-installing">
+<h3>Running Go Examples without Installing<a class="headerlink" href="#running-go-examples-without-installing" title="Permalink to this headline">¶</a></h3>
+<p>If you wish to run the Go binding examples with out installing the EII Message
+Bus library, then this can be accomplished by either copying or creating a
+soft-link to the <code class="docutils literal notranslate"><span class="pre">go/EIIMessageBus</span></code> directory in your <code class="docutils literal notranslate"><span class="pre">$GOPATH</span></code>. This can be
+accomplished with one of the commands shown below.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ cp -r go/EIIMessageBus/ <span class="nv">$GOPATH</span>/src
+
+<span class="c1"># OR</span>
+
+$ ln -s go/EIIMessageBus/ <span class="nv">$GOPATH</span>/src
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p> The command above assumes that you are currently in the
+EIIMessageBus source root directory.</p>
+</div>
+<p>Since it is assumed you have not ran the <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">make</span> <span class="pre">install</span></code> command to install
+the EII Message Bus library, you must set the environmental variables specified
+below prior to running the examples.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$LD_LIBRARY_PATH</span>:<span class="nv">$MSGBUS_DIR</span>/build
+$ <span class="nb">export</span> <span class="nv">PKG_CONFIG_PATH</span><span class="o">=</span><span class="nv">$PKG_CONFIG_PATH</span>:<span class="nv">$MSGBUS_DIR</span>/build
+</pre></div>
+</div>
+<p>Note that in the <code class="docutils literal notranslate"><span class="pre">export</span></code> commands above the <code class="docutils literal notranslate"><span class="pre">$MSGBUS_DIR</span></code> variable represents
+the absolute path to the <code class="docutils literal notranslate"><span class="pre">libs/EIIMessageBus</span></code> directory. It is very important
+that this is the absolute path.</p>
+<p>Once you have exported these variables, once you have done these steps, you can
+run any of the Go examples as specified in the previous section.</p>
+</div>
+<div class="section" id="brokered-publish-subscribe">
+<h3>Brokered Publish/Subscribe<a class="headerlink" href="#brokered-publish-subscribe" title="Permalink to this headline">¶</a></h3>
+<p>EII provides a ZeroMQ Broker. Any of the publisher and subscriber examples can
+be used with this broker. There are three example JSON configuration provided
+to showcase the required configuration of the publishers/subscribers to connect
+to the broker. These examples are listed below:</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ipc_publisher_brokered.json</span></code> - IPC brokered publisher configuration</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ipc_subscriber_brokered.json</span></code> - IPC brokered subscriber configuration</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tcp_publisher_brokered_no_security.json</span></code> - TCP brokered publisher configuration</p></li>
+</ol>
+<p>Note that there is not TCP brokered subscriber configuration. This is because
+no configuration change is needed to connect a subscriber to the broker.</p>
+<p>For the publisher side of the configuration, it is important to note that in the
+IPC configuration, under the <code class="docutils literal notranslate"><span class="pre">publish-test</span></code> JSON object the configuration key
+<code class="docutils literal notranslate"><span class="pre">brokered</span></code> is set to <code class="docutils literal notranslate"><span class="pre">true</span></code>. Similarly, in the TCP configuration, under the
+<code class="docutils literal notranslate"><span class="pre">zmq_tcp_publish</span></code> JSON object the key <code class="docutils literal notranslate"><span class="pre">brokered</span></code> is also set to true. This
+tells the publisher to connect to the broker (vs. binding to the given socket
+configuration).</p>
+<p>Since there is no code change to use a brokered publisher or subscriber, the
+examples can be ran the same as before, just with these brokered configurations.
+An example of this is shown below:</p>
+<p><strong>IPC Example:</strong></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Start the publisher</span>
+$ ./publisher ./configs/ipc_publisher_brokered.json
+
+<span class="c1"># Start the subscriber</span>
+$ ./subscriber ./configs/ipc_subscriber_brokered.json
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p> These configurations work with the, “examples/ipc_frontend_example.json”,
+and, “examples/ipc_backend_example.json”, examples provided with the EII
+ZeroMQ Broker.</p>
+</div>
+<p><strong>TCP Example:</strong></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Start the publisher</span>
+$ ./publisher ./configs/tcp_publisher_brokered_with_security.json
+
+<span class="c1"># Start the subscriber</span>
+$ ./subscriber ./configs/tcp_subscriber_with_security.json
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p> These configurations work with the, “examples/tcp_frontend_example.json”,
+and, “examples/tcp_backend_example.json”, examples provided with the EII
+ZeroMQ Broker.</p>
+</div>
+<p><strong>IMPORTANT NOTE:</strong></p>
+<p>Before runnint the examples below, you must start the ZeroMQ Broker. See
+the ZmqBroker/README.md for more details on configuring/launching the broker.
+Keep in mind that your broker configuration will impact the configuration
+needed for these examples.</p>
+<p>For example, in the <code class="docutils literal notranslate"><span class="pre">ipc_publisher_brokered.json</span></code> configuration file, if the
+socket for publishers to connect to is not named <code class="docutils literal notranslate"><span class="pre">frontend-sock</span></code> then this
+configuration file needs to be changed to reflect the different socket file
+name.</p>
+<p>To make this easy, the ZeroMQ Broker provides example configurations for TCP
+and IPC which use the same socket directory / files and (host, port) combinations
+to easily try out this feature.</p>
+</div>
+</div>
+<div class="section" id="security">
+<h2>Security<a class="headerlink" href="#security" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p> Security is only available for TCP communications. If IPC
+is being used, then all access must be controlled using Linux file
+permissions.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p> Example configurations using for enabling security in the examples
+are provided in the <code class="docutils literal notranslate"><span class="pre">examples</span></code> directory.</p>
+</div>
+<p>The ZeroMQ protocol for the EII Message Bus enables to usage of
+<a class="reference external" href="http://curvezmq.org/">CurveZMQ</a> for encryption and authentication where the
+<a class="reference external" href="https://rfc.zeromq.org/spec:27/ZAP/">ZAP</a> protocol is used for the
+authentication.</p>
+<p>The ZeroMQ protocol for the message bus allows for using both CurveZMQ and ZAP
+together, only CurveZMQ encryption, or no encryption/authentication for TCP
+communication.</p>
+<p>Enabling the security features is done through the configuration object which
+is given to the <code class="docutils literal notranslate"><span class="pre">msgbus_initialize()</span></code> method. The example configurations below
+showcase how to use the security features enabled in the message bus. It is
+important to note that although the examples below use JSON to convey the
+configurations it is not required that you use a JSON configuration for the
+message bus. However, utilities are provided in the C library for the EII
+message bus for using a JSON file to configure the bus.</p>
+<div class="section" id="using-only-curvezmq-encryption">
+<h3>Using Only CurveZMQ Encryption<a class="headerlink" href="#using-only-curvezmq-encryption" title="Permalink to this headline">¶</a></h3>
+<p>If you wish to use the message bus with only CurveZMQ encryption, then you
+specify the following keys for the communication types specified in the
+sections below.</p>
+<p><strong>IMPORTANT NOTE:</strong> All keys must be Z85 encoded (see ZeroMQ documentation for
+more information).</p>
+<div class="section" id="publish-subscribe">
+<h4>Publish/Subscribe<a class="headerlink" href="#publish-subscribe" title="Permalink to this headline">¶</a></h4>
+<p>For publications over TCP, the configuration must contain a <code class="docutils literal notranslate"><span class="pre">server_secret_key</span></code>
+value which the secret key of the Curve key pair that is Z85 encoded (see
+the ZeroMQ documentation for more information).</p>
+<p>Additionally, every subscriber configuration object (which is specified under
+the key for the topic it is subscribing to) must contain the following three
+keys: <code class="docutils literal notranslate"><span class="pre">server_public_key</span></code>, <code class="docutils literal notranslate"><span class="pre">client_public_key</span></code>, and <code class="docutils literal notranslate"><span class="pre">client_secret_key</span></code>.</p>
+<p><strong>Example:</strong></p>
+<p>Below is an example configuration in JSON (note: the keys are not Z85 encoded,
+but are more clear text to help the example).</p>
+<p><strong>Publisher Config:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;zmq_tcp&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;zmq_tcp_publish&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;port&quot;</span><span class="p">:</span> <span class="mi">3000</span><span class="p">,</span>
+        <span class="nt">&quot;server_secret_key&quot;</span><span class="p">:</span> <span class="s2">&quot;publishers-secret-key&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Subscriber Config:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;zmq_tcp&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;pub-sub-topic&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;port&quot;</span><span class="p">:</span> <span class="mi">3000</span><span class="p">,</span>
+        <span class="nt">&quot;server_public_key&quot;</span><span class="p">:</span> <span class="s2">&quot;publishers-public-key&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;client_secret_key&quot;</span><span class="p">:</span> <span class="s2">&quot;subscriber-secret-key&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;client_public_key&quot;</span><span class="p">:</span> <span class="s2">&quot;subscriber-public-key&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In the example configurations above, it is assumed that the publisher is
+sending messages on the <code class="docutils literal notranslate"><span class="pre">pub-sub-topic</span></code> topic.</p>
+</div>
+<div class="section" id="request-response">
+<h4>Request/Response<a class="headerlink" href="#request-response" title="Permalink to this headline">¶</a></h4>
+<p>For every service which is going to accept and respond to requests, there must
+exist the <code class="docutils literal notranslate"><span class="pre">server_secret_key</span></code> in the configuration object for the service. The
+key for the configuration of the service is its service name.</p>
+<p>For every service which is going to issue requests to another service, there
+must exist a configuration object for the destination service name which
+contains the following three keys: <code class="docutils literal notranslate"><span class="pre">server_public_key</span></code>, <code class="docutils literal notranslate"><span class="pre">client_public_key</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">client_secret_key</span></code>.</p>
+<p><strong>Example:</strong></p>
+<p><strong>Service Config:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;zmq_tcp&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;example-service&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;port&quot;</span><span class="p">:</span> <span class="mi">3000</span><span class="p">,</span>
+        <span class="nt">&quot;server_secret_key&quot;</span><span class="p">:</span> <span class="s2">&quot;service-secret-key&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Service Requester Config:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;zmq_tcp&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;example-service&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;port&quot;</span><span class="p">:</span> <span class="mi">3000</span><span class="p">,</span>
+        <span class="nt">&quot;server_public_key&quot;</span><span class="p">:</span> <span class="s2">&quot;service-public-key&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;client_secret_key&quot;</span><span class="p">:</span> <span class="s2">&quot;service-requester-secret_key&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;client_public_key&quot;</span><span class="p">:</span> <span class="s2">&quot;service-requester-public-key&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In the example above, the service requester will connect to the <code class="docutils literal notranslate"><span class="pre">example-service</span></code>
+and issue requests to it on the port: <code class="docutils literal notranslate"><span class="pre">127.0.0.1:3000</span></code>.</p>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>Using ZAP Authentication<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>To enable ZAP authentication protocol using CurveZMQ on top of the encryption,
+then in the configuration specify the key <code class="docutils literal notranslate"><span class="pre">allowed_clients</span></code>. This key must have
+a value which is a list of Z85 encoded strings which are the public keys of the
+clients which are allowed to connect to the application.</p>
+<p>For example, using the publish/subscribe example from before, to make it so
+that only the subscriber client can connect to the publisher the publisher’s
+configuration would be modified to be the following:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;zmq_tcp&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;allowed_clients&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;subscriber-public-key&quot;</span><span class="p">],</span>
+    <span class="nt">&quot;zmq_tcp_publish&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;port&quot;</span><span class="p">:</span> <span class="mi">3000</span><span class="p">,</span>
+        <span class="nt">&quot;server_secret_key&quot;</span><span class="p">:</span> <span class="s2">&quot;publishers-secret-key&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="disabling-security">
+<h3>Disabling Security<a class="headerlink" href="#disabling-security" title="Permalink to this headline">¶</a></h3>
+<p>To disable all encryption and authentication for TCP communication do not
+specify any of the configuration keys documented above. This will cause the
+message bus to initialize the ZeroMQ protocol without any of the CurveZMQ
+security primitives.</p>
+</div>
+</div>
+<div class="section" id="known-issues">
+<h2>Known issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h2>
+<p>Due to certain limitations imposed by cJSON, there is no proper distinction
+between an integer and a floating point in <strong>EIIMsgEnv</strong>. As a result of this limitation,
+the floating point values defined as whole numbers(1.0, 50.00 etc) are always deserialized
+as integers(1, 50 etc) on the subscriber’s end in C, Python &amp; Go APIs.</p>
+<p>The workaround for this limitation in the C APIs is to check for the type of
+<code class="docutils literal notranslate"><span class="pre">msg_envelope_elem_body_t</span></code> struct before accessing the respective type’s data. One such example
+is provided below:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">msg_envelope_elem_body_t</span><span class="o">*</span><span class="w"> </span><span class="n">data</span><span class="p">;</span><span class="w"></span>
+<span class="n">msgbus_ret_t</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">msgbus_msg_envelope_get</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;key&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">data</span><span class="p">);</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">MSG_SUCCESS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">LOG_ERROR_0</span><span class="p">(</span><span class="s">&quot;Failed to retreive message&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">data</span><span class="o">-&gt;</span><span class="n">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">MSG_ENV_DT_INT</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">LOG_INFO</span><span class="p">(</span><span class="s">&quot;Received integer: %d&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="o">-&gt;</span><span class="n">body</span><span class="p">.</span><span class="n">integer</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">data</span><span class="o">-&gt;</span><span class="n">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">MSG_ENV_DT_FLOATING</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">LOG_INFO</span><span class="p">(</span><span class="s">&quot;Received float: %f&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="o">-&gt;</span><span class="n">body</span><span class="p">.</span><span class="n">floating</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../eii-core/README.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">EII Core</p>
+        </div>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By various<br/>
+        
+            &copy; Copyright 2021, various.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

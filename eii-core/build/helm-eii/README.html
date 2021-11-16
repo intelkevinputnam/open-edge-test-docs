@@ -1,0 +1,599 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EII provision and deployment &#8212; eii-test  documentation</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">eii-test  documentation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contents:
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../eii-azure-bridge/README.html">
+   Azure Bridge
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../README.html">
+   EII Core
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../eii-messagebus/README.html">
+   EII Message Bus
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/eii-core/build/helm-eii/README.md.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pre-requisites">
+   Pre requisites
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#update-the-helm-charts-directory">
+   Update the helm charts directory
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#provision-and-deploy-in-the-kubernetes-node">
+   Provision and deploy in the kubernetes node.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#provision-and-deploy-mode-in-times-switching-between-dev-and-prod-mode-or-changing-the-usecase">
+   Provision and deploy mode in times switching between dev and prod mode OR changing the usecase
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#steps-to-enable-accelarators">
+   Steps to enable Accelarators
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#steps-for-enabling-gige-camera-with-helm">
+   Steps for Enabling GiGE Camera with helm
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setting-up-multus-cni-and-enabling-it">
+     Setting up Multus CNI and Enabling it.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#accessing-web-visualizer-and-etcdui">
+   Accessing Web Visualizer and EtcdUI
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p><strong>Contents</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="#eii-provision-and-deployment">EII provision and deployment</a></p>
+<ul>
+<li><p><a class="reference external" href="#pre-requisites">Pre requisites</a></p></li>
+<li><p><a class="reference external" href="#update-the-helm-charts-directory">Update the helm charts directory</a></p></li>
+<li><p><a class="reference external" href="#provision-and-deploy-in-the-kubernetes-node">Provision and deploy in the kubernetes node.</a></p></li>
+<li><p><a class="reference external" href="#provision-and-deploy-mode-in-times-switching-between-dev-and-prod-mode-or-changing-the-usecase">Provision and deploy mode in times switching between dev and prod mode OR changing the usecase</a></p></li>
+<li><p><a class="reference external" href="#steps-to-enable-accelarators">Steps to enable Accelarators</a></p></li>
+<li><p><a class="reference external" href="#steps-for-enabling-gige-camera-with-helm">Steps for Enabling GiGE Camera with helm</a></p></li>
+<li><p><a class="reference external" href="#accessing-web-visualizer-and-etcdui">Accessing Web Visualizer and EtcdUI</a></p></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="eii-provision-and-deployment">
+<h1>EII provision and deployment<a class="headerlink" href="#eii-provision-and-deployment" title="Permalink to this headline">¶</a></h1>
+<p>For deployment of EII, helm charts are provided for both provision and deployment.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>:</p>
+<ul class="simple">
+<li><p>Same procedure has to be followed for single or multi node.</p></li>
+<li><p>Please login/configure docker registry before running helm. This would be required when not using public docker hub for accessing images.</p></li>
+</ul>
+</div>
+<div class="section" id="pre-requisites">
+<h2>Pre requisites<a class="headerlink" href="#pre-requisites" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p><strong>Note</strong>:</p>
+<ul class="simple">
+<li><p>K8s installation on single or multi node should be done as pre-requisite to continue the following deployment. Please note we
+have tried the kubernetes cluster setup with <code class="docutils literal notranslate"><span class="pre">kubeadm</span></code>, <code class="docutils literal notranslate"><span class="pre">kubectl</span></code> and <code class="docutils literal notranslate"><span class="pre">kubelet</span></code> packages on single and multi nodes with <code class="docutils literal notranslate"><span class="pre">v1.22.2</span></code>.
+One can refer tutorials like https://adamtheautomator.com/install-kubernetes-ubuntu/#Installing_Kubernetes_on_the_Master_and_Worker_Nodes and many other
+online tutorials to setup kubernetes cluster on the web with host OS as ubuntu 18.04/20.04.</p></li>
+<li><p>For helm installation, please refer <a class="reference external" href="https://helm.sh/docs/intro/install/">helm website</a></p></li>
+</ul>
+<hr class="docutils" />
+<p>For preparing the necessary files required for the provision and deployment, user needs to execute the build and provision steps on an Ubuntu 18.04 / 20.04 machine.
+Follow the Docker pre-requisites, EII Pre-requisites, Provision EII and Build and Run EII mentioned in <a class="reference internal" href="../../README.html"><span class="doc">README.md</span></a> on the Ubuntu dev machine.</p>
+<ul>
+<li><p>To run EII services with helm in fresh system where EII services are going to run for the first time(no <code class="docutils literal notranslate"><span class="pre">eiiuser</span></code> is present on that system), user needs to run below steps:</p>
+<ol class="simple">
+<li><p>Create EII user if not exists:</p></li>
+</ol>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">set</span> -a
+$ <span class="nb">source</span> ../.env
+$ <span class="nb">set</span> +a
+$ sudo groupadd <span class="nv">$EII_USER_NAME</span> -g <span class="nv">$EII_UID</span>
+$ sudo useradd -r -u <span class="nv">$EII_UID</span> -g <span class="nv">$EII_USER_NAME</span> <span class="nv">$EII_USER_NAME</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Create required directory and change ownership to EII user</p></li>
+</ol>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo mkdir -p <span class="nv">$EII_INSTALL_PATH</span>/data/influxdata
+$ sudo mkdir -p <span class="nv">$EII_INSTALL_PATH</span>/sockets/
+$ sudo chown -R <span class="nv">$EII_USER_NAME</span>:<span class="nv">$EII_USER_NAME</span> <span class="nv">$EII_INSTALL_PATH</span>
+</pre></div>
+</div>
+</li>
+<li><p>Execute <a class="reference external" href="../../README.html#using-builder-script">builder.py</a> with the preferred usecase for generating the consolidated helm charts for the provisioning and deployment.
+As EII don’t distribute all the docker images on docker hub, one would run into issues of those pods status showing <code class="docutils literal notranslate"><span class="pre">ImagePullBackOff</span></code> and few pods status like visualizer, factory ctrl etc.,
+showing <code class="docutils literal notranslate"><span class="pre">CrashLoopBackOff</span></code> due to additional configuration required. For <code class="docutils literal notranslate"><span class="pre">ImagePullBackOff</span></code> issues, please follow the steps mentioned at [../README.md#distribution-of-eii-container-images]&gt; (../README.<br />md#distribution-of-eii-container-images) to push the images that are locally built to the docker registry of choice. Please ensure to update the <code class="docutils literal notranslate"><span class="pre">DOCKER_REGISTRY</span></code> value in <code class="docutils literal notranslate"><span class="pre">[WORKDIR]/IEdgeInsights/build/.env</span></code>
+file and re-run the <a class="reference external" href="../builder.py">../builder.py</a> script to regenerate the helm charts for provision and deployment.</p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="update-the-helm-charts-directory">
+<h2>Update the helm charts directory<a class="headerlink" href="#update-the-helm-charts-directory" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Copy the docker-compose.yml, eii_config.json into the eii-provision helm chart.</p></li>
+</ol>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> <span class="o">[</span>WORKDIR<span class="o">]</span>/IEdgeInsights/build
+$ cp docker-compose.yml provision/config/eii_config.json helm-eii/eii-provision/
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>To generate only Certificates by provisioning.</p></li>
+</ol>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> <span class="o">[</span>WORKDIR<span class="o">]</span>/IEdgeInsights/build/provision
+$ sudo -E ./provision.sh ../docker-compose.yml --generate_certs
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Copy the Certificates generated by provisioning process to the eii-provision helm chart.</p></li>
+</ol>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> <span class="o">[</span>WORKDIR<span class="o">]</span>/IEdgeInsights/build
+$ sudo chmod -R <span class="m">755</span> provision/Certificates/
+$ cp -a provision/Certificates/ helm-eii/eii-provision/
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>:
+The Certificates/ directory contains sensitive information. So post the installation of eii-provision helm chart, it is recommended to delete the Certificates from it.</p>
+</div>
+</div>
+<div class="section" id="provision-and-deploy-in-the-kubernetes-node">
+<h2>Provision and deploy in the kubernetes node.<a class="headerlink" href="#provision-and-deploy-in-the-kubernetes-node" title="Permalink to this headline">¶</a></h2>
+<p>Copy the helm charts in helm-eii/ directory to the node.</p>
+<ol class="simple">
+<li><p>Install provision helm chart</p></li>
+</ol>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> <span class="o">[</span>WORKDIR<span class="o">]</span>/IEdgeInsights/build/helm-eii/
+$ helm install eii-provision eii-provision/
+</pre></div>
+</div>
+<p>Verify the pod is in running state:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ kubectl get pods
+
+NAME                       READY   STATUS    RESTARTS   AGE
+ia-etcd-58866469b9-dl66k   <span class="m">2</span>/2     Running   <span class="m">0</span>          8s
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Install deploy helm chart</p></li>
+</ol>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> <span class="o">[</span>WORKDIR<span class="o">]</span>/IEdgeInsights/build/helm-eii/
+$ helm install eii-deploy eii-deploy/
+</pre></div>
+</div>
+<p>Verify all the pod are running:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ kubectl get pods
+
+NAME                                          READY   STATUS    RESTARTS   AGE
+deployment-etcd-ui-6c7c6cd769-rwqm6           <span class="m">1</span>/1     Running   <span class="m">0</span>          11s
+deployment-video-analytics-546574f474-mt7wp   <span class="m">1</span>/1     Running   <span class="m">0</span>          11s
+deployment-video-ingestion-979dd8998-9mzkh    <span class="m">1</span>/1     Running   <span class="m">0</span>          11s
+deployment-webvisualizer-6c9d56694b-4qhnw     <span class="m">1</span>/1     Running   <span class="m">0</span>          11s
+ia-etcd-58866469b9-dl66k                      <span class="m">2</span>/2     Running   <span class="m">0</span>          2m26s
+</pre></div>
+</div>
+<p>The EII is now successfully deployed.</p>
+</div>
+<div class="section" id="provision-and-deploy-mode-in-times-switching-between-dev-and-prod-mode-or-changing-the-usecase">
+<h2>Provision and deploy mode in times switching between dev and prod mode OR changing the usecase<a class="headerlink" href="#provision-and-deploy-mode-in-times-switching-between-dev-and-prod-mode-or-changing-the-usecase" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Set the DEV_MODE as “true/false” in  <a class="reference external" href="../.env">.env</a> depending on dev or prod mode.</p></li>
+<li><p>Run builder to copy templates file to eii-deploy/templates directory and generate consolidated values.yaml file for eii-services:</p></li>
+</ol>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> <span class="o">[</span>WORKDIR<span class="o">]</span>/IEdgeInsights/build
+$ python3 builder.py -f usecases/&lt;usecase&gt;.yml
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Remove the etcd storage directory</p></li>
+</ol>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nv">$sudo</span> rm -rf /opt/intel/eii/data/*
+</pre></div>
+</div>
+<p>Do helm install of provision and deploy charts as per previous section.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>:
+During re-deploy(<code class="docutils literal notranslate"><span class="pre">helm</span> <span class="pre">uninstall</span></code> and <code class="docutils literal notranslate"><span class="pre">helm</span> <span class="pre">install</span></code>) of helm chart for eii-provision and eii-deploy wait for all the pervious pods to terminated successfully.</p>
+</div>
+</div>
+<div class="section" id="steps-to-enable-accelarators">
+<h2>Steps to enable Accelarators<a class="headerlink" href="#steps-to-enable-accelarators" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>:
+<code class="docutils literal notranslate"><span class="pre">nodeSelector</span></code> is the simplest recommended form of node selection constraint.
+<code class="docutils literal notranslate"><span class="pre">nodeSelector</span></code> is a field of PodSpec. It specifies a map of key-value pairs. For the pod to be eligible to run on a node, the node must have each of the indicated key-value pairs as labels (it can have additional labels as well). The most common usage is one key-value pair.</p>
+</div>
+<ol class="simple">
+<li><p>Setting the <code class="docutils literal notranslate"><span class="pre">label</span></code> for a particular node</p></li>
+</ol>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ kubectl label nodes &lt;node-name&gt; &lt;label-key&gt;<span class="o">=</span>&lt;label-value&gt;
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>For HDDL/NCS2 dependenecies follow the steps for setting <code class="docutils literal notranslate"><span class="pre">labels</span></code>.</p></li>
+</ol>
+<ul class="simple">
+<li><p>For HDDL</p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ kubectl label nodes &lt;node-name&gt; <span class="nv">hddl</span><span class="o">=</span><span class="nb">true</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>For NCS2</p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>kubectl label nodes &lt;node-name&gt; <span class="nv">ncs2</span><span class="o">=</span><span class="nb">true</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>: Here the node-name is your worker node machine hostname</p>
+</div>
+<ol class="simple">
+<li><p>Open the <code class="docutils literal notranslate"><span class="pre">[WORKDIR]/IEdgeInsights/VideoIngestion/helm/values.yaml</span></code> or <code class="docutils literal notranslate"><span class="pre">[WORKDIR]/IEdgeInsights/VideoAnalytics/helm/values.yaml</span></code> file.</p></li>
+<li><p>Based on your workload preference. Add hddl or ncs2 to accelerator in values.yaml of video-ingestion or video-analytics.</p></li>
+</ol>
+<ul class="simple">
+<li><p>For HDDL</p></li>
+</ul>
+<div class="highlight-yml notranslate"><div class="highlight"><pre><span></span>config:
+  video_ingestion:
+     .
+     .
+     .
+    accelerator: &quot;hddl&quot;
+    .
+    .
+    .
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>For NCS2</p></li>
+</ul>
+<div class="highlight-yml notranslate"><div class="highlight"><pre><span></span>config:
+  video_ingestion:
+     .
+     .
+     .
+    accelerator: &quot;ncs2&quot;
+    .
+    .
+    .
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>set device as “MYRIAD” in case of ncs2 and as HDDL in case of hddl in the <a class="reference external" href="https://github.com/open-edge-insights/video-analytics/blob/master/config.json">VA config</a></p></li>
+</ol>
+<ul class="simple">
+<li><p>In case of ncs2.</p></li>
+</ul>
+<div class="highlight-yml notranslate"><div class="highlight"><pre><span></span>&quot;udfs&quot;: [{
+  .
+  .
+  .
+  &quot;device&quot;: &quot;MYRIAD&quot;
+  }]
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>In case of hddl.</p></li>
+</ul>
+<div class="highlight-yml notranslate"><div class="highlight"><pre><span></span>&quot;udfs&quot;: [{
+  .
+  .
+  .
+  &quot;device&quot;: &quot;HDDL&quot;
+  }]
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Run the <code class="docutils literal notranslate"><span class="pre">[WORKDIR]/IEdgeInsights/build/builder.py</span></code> for generating latest consolidated <code class="docutils literal notranslate"><span class="pre">deploy</span></code> yml file based on your <code class="docutils literal notranslate"><span class="pre">nodeSelector</span></code> changes set in the respective Modules.</p></li>
+</ol>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="o">[</span>WORKDIR<span class="o">]</span>/IEdgeInsights/build/
+python3 builder.py
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Follow the <a class="reference external" href="#provision-and-deploy-in-the-kubernetes-node">Deployment Steps</a></p></li>
+<li><p>Verify the respecitve workloads are running based on the <code class="docutils literal notranslate"><span class="pre">nodeSelector</span></code> constraints.</p></li>
+</ol>
+</div>
+<div class="section" id="steps-for-enabling-gige-camera-with-helm">
+<h2>Steps for Enabling GiGE Camera with helm<a class="headerlink" href="#steps-for-enabling-gige-camera-with-helm" title="Permalink to this headline">¶</a></h2>
+<p><strong>Note:</strong> For more information on <code class="docutils literal notranslate"><span class="pre">Multus</span></code> please refer this git https://github.com/intel/multus-cni
+Skip installing multus if it is already installed.</p>
+<ol class="simple">
+<li><p>Prequisites
+For enabling gige camera with helm. Helm pod networks should be enabled <code class="docutils literal notranslate"><span class="pre">Multus</span></code> Network Interface
+to attach host system network interface access by the pods for connected camera access.</p></li>
+</ol>
+<p><strong>Note</strong>: Please follow the below steps &amp; make sure <code class="docutils literal notranslate"><span class="pre">dhcp</span> <span class="pre">daemon</span></code> is running fine.If there is an error on <code class="docutils literal notranslate"><span class="pre">macvlan</span></code> container creation on accessing the socket or if socket was not running. Please execute the below steps again</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo rm -f /run/cni/dhcp.sock
+$ <span class="nb">cd</span> /opt/cni/bin
+$ sudo ./dhcp daemon
+</pre></div>
+</div>
+<div class="section" id="setting-up-multus-cni-and-enabling-it">
+<h3>Setting up Multus CNI and Enabling it.<a class="headerlink" href="#setting-up-multus-cni-and-enabling-it" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Multus CNI is a container network interface (CNI) plugin for Kubernetes that enables attaching multiple network interfaces to pods. Typically, in Kubernetes each pod only has one network interface (apart from a loopback) – with Multus you can create a multi-homed pod that has multiple interfaces. This is accomplished by Multus acting as a “meta-plugin”, a CNI plugin that can call multiple other CNI plugins.</p></li>
+</ul>
+<ol class="simple">
+<li><p>Get the name of the <code class="docutils literal notranslate"><span class="pre">ethernet</span></code> interface in which gige camera &amp; host system connected
+<strong>Note</strong>: Identify the network interface name by following command</p></li>
+</ol>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ifconfig
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Execute the Following Script with Identified <code class="docutils literal notranslate"><span class="pre">ethernet</span></code> interface name as Argument for <code class="docutils literal notranslate"><span class="pre">Multus</span> <span class="pre">Network</span> <span class="pre">Setup</span></code>
+<strong>Note:</strong> Pass the <code class="docutils literal notranslate"><span class="pre">interface</span></code> name without <code class="docutils literal notranslate"><span class="pre">quotes</span></code></p></li>
+</ol>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> <span class="o">[</span>WORKDIR<span class="o">]</span>/IEdgeInsights/build/helm-eii/gige_setup
+$ sudo -E sh ./multus_setup.sh &lt;interface_name&gt;
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>: Verify <code class="docutils literal notranslate"><span class="pre">multus</span></code> pod is in <code class="docutils literal notranslate"><span class="pre">Running</span></code> state</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>  $ kubectl get pods --all-namespaces <span class="p">|</span> grep -i multus
+</pre></div>
+</div>
+</div>
+<ol class="simple">
+<li><p>Set gige_camera to true in values.yaml</p></li>
+</ol>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ vi <span class="o">[</span>WORKDIR<span class="o">]</span>/IEdgeInsights/VideoIngestion/helm/values.yaml
+.
+.
+.
+gige_camera: <span class="nb">true</span>
+.
+.
+.      
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Follow the <a class="reference external" href="#provision-and-deploy-in-the-kubernetes-node">Deployment Steps</a></p></li>
+<li><p>Verify <code class="docutils literal notranslate"><span class="pre">pod</span></code>ip &amp; <code class="docutils literal notranslate"><span class="pre">host</span></code> ip are same as per Configured <code class="docutils literal notranslate"><span class="pre">Ethernet</span></code> interface by using below command.</p></li>
+</ol>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ kubectl -n eii <span class="nb">exec</span> -it &lt;pod_name&gt; -- ip -d address      
+</pre></div>
+</div>
+<p><strong>Note:</strong></p>
+<p>User needs to deploy as root user for MYRIAD(NCS2) device and GenICam USB3.0 interface cameras.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apiVersion</span><span class="p">:</span> <span class="n">apps</span><span class="o">/</span><span class="n">v1</span>
+<span class="n">kind</span><span class="p">:</span> <span class="n">Deployment</span>
+<span class="o">...</span>
+<span class="n">spec</span><span class="p">:</span>
+    <span class="o">...</span>
+    <span class="n">spec</span><span class="p">:</span>
+      <span class="o">...</span>
+      <span class="n">containers</span><span class="p">:</span>
+        <span class="o">....</span>
+        <span class="n">securityContext</span><span class="p">:</span>
+          <span class="n">runAsUser</span><span class="p">:</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="accessing-web-visualizer-and-etcdui">
+<h2>Accessing Web Visualizer and EtcdUI<a class="headerlink" href="#accessing-web-visualizer-and-etcdui" title="Permalink to this headline">¶</a></h2>
+<p>Environment EtcdUI &amp; WebVisualizer will be running in Following ports.</p>
+<ul class="simple">
+<li><p>EtcdUI</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">https://master-nodeip:30010/</span></code></p></li>
+</ul>
+</li>
+<li><p>WebVisualizer</p>
+<ul>
+<li><p>PROD Mode –  <code class="docutils literal notranslate"><span class="pre">https://master-nodeip:30007/</span></code></p></li>
+<li><p>DEV Mode – <code class="docutils literal notranslate"><span class="pre">http://master-nodeip:30009/</span></code></p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By various<br/>
+        
+            &copy; Copyright 2021, various.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
